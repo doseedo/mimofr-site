@@ -1,0 +1,2703 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>mimofrl - Media Kit</title>
+<meta name="description" content="Media kit for mimofr (@mimofrl) - Music Producer & Content Strategist">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="icon" href="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg">
+<style>
+/* ═══════════════════════════════════════
+   RESET & VARIABLES
+   ═══════════════════════════════════════ */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #09080D;
+  --surface: #110F1A;
+  --surface-2: #1A1726;
+  --border: rgba(255, 255, 255, 0.06);
+  --border-strong: rgba(255, 255, 255, 0.12);
+  --text: #EEEAF5;
+  --text-secondary: #B8B2C8;
+  --dim: #6B6580;
+  --accent: #C9A84C;
+  --accent-glow: rgba(201, 168, 76, 0.15);
+  --purple: #1a2744;
+  --purple-dim: rgba(26, 39, 68, 0.25);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ═══════════════════════════════════════
+   BASE
+   ═══════════════════════════════════════ */
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.video-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  overflow: hidden;
+}
+
+.video-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.1;
+}
+
+::selection {
+  background: rgba(201, 168, 76, 0.25);
+  color: var(--text);
+}
+
+/* ═══════════════════════════════════════
+   CRT SCANLINES + FILM GRAIN
+   ═══════════════════════════════════════ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.1) 2px,
+    rgba(0, 0, 0, 0.1) 4px
+  );
+  opacity: 0.35;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+  pointer-events: none;
+  opacity: 0.02;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════
+   CUSTOM CURSOR
+   ═══════════════════════════════════════ */
+@media (pointer: fine) {
+  *, *::before, *::after { cursor: none !important; }
+}
+
+.cursor-dot {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 100000;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(201, 168, 76, 0.5);
+}
+
+.cursor-ring {
+  position: fixed;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 99999;
+  transform: translate(-50%, -50%);
+  opacity: 0.6;
+  transition: width 0.2s, height 0.2s, opacity 0.2s;
+}
+
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring { display: none !important; }
+}
+
+/* ═══════════════════════════════════════
+   AUDIO PLAYER BUTTON
+   ═══════════════════════════════════════ */
+.audio-btn {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  width: 52px;
+  height: 52px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  z-index: 1000;
+  cursor: pointer;
+  transition: all 0.2s var(--ease-smooth);
+}
+
+.audio-btn:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: scale(1.05);
+}
+
+/* ═══════════════════════════════════════
+   AMBIENT GLOW
+   ═══════════════════════════════════════ */
+.ambient-glow {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 100% 80% at 20% 0%, rgba(26, 39, 68, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 100% at 90% 20%, rgba(201, 168, 76, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 10% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 50% at 80% 90%, rgba(26, 39, 68, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(26, 39, 68, 0.05) 0%, transparent 70%);
+  animation: ambient-drift 15s ease-in-out infinite alternate;
+}
+
+@keyframes ambient-drift {
+  0% {
+    opacity: 0.8;
+    filter: hue-rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    filter: hue-rotate(10deg);
+  }
+  100% {
+    opacity: 0.8;
+    filter: hue-rotate(-5deg);
+  }
+}
+
+/* ═══════════════════════════════════════
+   SCROLL REVEAL
+   ═══════════════════════════════════════ */
+@media (prefers-reduced-motion: no-preference) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.8s var(--ease-out), transform 0.8s var(--ease-out);
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ═══════════════════════════════════════
+   LAYOUT
+   ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   NAV
+   ═══════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 20px clamp(20px, 5vw, 64px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: background 0.4s, backdrop-filter 0.4s;
+}
+
+.nav.scrolled {
+  background: rgba(9, 8, 13, 0.8);
+  backdrop-filter: blur(20px) saturate(140%);
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 14px;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+  text-decoration: none;
+}
+
+.nav-cta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 10px 24px;
+  background: transparent;
+  color: var(--accent);
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+  transition: color 0.4s var(--ease-out), box-shadow 0.4s;
+}
+
+.nav-cta::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s var(--ease-out);
+  z-index: -1;
+}
+
+.nav-cta:hover {
+  color: var(--bg);
+  box-shadow: 0 0 25px rgba(201, 168, 76, 0.4);
+}
+
+.nav-cta:hover::before {
+  transform: scaleX(1);
+}
+
+/* ═══════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(120px, 20vh, 200px) 0 clamp(80px, 12vh, 140px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-video-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.25;
+  z-index: 0;
+}
+
+.hero-ambient {
+  position: absolute;
+  top: -30%;
+  left: -20%;
+  width: 140%;
+  height: 160%;
+  background: radial-gradient(ellipse at 30% 40%, rgba(26, 39, 68, 0.08) 0%, transparent 60%);
+  animation: ambientDrift 20s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+@keyframes ambientDrift {
+  0%, 100% { opacity: 0.5; transform: translate(0, 0) scale(1); }
+  33% { opacity: 0.7; transform: translate(2%, -3%) scale(1.04); }
+  66% { opacity: 0.4; transform: translate(-2%, 2%) scale(0.96); }
+}
+
+.page-wrap {
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 0 clamp(20px, 5vw, 64px);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-eyebrow {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  color: var(--accent);
+  margin-bottom: 32px;
+  text-shadow: 0 0 15px rgba(201, 168, 76, 0.5);
+}
+
+.hero-eyebrow::before {
+  content: '//';
+  margin-right: 12px;
+  color: var(--accent);
+}
+
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3.5rem, 2rem + 6vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.92;
+  margin-bottom: 48px;
+  max-width: 14ch;
+}
+
+.hero-title .line {
+  display: block;
+  overflow: hidden;
+}
+
+.purple-text {
+  color: var(--purple);
+  text-shadow: 0 0 2px var(--purple), 0 0 4px var(--purple), 0 0 8px rgba(26, 39, 68, 0.6);
+}
+
+.accent-text {
+  color: var(--accent);
+  text-shadow: 0 0 2px var(--accent), 0 0 4px var(--accent), 0 0 8px rgba(201, 168, 76, 0.6);
+}
+
+.hero-subtitle {
+  font-size: clamp(1.15rem, 1rem + 0.6vw, 1.4rem);
+  color: var(--text-secondary);
+  max-width: 42ch;
+  line-height: 1.4;
+  margin-bottom: 64px;
+}
+
+.hero-subtitle strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.hero-meta {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.hero-avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(201, 168, 76, 0.4);
+  flex-shrink: 0;
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-handle {
+  font-size: 0.85rem;
+  color: var(--dim);
+  font-weight: 500;
+}
+
+.hero-handle span {
+  color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════
+   STATS MARQUEE
+   ═══════════════════════════════════════ */
+.stats-marquee {
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 48px 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.stats-marquee::before,
+.stats-marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.stats-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg), transparent);
+}
+
+.stats-marquee::after {
+  right: 0;
+  background: linear-gradient(-90deg, var(--bg), transparent);
+}
+
+.stats-track {
+  display: flex;
+  gap: 96px;
+  animation: marquee 25s linear infinite;
+  width: max-content;
+}
+
+.stats-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.stats-group {
+  display: flex;
+  gap: 96px;
+  flex-shrink: 0;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  white-space: nowrap;
+}
+
+.stat-number {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(14px, 3vw, 20px);
+  color: var(--text);
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 4px rgba(201, 168, 76, 0.5);
+}
+
+.stat-number .accent {
+  color: var(--accent);
+}
+
+.stat-label {
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+  font-weight: 500;
+}
+
+.logo-item {
+  align-items: center !important;
+  gap: 12px;
+}
+
+.brand-logo {
+  height: 24px;
+  width: auto;
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
+.biden-logo {
+  height: 32px;
+}
+
+.xgames-logo {
+  height: 38px;
+}
+
+.coachella-logo {
+  height: 20px;
+}
+
+.rollingloud-logo {
+  height: 22px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+/* ═══════════════════════════════════════
+   PROFILE HEADER
+   ═══════════════════════════════════════ */
+.profile {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.profile-photo {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 16px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.3), 0 0 60px rgba(26, 39, 68, 0.15);
+}
+
+.profile-handle {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+  margin-bottom: 4px;
+}
+
+.profile-link {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  color: var(--dim);
+}
+
+/* ═══════════════════════════════════════
+   TOTAL FOLLOWERS
+   ═══════════════════════════════════════ */
+.total-section {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 28px;
+  background: var(--surface);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.total-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--purple), var(--accent), var(--purple), transparent);
+  opacity: 0.8;
+}
+
+.total-label {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--purple);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.total-label::before {
+  content: '»';
+  color: var(--purple);
+}
+
+.total-number {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+  margin-bottom: 20px;
+}
+
+.platform-pills {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.platform-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+.platform-pill:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+a.platform-pill {
+  text-decoration: none;
+  transition: transform 0.2s var(--ease-out);
+}
+
+.social-icon, .content-thumb {
+  transition: transform 0.2s var(--ease-out);
+}
+
+.platform-pill svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.7;
+}
+
+/* ═══════════════════════════════════════
+   SECTIONS
+   ═══════════════════════════════════════ */
+.section {
+  margin-bottom: 24px;
+}
+
+.section-card {
+  background: var(--surface);
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.section-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--purple), var(--accent), var(--purple), transparent);
+  opacity: 0.5;
+}
+
+.section-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: lowercase;
+  color: var(--purple);
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-title::before {
+  content: '»';
+  color: var(--purple);
+}
+
+.about-text {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.highlight {
+  color: var(--accent);
+  font-weight: 600;
+  text-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
+}
+
+/* ═══════════════════════════════════════
+   RATE CARD
+   ═══════════════════════════════════════ */
+.rate-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.rate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  background: var(--surface-2);
+  transition: background 0.3s;
+}
+
+.rate-item:hover {
+  background: rgba(26, 39, 68, 0.08);
+}
+
+.rate-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.rate-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--dim);
+}
+
+.rate-price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
+}
+
+/* ═══════════════════════════════════════
+   PLATFORM ANALYTICS
+   ═══════════════════════════════════════ */
+.platform-block {
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--border);
+}
+
+.platform-block:last-of-type {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.analytics-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.analytics-header svg {
+  width: 24px;
+  height: 24px;
+  color: var(--purple);
+}
+
+.analytics-header span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.analytics-header .handle {
+  font-family: 'DM Sans', sans-serif;
+  color: var(--dim);
+  font-weight: 400;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.brand-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.analytics-stat {
+  text-align: center;
+  padding: 12px;
+  background: var(--surface-2);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: border-color 0.3s;
+}
+
+.analytics-stat:hover {
+  border-color: var(--purple-dim);
+}
+
+.analytics-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 12px rgba(201, 168, 76, 0.3);
+}
+
+.analytics-value.small {
+  font-size: 1.1rem;
+  color: var(--text);
+  text-shadow: none;
+}
+
+.analytics-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--dim);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════
+   DEMOGRAPHICS
+   ═══════════════════════════════════════ */
+.demo-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+
+.demo-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  letter-spacing: 0.06em;
+  color: var(--dim);
+  margin-bottom: 14px;
+  text-transform: lowercase;
+}
+
+.demo-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.demo-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.demo-label {
+  width: 80px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+
+.demo-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--surface-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.demo-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple), var(--accent));
+  border-radius: 4px;
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+}
+
+.demo-pct {
+  width: 40px;
+  text-align: right;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+/* ═══════════════════════════════════════
+   TOP CONTENT
+   ═══════════════════════════════════════ */
+.content-scroll-wrapper {
+  overflow: hidden;
+  margin: 0 -24px;
+  padding: 0 24px;
+}
+
+.content-scroll {
+  display: flex;
+  gap: 14px;
+  animation: scroll-gallery 20s linear infinite;
+  width: max-content;
+}
+
+.content-scroll:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-gallery {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Video Showcase Grid */
+.video-showcase-wrapper {
+  overflow: hidden;
+  margin: 0 -24px;
+  padding: 0 24px;
+}
+
+.video-showcase-grid {
+  display: flex;
+  gap: 20px;
+  width: max-content;
+  animation: scroll-videos 60s linear infinite;
+}
+
+.video-showcase-grid:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll-videos {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.video-showcase-grid .showcase-item {
+  flex: 0 0 220px;
+}
+
+.showcase-item {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.3s var(--ease-smooth);
+  position: relative;
+}
+
+.showcase-item:hover {
+  transform: translateY(-6px) scale(1.02);
+}
+
+.showcase-item:hover .showcase-video {
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.25), 0 0 0 1px var(--accent);
+}
+
+.showcase-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 9/16;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s var(--ease-smooth);
+}
+
+.showcase-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-gradient {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.showcase-vid {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.showcase-gradient.g1 { background: linear-gradient(145deg, #1a1033 0%, #2d1f4e 30%, #4a2c7a 60%, #7c4dbd 100%); }
+.showcase-gradient.g2 { background: linear-gradient(145deg, #0f1923 0%, #1a3a52 30%, #2d6a8a 60%, #4fc3f7 100%); }
+.showcase-gradient.g3 { background: linear-gradient(145deg, #1a1a0a 0%, #3d3d1a 30%, #6b6b2a 60%, #c9a84c 100%); }
+.showcase-gradient.g4 { background: linear-gradient(145deg, #1f0a1a 0%, #4a1942 30%, #7c2d6b 60%, #e91e8c 100%); }
+.showcase-gradient.g5 { background: linear-gradient(145deg, #0a1a1a 0%, #1a4a4a 30%, #2d7a7a 60%, #4dd0e1 100%); }
+.showcase-gradient.g6 { background: linear-gradient(145deg, #1a0f23 0%, #3a2352 30%, #5a378a 60%, #9c27b0 100%); }
+.showcase-gradient.g7 { background: linear-gradient(145deg, #1a1a1a 0%, #3d3d3d 30%, #5a5a5a 60%, #9e9e9e 100%); }
+.showcase-gradient.g8 { background: linear-gradient(145deg, #1a0a0a 0%, #4a1a1a 30%, #7a2d2d 60%, #f44336 100%); }
+.showcase-gradient.g9 { background: linear-gradient(145deg, #0a1a0f 0%, #1a4a2a 30%, #2d7a4a 60%, #4caf50 100%); }
+.showcase-gradient.g10 { background: linear-gradient(145deg, #1a140a 0%, #4a3a1a 30%, #7a5a2d 60%, #ff9800 100%); }
+.showcase-gradient.g11 { background: linear-gradient(145deg, #1a2744 0%, #c9a84c 50%, #1a2744 100%); }
+
+.showcase-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 12px;
+  background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 40%, transparent 100%);
+}
+
+.showcase-views {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 11px;
+  color: var(--text);
+  text-shadow: 0 0 8px rgba(201, 168, 76, 0.6);
+  margin-bottom: 4px;
+}
+
+.showcase-views .accent {
+  color: var(--accent);
+}
+
+.platform-tag {
+  display: inline-block;
+  font-size: 9px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.platform-tag.tiktok {
+  background: #000;
+  color: #fff;
+  border: 1px solid #333;
+}
+
+.platform-tag.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: #fff;
+}
+
+.platform-tag.brand {
+  background: var(--accent);
+  color: #000;
+}
+
+.content-item {
+  flex-shrink: 0;
+  width: 140px;
+}
+
+.content-thumb {
+  width: 140px;
+  height: 180px;
+  background: linear-gradient(135deg, var(--purple), var(--surface), var(--accent));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 10px;
+  border: 1px solid var(--border);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.content-thumb:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(26, 39, 68, 0.2);
+}
+
+/* Animated Gradient Thumbnails */
+.gradient-1 {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #667eea 100%);
+  background-size: 400% 400%;
+  animation: gradient-flow 4s ease infinite;
+}
+
+.gradient-2 {
+  background: linear-gradient(135deg, #ff6b6b 0%, #feca57 25%, #48dbfb 50%, #ff9ff3 75%, #ff6b6b 100%);
+  background-size: 400% 400%;
+  animation: gradient-flow 5s ease infinite;
+  animation-delay: -1s;
+}
+
+.gradient-3 {
+  background: linear-gradient(135deg, #a29bfe 0%, #6c5ce7 25%, #fd79a8 50%, #fdcb6e 75%, #a29bfe 100%);
+  background-size: 400% 400%;
+  animation: gradient-flow 4.5s ease infinite;
+  animation-delay: -2s;
+}
+
+.gradient-4 {
+  background: linear-gradient(135deg, #00c6fb 0%, #005bea 25%, #7c3aed 50%, #db2777 75%, #00c6fb 100%);
+  background-size: 400% 400%;
+  animation: gradient-flow 5.5s ease infinite;
+  animation-delay: -0.5s;
+}
+
+.gradient-5 {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 25%, #4facfe 50%, #00f2fe 75%, #f093fb 100%);
+  background-size: 400% 400%;
+  animation: gradient-flow 4s ease infinite;
+  animation-delay: -1.5s;
+}
+
+@keyframes gradient-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+a.content-item {
+  text-decoration: none;
+  display: block;
+}
+
+.content-views {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.content-platform {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--dim);
+}
+
+/* ═══════════════════════════════════════
+   BRAND WORK
+   ═══════════════════════════════════════ */
+.brand-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
+  border-bottom: 1px solid var(--border);
+}
+
+.brand-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.brand-item:first-child {
+  padding-top: 0;
+}
+
+.brand-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 3px;
+}
+
+.brand-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--dim);
+}
+
+.brand-stat {
+  text-align: right;
+}
+
+.brand-stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+}
+
+.brand-stat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  color: var(--dim);
+}
+
+/* ═══════════════════════════════════════
+   LICENSED BY
+   ═══════════════════════════════════════ */
+.licensed-scroll-wrapper {
+  overflow: hidden;
+  margin: 0 -24px;
+  padding: 0 24px;
+}
+
+.licensed-scroll {
+  display: flex;
+  gap: 14px;
+  animation: scroll-gallery 25s linear infinite;
+  width: max-content;
+}
+
+.licensed-scroll:hover {
+  animation-play-state: paused;
+}
+
+.licensed-card {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
+  min-width: 240px;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.licensed-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.licensed-thumb {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.licensed-thumb img {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.licensed-info h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 2px;
+}
+
+.licensed-stat {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.licensed-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: var(--dim);
+}
+
+/* ═══════════════════════════════════════
+   PRESS & MEDIA - FEATURED
+   ═══════════════════════════════════════ */
+.press-featured {
+  display: flex;
+  justify-content: center;
+}
+
+.press-card-featured {
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  max-width: 600px;
+  width: 100%;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+
+.press-card-featured:hover {
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.02));
+  border-color: rgba(255, 215, 0, 0.2);
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 60px rgba(255, 215, 0, 0.05);
+}
+
+.press-video-featured {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  overflow: hidden;
+}
+
+.press-video-featured img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.press-card-featured:hover .press-video-featured img {
+  transform: scale(1.03);
+}
+
+.press-play-featured {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px;
+  height: 72px;
+  background: rgba(0, 0, 0, 0.75);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #fff;
+  backdrop-filter: blur(8px);
+  transition: all 0.3s ease;
+}
+
+.press-card-featured:hover .press-play-featured {
+  background: rgba(255, 215, 0, 0.9);
+  border-color: rgba(255, 215, 0, 0.5);
+  color: #000;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.press-badge {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.press-duration {
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-family: 'Space Mono', monospace;
+  font-size: 0.75rem;
+  color: #fff;
+}
+
+.press-info-featured {
+  padding: 20px 24px;
+  text-align: center;
+}
+
+.press-source-featured {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+
+.press-title-featured {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.3;
+}
+
+.press-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--purple);
+  margin-bottom: 12px;
+}
+
+.press-meta-featured {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: var(--dim);
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.press-meta-featured span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ═══════════════════════════════════════
+   CONTACT
+   ═══════════════════════════════════════ */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.contact-link {
+  font-family: 'Space Grotesk', sans-serif;
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.contact-link:hover {
+  color: var(--accent);
+  text-shadow: 0 0 15px rgba(201, 168, 76, 0.5);
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+/* ═══════════════════════════════════════
+   CTA SECTION
+   ═══════════════════════════════════════ */
+.cta-section {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.cta-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.cta-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 32px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta-button {
+  display: inline-block;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 16px 48px;
+  background: var(--accent);
+  color: var(--bg);
+  text-decoration: none;
+  border: 2px solid var(--accent);
+  transition: all 0.3s var(--ease-out);
+}
+
+.cta-button:hover {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: 0 0 30px rgba(201, 168, 76, 0.5);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.social-icon {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--dim);
+  transition: color 0.3s, border-color 0.3s;
+}
+
+.social-icon:hover {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.social-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-family: 'Press Start 2P', monospace;
+  font-size: 8px;
+  letter-spacing: 0.05em;
+  color: var(--dim);
+}
+</style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="ambient-glow"></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo">mimofr</a>
+  <a href="mailto:maximosilverman104@gmail.com" class="nav-cta" data-magnetic>get in touch</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <video class="hero-video-bg" autoplay muted loop playsinline>
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-ambient"></div>
+  <div class="page-wrap hero-content">
+    <div class="hero-eyebrow reveal">media kit 2026</div>
+    <h1 class="hero-title">
+      <span class="line"><span class="line-inner reveal"><span class="purple-text">Creative</span></span></span>
+      <span class="line"><span class="line-inner reveal">That</span></span>
+      <span class="line"><span class="line-inner reveal"><span class="accent-text">Converts</span></span></span>
+    </h1>
+    <p class="hero-subtitle reveal"><strong>1.3B+ views. 100M+ streams.</strong><br>Content that <strong>converts</strong>, with <strong>a soundtrack</strong> to match.</p>
+    <div class="hero-meta reveal">
+      <div class="hero-avatar">
+        <img src="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg" alt="mimofr">
+      </div>
+      <div class="hero-handle">
+        <span>Maximo Silverman</span><br>
+        @mimofrl · <a href="https://mimofr.com" target="_blank" style="color: inherit; text-decoration: none;">mimofr.com</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Marquee -->
+<div class="stats-marquee">
+  <div class="stats-track">
+    <div class="stats-group">
+      <div class="stat-item">
+        <span class="stat-number">1.3B<span class="accent">+</span></span>
+        <span class="stat-label">Views</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="espn-logo.svg" alt="ESPN" class="brand-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100M<span class="accent">+</span></span>
+        <span class="stat-label">Streams</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="biden-harris-logo.svg" alt="Biden/Harris" class="brand-logo biden-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">480K<span class="accent">+</span></span>
+        <span class="stat-label">Shazams</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="xgames-logo.svg" alt="X Games" class="brand-logo xgames-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">150K<span class="accent">+</span></span>
+        <span class="stat-label">Monthly Listeners</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="rollingloud-logo.svg" alt="Rolling Loud" class="brand-logo rollingloud-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">470K<span class="accent">+</span></span>
+        <span class="stat-label">Following</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="coachella-logo.svg" alt="Coachella" class="brand-logo coachella-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+    </div>
+    <div class="stats-group">
+      <div class="stat-item">
+        <span class="stat-number">1.3B<span class="accent">+</span></span>
+        <span class="stat-label">Views</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="espn-logo.svg" alt="ESPN" class="brand-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100M<span class="accent">+</span></span>
+        <span class="stat-label">Streams</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="biden-harris-logo.svg" alt="Biden/Harris" class="brand-logo biden-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">480K<span class="accent">+</span></span>
+        <span class="stat-label">Shazams</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="xgames-logo.svg" alt="X Games" class="brand-logo xgames-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">150K<span class="accent">+</span></span>
+        <span class="stat-label">Monthly Listeners</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="rollingloud-logo.svg" alt="Rolling Loud" class="brand-logo rollingloud-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">470K<span class="accent">+</span></span>
+        <span class="stat-label">Following</span>
+      </div>
+      <div class="stat-item logo-item">
+        <img src="coachella-logo.svg" alt="Coachella" class="brand-logo coachella-logo">
+        <span class="stat-label">Featured</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Total Followers -->
+  <div class="total-section reveal">
+    <div class="total-label">total followers</div>
+    <div class="total-number">465K+</div>
+    <div class="platform-pills">
+      <a href="https://instagram.com/mimofrl" target="_blank" class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+        247K
+      </a>
+      <a href="https://tiktok.com/@mimofrl" target="_blank" class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        104K
+      </a>
+      <a href="https://youtube.com/@mimofrl" target="_blank" class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="#0a0a0f" points="9.75,8.5 9.75,15.5 15.5,12"/></svg>
+        90K
+      </a>
+      <a href="https://www.facebook.com/p/Mimofrl-61576964345624/" target="_blank" class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        24K
+      </a>
+    </div>
+  </div>
+
+  <!-- About Me -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">about me</div>
+      <div class="about-text">
+        21-year-old <span class="highlight">music producer</span> and <span class="highlight">content creator</span> working with award-winning clients including <span class="highlight">Speak</span>, <span class="highlight">Imprint</span>, <span class="highlight">Ahead</span>, and <span class="highlight">Rise Science</span>. <span class="highlight">1.3B+ views</span>, <span class="highlight">470K+ followers</span>, <span class="highlight">100M+ streams</span>, <span class="highlight">150K+ monthly listeners</span>. Music featured in <span class="highlight">ESPN</span> and the <span class="highlight">2024 Presidential Campaign</span>. Studying Music Business at <span class="highlight">Berklee College of Music</span>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Press & Media -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">press & media</div>
+      <div class="press-featured">
+        <a href="https://www.youtube.com/watch?v=h62vp3SCdOk" target="_blank" class="press-card-featured">
+          <div class="press-video-featured">
+            <img src="https://img.youtube.com/vi/h62vp3SCdOk/maxresdefault.jpg" alt="Wishe Media Interview">
+            <div class="press-badge">Featured Interview</div>
+            <div class="press-duration">15:19</div>
+            <div class="press-play-featured">▶</div>
+          </div>
+          <div class="press-info-featured">
+            <div class="press-source-featured">Wishe Media</div>
+            <div class="press-title-featured" style="font-size: 1.1rem; white-space: nowrap;">mimofr interview: wizardcore, beats, content</div>
+            <div class="press-subtitle">process • inspiration • journey</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Platform Analytics -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">platforms</div>
+      <p class="about-text" style="margin-bottom: 16px; font-size: 0.75rem; color: var(--dim);">Last updated: Feb 26, 2026 • <span style="color: var(--accent);">Data tracked by mimofr</span></p>
+      
+      <!-- Instagram -->
+      <div class="platform-block">
+        <a href="https://instagram.com/mimofrl" target="_blank" class="analytics-header" style="text-decoration: none; color: inherit;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+          <span>Instagram</span>
+          <span class="handle">@mimofrl</span>
+        </a>
+        <div class="analytics-grid">
+          <div class="analytics-stat">
+            <div class="analytics-value">247K</div>
+            <div class="analytics-label">Followers <span style="color: #4ade80; font-size: 0.65rem;">+0.3%</span></div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value">22M+</div>
+            <div class="analytics-label">Reel Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value">4.2%</div>
+            <div class="analytics-label">Engagement</div>
+          </div>
+        </div>
+        <div class="analytics-grid">
+          <div class="analytics-stat">
+            <div class="analytics-value small">89K</div>
+            <div class="analytics-label">Avg Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">3.7K</div>
+            <div class="analytics-label">Avg Likes</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">142</div>
+            <div class="analytics-label">Avg Comments</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TikTok -->
+      <div class="platform-block">
+        <a href="https://tiktok.com/@mimofrl" target="_blank" class="analytics-header" style="text-decoration: none; color: inherit;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          <span>TikTok</span>
+          <span class="handle">@mimofrl</span>
+        </a>
+        <div class="analytics-grid">
+          <div class="analytics-stat">
+            <div class="analytics-value">104K</div>
+            <div class="analytics-label">Followers <span style="color: #4ade80; font-size: 0.65rem;">+0.4%</span></div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value">16.5M+</div>
+            <div class="analytics-label">Likes</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value">5.8%</div>
+            <div class="analytics-label">Engagement</div>
+          </div>
+        </div>
+        <div class="analytics-grid">
+          <div class="analytics-stat">
+            <div class="analytics-value small">52K</div>
+            <div class="analytics-label">Avg Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">2.4K</div>
+            <div class="analytics-label">Avg Likes</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">89</div>
+            <div class="analytics-label">Avg Comments</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- YouTube -->
+      <div class="platform-block">
+        <a href="https://youtube.com/@mimofrl" target="_blank" class="analytics-header" style="text-decoration: none; color: inherit;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>YouTube</span>
+          <span class="handle">@mimofrl</span>
+        </a>
+        <div class="analytics-grid">
+          <div class="analytics-stat">
+            <div class="analytics-value">90K</div>
+            <div class="analytics-label">Subscribers <span style="color: #4ade80; font-size: 0.65rem;">+1.2%</span></div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value">8.5M+</div>
+            <div class="analytics-label">Total Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value">3.2%</div>
+            <div class="analytics-label">Engagement</div>
+          </div>
+        </div>
+        <div class="analytics-grid">
+          <div class="analytics-stat">
+            <div class="analytics-value small">28K</div>
+            <div class="analytics-label">Avg Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">1.2K</div>
+            <div class="analytics-label">Avg Likes</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">67</div>
+            <div class="analytics-label">Avg Comments</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Facebook -->
+      <div class="platform-block">
+        <a href="https://facebook.com/mimofrl" target="_blank" class="analytics-header" style="text-decoration: none; color: inherit;">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+          <span>Facebook</span>
+          <span class="handle">@mimofrl</span>
+        </a>
+        <div class="analytics-grid">
+          <div class="analytics-stat">
+            <div class="analytics-value">24K</div>
+            <div class="analytics-label">Followers <span style="color: #4ade80; font-size: 0.65rem;">+0.5%</span></div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value">2.1M+</div>
+            <div class="analytics-label">Total Reach</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value">2.8%</div>
+            <div class="analytics-label">Engagement</div>
+          </div>
+        </div>
+        <div class="analytics-grid">
+          <div class="analytics-stat">
+            <div class="analytics-value small">12K</div>
+            <div class="analytics-label">Avg Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">890</div>
+            <div class="analytics-label">Avg Likes</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">42</div>
+            <div class="analytics-label">Avg Comments</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Demographics (applies to all) -->
+      <div class="demo-section">
+        <div class="demo-title">audience demographics</div>
+        <div class="demo-bars">
+          <div class="demo-row">
+            <div class="demo-label">Male</div>
+            <div class="demo-bar"><div class="demo-fill" style="width:68%"></div></div>
+            <div class="demo-pct">68%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">Female</div>
+            <div class="demo-bar"><div class="demo-fill" style="width:32%"></div></div>
+            <div class="demo-pct">32%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <div class="demo-title">age breakdown</div>
+        <div class="demo-bars">
+          <div class="demo-row">
+            <div class="demo-label">18-24</div>
+            <div class="demo-bar"><div class="demo-fill" style="width:48%"></div></div>
+            <div class="demo-pct">48%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">25-34</div>
+            <div class="demo-bar"><div class="demo-fill" style="width:31%"></div></div>
+            <div class="demo-pct">31%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">13-17</div>
+            <div class="demo-bar"><div class="demo-fill" style="width:14%"></div></div>
+            <div class="demo-pct">14%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <div class="demo-title">top countries</div>
+        <div class="demo-bars">
+          <div class="demo-row">
+            <div class="demo-label">🇺🇸 USA</div>
+            <div class="demo-bar"><div class="demo-fill" style="width:42%"></div></div>
+            <div class="demo-pct">42%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">🇬🇧 UK</div>
+            <div class="demo-bar"><div class="demo-fill" style="width:11%"></div></div>
+            <div class="demo-pct">11%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">🇩🇪 Germany</div>
+            <div class="demo-bar"><div class="demo-fill" style="width:7%"></div></div>
+            <div class="demo-pct">7%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Viral Content Showcase -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">viral content</div>
+      <p class="about-text" style="margin-bottom: 24px;">Top performing content — all <span class="highlight">1M+ views</span>. Click to watch.</p>
+      <div class="video-showcase-wrapper">
+      <div class="video-showcase-grid">
+        <!-- Row 1: TikTok, Imprint (brand), Top Reel -->
+        <a href="https://www.tiktok.com/@mimofrl/video/7591729319215385911" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/tiktok1.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">2.1M<span class="accent">+</span></span>
+              <span class="platform-tag tiktok">TikTok</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DU_ty08jdaN/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/imprint.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.6M<span class="accent">+</span></span>
+              <span class="platform-tag brand">Imprint</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DTi3QEmkueO/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel1.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">3.2M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <!-- Row 2: TikTok, Reel, Reel -->
+        <a href="https://www.tiktok.com/@mimofrl/video/7298387666960207134" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/tiktok2.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.8M<span class="accent">+</span></span>
+              <span class="platform-tag tiktok">TikTok</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DTWY0v6j9s7/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel2.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">2.7M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DQpErPKkT8R/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel4.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.5M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <!-- Row 3: Reel, TikTok, Reel -->
+        <a href="https://www.instagram.com/reel/DTHWnlDAPzJ/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel3.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.9M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@mimofrl/video/7542943233182092599" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/tiktok3.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.2M<span class="accent">+</span></span>
+              <span class="platform-tag tiktok">TikTok</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DP7b7hZESIV/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel5.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.3M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <!-- Row 4: Reel, Reel, Reel -->
+        <a href="https://www.instagram.com/reel/DPjzvHoElGS/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel7.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.4M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DP6-cn5DpBk/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel6.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.2M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DPR33k1ikyb/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel8.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.1M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <!-- Duplicate for seamless loop -->
+        <a href="https://www.tiktok.com/@mimofrl/video/7591729319215385911" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/tiktok1.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">2.1M<span class="accent">+</span></span>
+              <span class="platform-tag tiktok">TikTok</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/p/DU_ty08jdaN/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/imprint.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.6M<span class="accent">+</span></span>
+              <span class="platform-tag brand">Imprint</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DTi3QEmkueO/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel1.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">3.2M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@mimofrl/video/7298387666960207134" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/tiktok2.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.8M<span class="accent">+</span></span>
+              <span class="platform-tag tiktok">TikTok</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DTWY0v6j9s7/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel2.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">2.7M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DQpErPKkT8R/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel4.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.5M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DTHWnlDAPzJ/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel3.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.9M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@mimofrl/video/7542943233182092599" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/tiktok3.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.2M<span class="accent">+</span></span>
+              <span class="platform-tag tiktok">TikTok</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DP7b7hZESIV/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel5.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.3M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DPjzvHoElGS/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel7.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.4M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DP6-cn5DpBk/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel6.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.2M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/reel/DPR33k1ikyb/" target="_blank" class="showcase-item">
+          <div class="showcase-video">
+            <video autoplay muted loop playsinline class="showcase-vid">
+              <source src="videos/reel8.mp4" type="video/mp4">
+            </video>
+            <div class="showcase-overlay">
+              <span class="showcase-views">1.1M<span class="accent">+</span></span>
+              <span class="platform-tag instagram">Reel</span>
+            </div>
+          </div>
+        </a>
+      </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proven Results -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">proven results</div>
+      <p class="about-text" style="margin-bottom: 20px; font-size: 1.15rem; line-height: 1.5;">Content that performs organically — and converts when<br>brands put ad spend behind it. <span class="highlight">1 billion+ views</span>.</p>
+      
+      <!-- mimofr -->
+      <div class="brand-item" style="flex-direction: column; align-items: flex-start; gap: 12px;">
+        <div class="brand-header">
+          <img src="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg" alt="mimofr" class="brand-logo-img">
+          <div>
+            <div class="brand-name">mimofr</div>
+            <div class="brand-desc">Total reach across all platforms • Music + Content</div>
+          </div>
+        </div>
+        <div class="analytics-grid" style="width: 100%; grid-template-columns: repeat(2, 1fr);">
+          <div class="analytics-stat">
+            <div class="analytics-value small">1.3B+</div>
+            <div class="analytics-label">Total Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">100M+</div>
+            <div class="analytics-label">Streams</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">470K+</div>
+            <div class="analytics-label">Followers</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">480K+</div>
+            <div class="analytics-label">Shazams</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Imprint -->
+      <div class="brand-item" style="flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);">
+        <div class="brand-header">
+          <img src="imprint-app.jpg" alt="Imprint" class="brand-logo-img">
+          <div>
+            <div class="brand-name">Imprint App</div>
+            <div class="brand-desc">Google App of the Year 2023 • Content scaled to paid media</div>
+          </div>
+        </div>
+        <div class="analytics-grid" style="width: 100%; grid-template-columns: repeat(2, 1fr);">
+          <div class="analytics-stat">
+            <div class="analytics-value small">3M+</div>
+            <div class="analytics-label">Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">$24K+</div>
+            <div class="analytics-label">Ad Spend</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">$7.15</div>
+            <div class="analytics-label">CPM</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">0.47%</div>
+            <div class="analytics-label">CTR</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Speak -->
+      <div class="brand-item" style="flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);">
+        <div class="brand-header">
+          <img src="speak-app.jpg" alt="Speak" class="brand-logo-img">
+          <div>
+            <div class="brand-name">Speak App</div>
+            <div class="brand-desc">Language learning app • Multiple winning ad creatives</div>
+          </div>
+        </div>
+        <div class="analytics-grid" style="width: 100%; grid-template-columns: repeat(2, 1fr);">
+          <div class="analytics-stat">
+            <div class="analytics-value small">$60K+</div>
+            <div class="analytics-label">Ad Spend</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">$3.55</div>
+            <div class="analytics-label">Best CPI</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">15+</div>
+            <div class="analytics-label">Winning Ads</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">$21.29</div>
+            <div class="analytics-label">Best CPT</div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Rise Science -->
+      <div class="brand-item" style="flex-direction: column; align-items: flex-start; gap: 12px; margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border);">
+        <div class="brand-header">
+          <img src="rise-app.jpg" alt="Rise" class="brand-logo-img">
+          <div>
+            <div class="brand-name">Rise Science</div>
+            <div class="brand-desc">Organic content for @wizzzler23 • Produced their #1 reel</div>
+          </div>
+        </div>
+        <div class="analytics-grid" style="width: 100%; grid-template-columns: repeat(2, 1fr);">
+          <div class="analytics-stat">
+            <div class="analytics-value small">315K</div>
+            <div class="analytics-label">Views</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">41.8K</div>
+            <div class="analytics-label">Likes</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">#1</div>
+            <div class="analytics-label">Top Reel</div>
+          </div>
+          <div class="analytics-stat">
+            <div class="analytics-value small">13%</div>
+            <div class="analytics-label">Engagement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Featured In -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">featured in</div>
+      <div class="licensed-scroll-wrapper">
+        <div class="licensed-scroll">
+          <a href="https://www.tiktok.com/@espnmma/video/7206397359377419566" target="_blank" class="licensed-card">
+            <div class="licensed-thumb" style="background: #d00;">
+              <img src="espn-logo.svg" alt="ESPN MMA" style="height: 24px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="licensed-info">
+              <h4>ESPN MMA</h4>
+              <p class="licensed-stat">UFC 285</p>
+              <p class="licensed-desc">ascend.mp3 • Jon Jones weigh-in</p>
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@marcuskleveland/video/7230841116340292891" target="_blank" class="licensed-card">
+            <div class="licensed-thumb" style="background: linear-gradient(135deg, #00A651, #007A3D);">
+              <img src="xgames-logo.svg" alt="X Games" style="height: 36px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="licensed-info">
+              <h4>Marcus Kleveland</h4>
+              <p class="licensed-stat">57K+ Likes</p>
+              <p class="licensed-desc">parallels.mp3 • X-Games Athlete</p>
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@espn/video/7177561858625260842" target="_blank" class="licensed-card">
+            <div class="licensed-thumb" style="background: #d00;">
+              <img src="espn-logo.svg" alt="ESPN" style="height: 24px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="licensed-info">
+              <h4>ESPN</h4>
+              <p class="licensed-stat">350K+ Likes</p>
+              <p class="licensed-desc">ascend.mp3 • NCAA Volleyball</p>
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@headquarters/video/7385655448202005790" target="_blank" class="licensed-card">
+            <div class="licensed-thumb" style="background: linear-gradient(135deg, #002868, #bf0a30);">
+              <img src="biden-harris-logo.svg" alt="Presidential Campaign" style="height: 32px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="licensed-info">
+              <h4>2024 Presidential Campaign</h4>
+              <p class="licensed-stat">Official Campaign</p>
+              <p class="licensed-desc">@headquarters TikTok</p>
+            </div>
+          </a>
+          <!-- Duplicate for seamless loop -->
+          <a href="https://www.tiktok.com/@espnmma/video/7206397359377419566" target="_blank" class="licensed-card">
+            <div class="licensed-thumb" style="background: #d00;">
+              <img src="espn-logo.svg" alt="ESPN MMA" style="height: 24px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="licensed-info">
+              <h4>ESPN MMA</h4>
+              <p class="licensed-stat">UFC 285</p>
+              <p class="licensed-desc">ascend.mp3 • Jon Jones weigh-in</p>
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@marcuskleveland/video/7230841116340292891" target="_blank" class="licensed-card">
+            <div class="licensed-thumb" style="background: linear-gradient(135deg, #00A651, #007A3D);">
+              <img src="xgames-logo.svg" alt="X Games" style="height: 36px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="licensed-info">
+              <h4>Marcus Kleveland</h4>
+              <p class="licensed-stat">57K+ Likes</p>
+              <p class="licensed-desc">parallels.mp3 • X-Games Athlete</p>
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@espn/video/7177561858625260842" target="_blank" class="licensed-card">
+            <div class="licensed-thumb" style="background: #d00;">
+              <img src="espn-logo.svg" alt="ESPN" style="height: 24px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="licensed-info">
+              <h4>ESPN</h4>
+              <p class="licensed-stat">350K+ Likes</p>
+              <p class="licensed-desc">ascend.mp3 • NCAA Volleyball</p>
+            </div>
+          </a>
+          <a href="https://www.tiktok.com/@headquarters/video/7385655448202005790" target="_blank" class="licensed-card">
+            <div class="licensed-thumb" style="background: linear-gradient(135deg, #002868, #bf0a30);">
+              <img src="biden-harris-logo.svg" alt="Presidential Campaign" style="height: 32px; filter: brightness(0) invert(1);">
+            </div>
+            <div class="licensed-info">
+              <h4>2024 Presidential Campaign</h4>
+              <p class="licensed-stat">Official Campaign</p>
+              <p class="licensed-desc">@headquarters TikTok</p>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Content Rates -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">content</div>
+      <div class="rate-list">
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Instagram Story</div>
+            <div class="rate-desc">Story with link/mention</div>
+          </div>
+          <div class="rate-price">$300</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">TikTok</div>
+            <div class="rate-desc">One video posted</div>
+          </div>
+          <div class="rate-price">$1,000</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">YouTube Short</div>
+            <div class="rate-desc">One short posted</div>
+          </div>
+          <div class="rate-price">$1,500</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Instagram Reel</div>
+            <div class="rate-desc">One reel posted</div>
+          </div>
+          <div class="rate-price">$2,000</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Cross-Platform Bundle</div>
+            <div class="rate-desc">1 IG + 1 TikTok + 1 YT + 1 FB</div>
+          </div>
+          <div class="rate-price">$3,500</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visual Production -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">visual production</div>
+      <p class="about-text" style="margin-bottom: 16px; font-size: 0.85rem; color: var(--dim);">Custom content for your channels. You post it, it goes viral.</p>
+      <div class="rate-list">
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Single Visual</div>
+            <div class="rate-desc">1 custom video (15-60s)</div>
+          </div>
+          <div class="rate-price">$1,000</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Visual Pack</div>
+            <div class="rate-desc">3 videos, cohesive campaign</div>
+          </div>
+          <div class="rate-price">$2,500</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Custom Campaign</div>
+            <div class="rate-desc">Larger projects, tailored scope</div>
+          </div>
+          <div class="rate-price">Inquire</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Retainers -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">retainers</div>
+      <div class="rate-list">
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Content Partner</div>
+            <div class="rate-desc">5 custom visuals per month</div>
+          </div>
+          <div class="rate-price">$2,000/mo</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Creative Director</div>
+            <div class="rate-desc">12 custom visuals per month</div>
+          </div>
+          <div class="rate-price">$4,000/mo</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact CTA -->
+  <div class="section reveal">
+    <div class="cta-section">
+      <h2 class="cta-title">Ready to create?</h2>
+      <p class="cta-subtitle">Brand partnerships, content creation, music licensing, and business inquiries.</p>
+      <a href="mailto:maximosilverman104@gmail.com" class="cta-button">Get in touch</a>
+      <div class="social-icons">
+        <a href="https://instagram.com/mimofrl" target="_blank" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+        <a href="https://tiktok.com/@mimofrl" target="_blank" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a href="https://twitter.com/mimofrl" target="_blank" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://youtube.com/@mimofrl" target="_blank" class="social-icon">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><path fill="#09080D" d="M9.545 15.568V8.432L15.818 12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/maximo-silverman-69b63b30a" target="_blank" class="social-icon">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    mimofrl • media kit
+  </div>
+
+</div>
+
+<script>
+// Custom Cursor
+const dot = document.querySelector('.cursor-dot');
+const ring = document.querySelector('.cursor-ring');
+
+if (window.matchMedia('(pointer: fine)').matches && dot && ring) {
+  let mouseX = 0, mouseY = 0;
+  let ringX = 0, ringY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    dot.style.left = mouseX + 'px';
+    dot.style.top = mouseY + 'px';
+  });
+
+  function animateRing() {
+    ringX += (mouseX - ringX) * 0.35;
+    ringY += (mouseY - ringY) * 0.35;
+    ring.style.left = ringX + 'px';
+    ring.style.top = ringY + 'px';
+    requestAnimationFrame(animateRing);
+  }
+  animateRing();
+
+  // Hover effects on interactive elements
+  document.querySelectorAll('a, button, .rate-item, .platform-pill, .analytics-stat, .content-thumb').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      ring.style.width = '50px';
+      ring.style.height = '50px';
+      ring.style.opacity = '0.4';
+    });
+    el.addEventListener('mouseleave', () => {
+      ring.style.width = '36px';
+      ring.style.height = '36px';
+      ring.style.opacity = '0.6';
+    });
+  });
+}
+
+// Magnetic hover effect
+document.querySelectorAll('.nav-cta, .cta-button, .platform-pill, .social-icon, .content-thumb').forEach(el => {
+  el.style.transition = 'transform 0.15s ease-out, background 0.3s, color 0.3s, box-shadow 0.3s';
+  
+  el.addEventListener('mousemove', (e) => {
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    el.style.transform = `translate(${x * 0.25}px, ${y * 0.25}px)`;
+  });
+  el.addEventListener('mouseleave', () => {
+    el.style.transform = 'translate(0, 0)';
+  });
+});
+
+// Scroll Reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+reveals.forEach(el => observer.observe(el));
+
+// Nav scroll effect
+const nav = document.getElementById('nav');
+let scrolled = false;
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 80 && !scrolled) {
+    nav.classList.add('scrolled');
+    scrolled = true;
+  } else if (window.scrollY <= 80 && scrolled) {
+    nav.classList.remove('scrolled');
+    scrolled = false;
+  }
+}, { passive: true });
+
+// Hero title staggered reveal
+document.querySelectorAll('.hero-title .line-inner.reveal').forEach((el, i) => {
+  el.style.transitionDelay = (i * 120) + 'ms';
+  setTimeout(() => el.classList.add('visible'), 100 + i * 120);
+});
+</script>
+
+<!-- Background Music Player -->
+<audio id="bgMusic" loop>
+  <source src="https://mimofr.com/bg-music.mp3" type="audio/mpeg">
+</audio>
+
+<button class="audio-btn" id="audioBtn" onclick="toggleAudio()">🔇</button>
+
+<script>
+let musicPlaying = false;
+const audio = document.getElementById('bgMusic');
+const audioBtn = document.getElementById('audioBtn');
+audio.volume = 0.3;
+
+function toggleAudio() {
+  if (musicPlaying) {
+    audio.pause();
+    musicPlaying = false;
+    audioBtn.textContent = '🔇';
+  } else {
+    audio.play().then(() => {
+      musicPlaying = true;
+      audioBtn.textContent = '🔊';
+    }).catch(() => {});
+  }
+}
+</script>
+
+</body>
+</html>

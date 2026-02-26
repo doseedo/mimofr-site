@@ -1,0 +1,1346 @@
+<!DOCTYPE html><!-- Last Published: Thu Feb 26 2026 00:11:48 GMT+0000 (Coordinated Universal Time) --><html data-wf-domain="www.speak.com" data-wf-page="65c6b9c24693a8463de7fbeb" data-wf-site="61a88c135006e8345b005efd"><head><meta charset="utf-8"/><title>Not Found</title><meta content="Not Found" property="og:title"/><meta content="Not Found" property="twitter:title"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="ZvDqioKzF1UOgMK8OC58gZPAcFJchQNSgN7euToXznE" name="google-site-verification"/><link href="https://cdn.prod.website-files.com/61a88c135006e8345b005efd/css/speak-website-af1d24.shared.fe10b2e62.min.css" rel="stylesheet" type="text/css" integrity="sha384-/hCy5isGt2FNsUhOJAz8X7aVdOviwlDqP94JbP2l77bGU+YX9qwxyCmJyTraU8g1" crossorigin="anonymous"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous"/><script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script><script type="text/javascript">WebFont.load({  google: {    families: ["Inter:300,400,500,600,700","Inter:300,400,500,600,700","Poppins:300,400,500,600,700"]  }});</script><script src="https://use.typekit.net/kmf1urm.js" type="text/javascript"></script><script type="text/javascript">try{Typekit.load();}catch(e){}</script><script type="text/javascript">!function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);</script><link href="https://cdn.prod.website-files.com/61a88c135006e8345b005efd/61a8e2a6251030428df089f2_favicon.png" rel="shortcut icon" type="image/x-icon"/><link href="https://cdn.prod.website-files.com/61a88c135006e8345b005efd/686a5c29b8678b5802ceb837_WebIcon.png" rel="apple-touch-icon"/><meta property="og:site_name" content="Speak">
+<link href="https://cdn.prod.website-files.com/61a88c135006e8345b005efd/686a5bd7575db0cce5e8d39d_favicon-48x48.png" rel="shortcut icon" type="image/x-icon"/>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<meta name="google-site-verification" content="PeRheudOF-cIGf1WE4l_1deAk4dPrFGTrhpITPohWBM" />
+<meta name="naver-site-verification" content="6cece3ce3fcce4274b49c0cd4059ba3faf797fcd" />
+<meta name="facebook-domain-verification" content="ywfcjacdditw75eygp84zrgyzhkrlt" />
+
+<script>
+    // Global environment flag - used across all script blocks
+    const isProd = window.location.hostname.includes("speak.com");
+
+    (function() {
+        const uuid = isProd ? "67379c16-3d09-11ee-a59a-73c36c75b2d1" : "dc1492e8-571a-11ee-b1f5-db889fac3eed";
+        const enzuzoScript = document.createElement("script");
+        enzuzoScript.src = `https://app.enzuzo.com/apps/enzuzo/static/js/__enzuzo-cookiebar.js?uuid=${uuid}`;
+        enzuzoScript.async = true;
+        document.head.appendChild(enzuzoScript);
+    })();
+
+    function getCookie(name) {
+        const match = document.cookie.match(new RegExp('(^| )' + name + '=([^;]+)'));
+        return match ? match[2] : null;
+    }
+
+    // Consent management IIFE - keeps internal state private
+    // (matches analytics-consent.ts in speak-app)
+    (function() {
+        const ENZUZO_BANNER_ID = 'ez-cookie-notification';
+        const ENZUZO_SCRIPT_URL_PATTERN = 'app.enzuzo.com';
+        const CONSENT_CONFIG = {
+            loadedTimeoutMs: 5 * 1000,
+            pollIntervalMs: 100
+        };
+        const COOKIE_MAPPING = {
+            advertising: 'cookies-marketing',
+            analytics: 'cookies-analytics'
+        };
+
+        let gtagDefaultsSet = false;
+        let bannerWasDetected = false;
+        let scriptLoaded = false;
+        let scriptErrored = false;
+        let outageHandled = false;
+
+        // In-memory consent state (matches analytics-consent.ts)
+        // undefined = user hasn't decided, true = consented, false = declined
+        const categoryPreferences = {
+            advertising: undefined,
+            analytics: undefined
+        };
+
+        function getConsentFromCookie(category) {
+            const value = getCookie(COOKIE_MAPPING[category]);
+            if (value === null) return undefined;
+            return value === 'true';
+        }
+
+        // Syncs from cookies to catch updates from other tabs
+        function getConsentPreferences() {
+            const advertisingFromCookie = getConsentFromCookie('advertising');
+            const analyticsFromCookie = getConsentFromCookie('analytics');
+
+            if (advertisingFromCookie !== undefined) {
+                categoryPreferences.advertising = advertisingFromCookie;
+            }
+            if (analyticsFromCookie !== undefined) {
+                categoryPreferences.analytics = analyticsFromCookie;
+            }
+
+            return categoryPreferences;
+        }
+
+        function updateConsentPreferences(updates) {
+            for (const category in updates) {
+                categoryPreferences[category] = updates[category];
+            }
+            propagateConsent();
+        }
+
+        function propagateConsent() {
+            window.dataLayer = window.dataLayer || [];
+            const gtagConsentValue = (v) => v === true ? 'granted' : 'denied';
+            const prefs = getConsentPreferences();
+            window.dataLayer.push([
+                'consent',
+                gtagDefaultsSet ? 'update' : 'default',
+                {
+                    ad_storage: gtagConsentValue(prefs.advertising),
+                    ad_user_data: gtagConsentValue(prefs.advertising),
+                    ad_personalization: gtagConsentValue(prefs.advertising),
+                    analytics_storage: gtagConsentValue(prefs.analytics),
+                },
+            ]);
+            gtagDefaultsSet = true;
+        }
+
+        function hasUserDecidedConsent() {
+            const prefs = getConsentPreferences();
+            return prefs.advertising !== undefined && prefs.analytics !== undefined;
+        }
+
+        function checkForBanner() {
+            if (!bannerWasDetected) {
+                const banner = document.getElementById(ENZUZO_BANNER_ID);
+                if (banner) {
+                    bannerWasDetected = true;
+                }
+            }
+            return bannerWasDetected;
+        }
+
+        function isEnzuzoScriptInDom() {
+            return !!document.querySelector('script[src*="' + ENZUZO_SCRIPT_URL_PATTERN + '"]');
+        }
+
+        function handleOutage(reason) {
+            if (outageHandled) return;
+            outageHandled = true;
+            console.warn('[Consent] Enzuzo outage detected:', reason);
+            // Grant consent as fallback to prevent losing events
+            updateConsentPreferences({ advertising: true, analytics: true });
+        }
+
+        function startOutageDetection() {
+            const startTime = Date.now();
+
+            const check = () => {
+                checkForBanner();
+                if (hasUserDecidedConsent()) return;
+
+                const elapsed = Date.now() - startTime;
+                if (elapsed > CONSENT_CONFIG.loadedTimeoutMs) {
+                    const isOutage = scriptErrored || !isEnzuzoScriptInDom() || (!scriptLoaded && !bannerWasDetected);
+                    if (isOutage) {
+                        if (scriptErrored) {
+                            handleOutage('script_error');
+                        } else if (!isEnzuzoScriptInDom()) {
+                            handleOutage('script_not_found');
+                        } else {
+                            handleOutage('script_timeout');
+                        }
+                    }
+                    return;
+                }
+
+                setTimeout(check, CONSENT_CONFIG.pollIntervalMs);
+            };
+
+            check();
+        }
+
+        // Expose getConsentPreferences for Segment middleware
+        window.getConsentPreferences = getConsentPreferences;
+
+        // Expose handlers to window for Enzuzo (see analytics-consent.md)
+        window.handleOptIn = function(category) {
+            updateConsentPreferences({ [category]: true });
+            if (window.analytics) {
+                window.analytics.track('Analytics Opt In', { category: category });
+            }
+        };
+
+        window.handleOptOut = function(category) {
+            updateConsentPreferences({ [category]: false });
+            if (window.analytics) {
+                window.analytics.track('Analytics Opt Out', { category: category });
+            }
+        };
+
+        window.handleConsentScriptLoaded = function() {
+            scriptLoaded = true;
+        };
+
+        window.handleConsentScriptError = function() {
+            scriptErrored = true;
+            handleOutage('script_error');
+        };
+
+        // Initialize on load
+        propagateConsent();
+        startOutageDetection();
+    })();
+
+    // Amplitude Session Replay IIFE - keeps internal state private
+    // (matches amplitudeReplay.ts in speak-app)
+    (function() {
+        var AMPLITUDE_SESSION_STORAGE_KEY = 'replaySessionId';
+        var PROD_SAMPLE_RATE = 0.01;
+        var AMPLITUDE_REPLAY_KEY = isProd
+            ? 'eb7d514fffd697a0aa3fd406f449b163'
+            : '3977b9651c7d952f9eb1a5308ec3cb03';
+
+        var sessionReplayModule = null;
+        var initStarted = false; // guard against duplicate init calls
+        var fallbackSessionId = null; // stable fallback when sessionStorage is unavailable
+
+        function getStoredSessionId() {
+            try {
+                var id = parseInt(sessionStorage.getItem(AMPLITUDE_SESSION_STORAGE_KEY) || '0');
+                if (!id) {
+                    // From Amplitude docs: The value must be in milliseconds since epoch (Unix Timestamp).
+                    id = Date.now();
+                    sessionStorage.setItem(AMPLITUDE_SESSION_STORAGE_KEY, id.toString());
+                }
+                return id;
+            } catch (e) {
+                // sessionStorage blocked — return a stable value for this page load
+                if (!fallbackSessionId) {
+                    fallbackSessionId = Date.now();
+                }
+                return fallbackSessionId;
+            }
+        }
+
+        // FNV-1a hash for deterministic, well-distributed sampling by session ID.
+        function fnv1aHash(str) {
+            var hash = 0x811c9dc5;
+            for (var i = 0; i < str.length; i++) {
+                hash ^= str.charCodeAt(i);
+                hash = Math.imul(hash, 0x01000193);
+            }
+            return hash >>> 0;
+        }
+
+        function shouldSampleReplay(sessionId, rate) {
+            return (fnv1aHash(sessionId) % 10000) / 10000 < rate;
+        }
+
+        function getSessionReplayProperties() {
+            if (!sessionReplayModule) {
+                return undefined;
+            }
+            return sessionReplayModule.getSessionReplayProperties();
+        }
+
+        function initSessionReplay(deviceId) {
+            if (initStarted) {
+                return;
+            }
+            if (!isProd) {
+                // Comment this line to enable session replay in dev
+                return;
+            }
+            if (!AMPLITUDE_REPLAY_KEY || !deviceId) {
+                return;
+            }
+            var sessionId = getStoredSessionId();
+            var sampleRate = isProd ? PROD_SAMPLE_RATE : 1;
+            if (!shouldSampleReplay(sessionId.toString(), sampleRate)) {
+                return;
+            }
+
+            initStarted = true;
+            var script = document.createElement('script');
+            script.src = 'https://cdn.amplitude.com/libs/session-replay-browser-1.25.0-min.js.gz';
+            script.async = true;
+            script.onload = function() {
+                var SR = window.sessionReplay && window.sessionReplay.SessionReplay;
+                if (typeof SR !== 'function') {
+                    console.warn('[SessionReplay] SDK loaded but SessionReplay class not found');
+                    return;
+                }
+                sessionReplayModule = new SR();
+                var result = sessionReplayModule.init(AMPLITUDE_REPLAY_KEY, {
+                    deviceId: deviceId,
+                    sessionId: sessionId,
+                    sampleRate: 1,
+                    logLevel: 4,
+                });
+                if (result && result.promise) {
+                    result.promise.catch(function(err) {
+                        console.warn('[SessionReplay] init failed:', err);
+                    });
+                }
+            };
+            script.onerror = function() {
+                console.warn('[SessionReplay] Failed to load SDK');
+            };
+            document.head.appendChild(script);
+        }
+
+        // Expose to window for use in Segment middleware and initAnalytics
+        window.getSessionReplayProperties = getSessionReplayProperties;
+        window.getStoredSessionId = getStoredSessionId;
+        window.initSessionReplay = initSessionReplay;
+    })();
+
+    function addSegmentSourceMiddleware(analytics) {
+        // Keep middleware isolated from the snippet so upgrades are a one-line change.
+        analytics.addSourceMiddleware(({ payload, next }) => {
+            const { obj } = payload;
+
+            obj.properties = obj.properties || {};
+            const fbc = getCookie('_fbc');
+            if (fbc) obj.properties.fbc = fbc;
+            const fbp = getCookie('_fbp');
+            if (fbp) obj.properties.fbp = fbp;
+
+            // Add Amplitude session replay properties
+            const sessionReplayProperties = window.getSessionReplayProperties();
+            if (sessionReplayProperties) {
+                Object.assign(obj.properties, sessionReplayProperties);
+            }
+
+            // Add Amplitude session_id for session stitching
+            try {
+                obj.integrations = Object.assign({}, obj.integrations, {
+                    Amplitude: {
+                        session_id: window.getStoredSessionId(),
+                    },
+                });
+            } catch (e) {
+                // Silently ignore sessionStorage errors
+            }
+
+            const prefs = window.getConsentPreferences();
+            obj.context = obj.context || {};
+            obj.context.consent = {
+                categoryPreferences: {
+                    advertising: prefs.advertising === true,
+                    analytics: prefs.analytics === true,
+                    functional: true
+                }
+            };
+
+            next(payload);
+        });
+    }
+
+    // FB Pixel initialization (matches analytics.ts in speak-app)
+    function initFbPixel() {
+        // Trigger FB Pixel to load as a client-side Segment destination
+        // https://www.twilio.com/docs/segment/connections/destinations/catalog/facebook-pixel
+        analytics.track('Init FB Pixel');
+
+        // Wait for the _fbp cookie (max 10s).
+        const fbPixelTimeoutMs = 10 * 1000;
+        const pollIntervalMs = 100;
+        const maxAttempts = fbPixelTimeoutMs / pollIntervalMs;
+        let attempt = 0;
+        const checkFbp = () => {
+            if (getCookie('_fbp')) {
+                // Guarantee at least 1 event has fbc/fbp attached via middleware
+                analytics.track('FB Pixel Ready');
+                return;
+            }
+            if (attempt > maxAttempts) {
+                return;
+            }
+            attempt++;
+            setTimeout(checkFbp, pollIntervalMs);
+        };
+        checkFbp();
+    }
+
+    function installSegmentSnippet(segmentId) {
+        // START of Segment Analytics.js v5.2.1 snippet.
+        // https://www.twilio.com/docs/segment/connections/sources/catalog/libraries/website/javascript/quickstart
+
+        // define the key where the global analytics object will be accessible
+        // customers can safely set this to be something else if need be
+        var globalAnalyticsKey = "analytics"
+
+        // Create a queue, but don't obliterate an existing one!
+        var analytics = window[globalAnalyticsKey] = window[globalAnalyticsKey] || [];
+
+        // If the real analytics.js is already on the page return.
+        if (analytics.initialize) return;
+
+        // If the snippet was invoked already show an error.
+        if (analytics.invoked) {
+            if (window.console && console.error) {
+                console.error("Segment snippet included twice.");
+            }
+            return;
+        }
+
+        // Invoked flag, to make sure the snippet
+        // is never invoked twice.
+        analytics.invoked = true;
+
+        // A list of the methods in Analytics.js to stub.
+        analytics.methods = [
+            "trackSubmit",
+            "trackClick",
+            "trackLink",
+            "trackForm",
+            "pageview",
+            "identify",
+            "reset",
+            "group",
+            "track",
+            "ready",
+            "alias",
+            "debug",
+            "page",
+            "screen",
+            "once",
+            "off",
+            "on",
+            "addSourceMiddleware",
+            "addIntegrationMiddleware",
+            "setAnonymousId",
+            "addDestinationMiddleware",
+            "register"
+        ];
+
+        // Define a factory to create stubs. These are placeholders
+        // for methods in Analytics.js so that you never have to wait
+        // for it to load to actually record data. The `method` is
+        // stored as the first argument, so we can replay the data.
+        analytics.factory = function(e) {
+            return function() {
+                if (window[globalAnalyticsKey].initialized) {
+                    // Sometimes users assigned analytics to a variable before analytics is done loading, resulting in a stale reference.
+                    // If so, proxy any calls to the 'real' analytics instance.
+                    return window[globalAnalyticsKey][e].apply(window[globalAnalyticsKey], arguments);
+                }
+                var args = Array.prototype.slice.call(arguments);
+
+                // Add buffered page context object so page information is always up-to-date
+                if (["track", "screen", "alias", "group", "page", "identify"].indexOf(e) > -1) {
+                    var c = document.querySelector("link[rel='canonical']");
+                    args.push({
+                    __t: "bpc",
+                    c: c && c.getAttribute("href") || undefined,
+                    p: location.pathname,
+                    u: location.href,
+                    s: location.search,
+                    t: document.title,
+                    r: document.referrer
+                    });
+                }
+
+                args.unshift(e);
+                analytics.push(args);
+                return analytics;
+            };
+        };
+
+
+        // For each of our methods, generate a queueing stub.
+        for (var i = 0; i < analytics.methods.length; i++) {
+            var key = analytics.methods[i];
+            analytics[key] = analytics.factory(key);
+        }
+
+        // Define a method to load Analytics.js from our CDN,
+        // and that will be sure to only ever load it once.
+        analytics.load = function(key, options) {
+            // Create an async script element based on your key.
+            var t = document.createElement("script");
+            t.type = "text/javascript";
+            t.async = true;
+            t.setAttribute("data-global-segment-analytics-key", globalAnalyticsKey)
+            t.src = "https://evs.t.speak.com/analytics.js/v1/" + key + "/analytics.min.js";
+
+            // Insert our script next to the first script element.
+            var first = document.getElementsByTagName("script")[0];
+            first.parentNode.insertBefore(t, first);
+            analytics._loadOptions = options;
+        };
+        analytics._writeKey = segmentId;
+        analytics._cdn = "https://evs.t.speak.com";
+
+
+
+        // Add a version to keep track of what's in the wild.
+        analytics.SNIPPET_VERSION = "5.2.1";
+
+        // END of the Segment snippet block. load() and page() calls have been moved outside and customized.
+
+        return analytics;
+    }
+
+    // Dynamically load both Kakao scripts and initialize after both are ready
+    function initKakao(kakaoId, kakaoPixelId) {
+        const KAKAO_SDK_URL = 'https://t1.kakaocdn.net/kakao_js_sdk/v1/kakao.min.js';
+        const KAKAO_PIXEL_URL = 'https://t1.daumcdn.net/adfit/static/kp.js';
+
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = src;
+                script.async = true;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        // Load both scripts in parallel, then initialize
+        Promise.all([
+            loadScript(KAKAO_SDK_URL),
+            loadScript(KAKAO_PIXEL_URL)
+        ])
+        .then(() => {
+            // Both scripts loaded - safe to initialize
+            if (typeof Kakao !== 'undefined' && !Kakao.isInitialized()) {
+                Kakao.init(kakaoId);
+                console.log('Kakao SDK initialized');
+            }
+            if (typeof kakaoPixel === 'function') {
+                kakaoPixel(kakaoPixelId).pageView();
+                console.log('Kakao Pixel pageView sent');
+            }
+        })
+        .catch((err) => {
+            console.warn('Failed to load Kakao scripts:', err);
+        });
+    }
+
+    function initAnalytics(segmentId, kakaoId, kakaoPixelId) {
+        // Intentionally global for backwards compatibility with the rest of the code.
+        analytics = installSegmentSnippet(segmentId);
+
+        if (!analytics) {
+            return
+        }
+
+        // Custom middleware stays outside the snippet so updates are easy.
+        addSegmentSourceMiddleware(analytics);
+
+        // Cookie domain configuration.
+        // The load/page calls live here so we can pass cookie options.
+        const cookieDomain = '.' + document.location.hostname.replace(/^(?:https?:\/\/)?(?:[^\/]+\.)?([^.\/]+\.[^.\/]+).*$/, "$1");
+        analytics.load(segmentId, {
+            cookie: {
+                domain: cookieDomain
+            }
+        });
+        analytics.page();
+
+        // When Segment is ready, init FB Pixel and Amplitude Session Replay.
+        analytics.ready(() => {
+            initFbPixel();
+
+            // Init session replay with anonymousId as deviceId (fire-and-forget)
+            try {
+                var user = analytics.user();
+                var anonymousId = user && user.anonymousId && user.anonymousId();
+                if (anonymousId && window.initSessionReplay) {
+                    window.initSessionReplay(anonymousId);
+                }
+            } catch (e) {
+                // Silently ignore - session replay is non-critical
+            }
+        });
+    }
+
+    if (isProd) {
+        initAnalytics("cnb8gKwyLx3YBme9usIPx0VvXHXEhZFI");
+        initKakao(
+            "2d6260d7ee28cec350ad50a62a726d3e",
+            "208597432233381347"
+        );
+    } else {
+        initAnalytics("LPeR1g0jVdAe5FTJZ0cFIVTNZHLpwJoP");
+        initKakao(
+            "f62e8c33d755ee37e6571d386fc43873",
+            "8239936643395699044"
+        );
+    }
+</script>
+
+<script>
+  (function () {
+    const STATSIG_SIDECAR_URL =
+      "https://cdn.jsdelivr.net/npm/statsig-sidecar/dist/index.min.js?apikey=client-y6tBYCaqW1Ny2vkzyP5Y8cr2nhO4HgKk2YFxQ2YC7y8";
+
+    const SIDECAR_MAX_RETRIES = 50; // ~10s with 200ms interval
+    const SIDECAR_RETRY_DELAY = 200;
+
+    function loadStatsigSidecarScriptOnce() {
+      if (window.__statsigSidecar__ || window.__statsigSidecarLoading) {
+        console.log("[Sidecar] Script already loaded or loading, skipping");
+        return;
+      }
+
+      window.__statsigSidecarLoading = true;
+
+      const script = document.createElement("script");
+      script.src = STATSIG_SIDECAR_URL;
+      script.async = true;
+
+      script.onload = function () {
+        console.log("[Sidecar] Statsig Sidecar script loaded");
+      };
+
+      script.onerror = function (err) {
+        console.error("[Sidecar] Failed to load Statsig Sidecar script", err);
+        window.__statsigSidecarLoading = false;
+      };
+
+      document.head.appendChild(script);
+    }
+
+    function initStatsigSidecarWithRetry() {
+      let attempts = 0;
+
+      function tryInit() {
+        const analytics = window.analytics;
+
+        if (!analytics || typeof analytics.user !== "function") {
+          attempts++;
+          if (attempts > SIDECAR_MAX_RETRIES) {
+            console.warn("[Sidecar] analytics/user not available, giving up");
+            return;
+          }
+          return setTimeout(tryInit, SIDECAR_RETRY_DELAY);
+        }
+
+        let user;
+        try {
+          user = analytics.user();
+        } catch (e) {
+          attempts++;
+          console.warn("[Sidecar] Error getting analytics.user()", e);
+          if (attempts > SIDECAR_MAX_RETRIES) return;
+          return setTimeout(tryInit, SIDECAR_RETRY_DELAY);
+        }
+
+        if (!user || typeof user.anonymousId !== "function") {
+          attempts++;
+          if (attempts > SIDECAR_MAX_RETRIES) {
+            console.warn("[Sidecar] user.anonymousId() not available, giving up");
+            return;
+          }
+          return setTimeout(tryInit, SIDECAR_RETRY_DELAY);
+        }
+
+        const anonId = user.anonymousId && user.anonymousId();
+        if (!anonId) {
+          attempts++;
+          if (attempts > SIDECAR_MAX_RETRIES) {
+            console.warn("[Sidecar] anonymousId is empty, giving up");
+            return;
+          }
+          return setTimeout(tryInit, SIDECAR_RETRY_DELAY);
+        }
+
+        console.log("[Sidecar] Analytics ready with anonymousId:", anonId);
+
+        // 1) Set Statsig user
+        window.statsigUser = {
+          customIDs: {
+            stableID: anonId,
+          },
+        };
+
+        // 2) Load Sidecar
+        loadStatsigSidecarScriptOnce();
+      }
+
+      tryInit();
+    }
+
+    function hookIntoAnalyticsReady() {
+      const analytics = window.analytics;
+
+      if (!analytics || typeof analytics.ready !== "function") {
+        // Fallback: poll until analytics.ready exists, then hook
+        let readyAttempts = 0;
+        const maxReadyAttempts = 50;
+        const interval = setInterval(() => {
+          const a = window.analytics;
+          if (a && typeof a.ready === "function") {
+            clearInterval(interval);
+            console.log("[Sidecar] Hooking into analytics.ready (late)");
+            a.ready(function () {
+              console.log("[Sidecar] analytics.ready fired");
+              initStatsigSidecarWithRetry();
+            });
+          } else if (++readyAttempts > maxReadyAttempts) {
+            clearInterval(interval);
+            console.warn("[Sidecar] analytics.ready not found, starting direct retry");
+            initStatsigSidecarWithRetry();
+          }
+        }, 200);
+        return;
+      }
+
+      // Normal path: analytics.ready is available now
+      console.log("[Sidecar] Hooking into analytics.ready");
+      analytics.ready(function () {
+        console.log("[Sidecar] analytics.ready fired");
+        initStatsigSidecarWithRetry();
+      });
+    }
+
+    // Start the whole flow as soon as possible
+    if (document.readyState === "complete" || document.readyState === "interactive") {
+      hookIntoAnalyticsReady();
+    } else {
+      document.addEventListener("DOMContentLoaded", hookIntoAnalyticsReady);
+    }
+  })();
+</script>
+
+<style>
+
+
+    a[data-hs-anchor="true"] {
+        display: block;
+        position: relative;
+        visibility: hidden;
+        top: -152px;
+    }
+</style>
+
+
+<script src="//cdn.split.io/sdk/split-10.22.5.min.js"></script>
+<script>
+    analytics.ready(function () {
+        // Function to extract country code
+        function getCountryCode(url) {
+            if (url.includes("/ko")) return "ko";
+            if (url.includes("/jp")) return "jp";
+            if (url.includes("/tw")) return "tw";
+            return null;
+        }
+
+        // Configuration setup (isProd is defined globally in the first script block)
+        var countryCode = getCountryCode(document.location.href);
+        var segmentId = analytics.user().anonymousId();
+        var page = window.location.hostname + window.location.pathname
+        // Replace PROD_KEY and DEV_KEY with actual keys
+        var authorizationKey = isProd
+        ? "98h548ko77kttn08b59ljjdfs7cleqp0cls2"
+        : "kfjg107eusjq0k70h5ug32elbm9j4n809s6c";
+        function logImpression(impressionData) {
+            analytics.track(
+            "experimentImpression",
+            {
+                split: impressionData.impression.feature,
+                treatment: impressionData.impression.treatment,
+                keyName: impressionData.impression.keyName,
+                path: page,
+                appliedRule: impressionData.impression.label,
+                changeNumber: impressionData.impression.changeNumber
+            },
+            );
+        }
+
+
+        // Initialize Split instance
+        var factory = splitio({
+            core: {
+                authorizationKey: authorizationKey,
+                key: segmentId,
+            },
+            impressionListener: {
+                logImpression: logImpression
+            },
+            debug: true,
+        });
+
+        // Create client instance
+        var client = factory.client();
+
+        client.on(client.Event.SDK_READY, function () {
+            handleFeatureFlagsGlobal(client);
+            // Handle feature flags for Korea and Japan
+            if (countryCode === "ko") {
+                // Process feature flags for Korean users
+                handleFeatureFlagsForKorea(client);
+            } else if (countryCode === "jp") {
+                handleFeatureFlagsForJapan(client);
+                // Process feature flags for Japanese users
+            } else if (countryCode === "tw") {
+                handleFeatureFlagsForTaiwan(client);
+                // Process feature flags for Taiwanese users
+            }
+        });
+    });
+
+    // Function to handle feature flags globally
+    function handleFeatureFlagsGlobal(client) {
+        console.log('INSIDE HANDLE FEATURE FLAGS GLOBAL');
+    }
+
+    // Function to handle feature flags for Korean users
+    function handleFeatureFlagsForKorea(client) {
+        // Logic for Korean user feature flags
+        // Process the first feature flag 'kr_web_onboarding_experiment'
+		// --- 1) KR Premium Installment Price Increase (23challenge) ---
+  (function () {
+    const path = window.location.pathname;
+
+    // Only run on this page
+    if (path !== "/ko/event/23challenge/home" && path !== "/ko/event/23challenge/home/") {
+      return;
+    }
+
+    let treatment = "off";
+    try {
+      const result = client.getTreatmentWithConfig("kr_web_premium_installment_price_increase") || {};
+      treatment = result.treatment || "off";
+    } catch (e) {
+      console.warn("kr_web_premium_installment_price_increase: error getting treatment", e);
+      return;
+    }
+
+    const priceEl        = document.getElementById("experiment-premium-installment-discounted-price");
+    const ctaEl          = document.getElementById("experiment-premium-installment-link");
+    const discountRateEl = document.getElementById("experiment-premium-installment-discount-rate");
+    const compGraph      = document.getElementById("experiment-premium-installment-comparison-graph");
+    const page           = window.location.hostname + path;
+
+    if (treatment === "on") {
+      console.log("KR premium installment experiment: TREATMENT (18,000원 / 33% OFF)");
+
+      // 1) 10,750원 → 18,000원
+      if (priceEl) {
+        priceEl.textContent = "18,000원";
+      }
+
+      // 2) CTA href: annual-installment → annual-price-table-installment
+      if (ctaEl) {
+        ctaEl.href = "https://app.speak.com/kr-ko/order/annual-price-table-installment";
+        ctaEl.setAttribute("data-property-experiment", "kr_web_premium_installment_price_increase");
+        ctaEl.setAttribute("data-property-treatment", "on");
+      }
+
+      // 3) 60% OFF → 33% OFF
+      if (discountRateEl) {
+        discountRateEl.innerHTML = "33%<br>OFF";
+      }
+
+      // 4) Comparison Graph: Update from 10,750원 → 18,000원
+      window.addEventListener("load", () => {
+        const compGraph = document.getElementById("experiment-premium-installment-comparison-graph");
+        if (!compGraph) return;
+
+        compGraph.removeAttribute("srcset");
+        compGraph.removeAttribute("sizes");
+        compGraph.src = "https://cdn.prod.website-files.com/61a88c135006e8345b005efd/6933c44cd26b124dbf155097_b20-test.webp";
+        });
+    } else {
+      console.log("KR premium installment experiment: CONTROL (10,750원 / 60% OFF)");
+
+      // Control values are in the HTML already; just tag the CTA for analytics.
+      if (ctaEl) {
+        ctaEl.setAttribute("data-property-experiment", "kr_web_premium_installment_price_increase");
+        ctaEl.setAttribute("data-property-treatment", "off");
+      }
+    }
+
+    // View-level analytics
+    if (window.analytics && typeof analytics.track === "function") {
+      analytics.track("KR Premium Installment Price Increase View", {
+        experiment: "kr_web_premium_installment_price_increase",
+        treatment: treatment,
+        path: page
+      });
+    }
+  })();
+
+        const href = window.location.href;
+        const { pathname, search, hash } = window.location;
+
+        // Experiment scope
+        const paths = ["/ko/event/25sep-t1promo"];
+        const matchedPath = paths.find(p => href.includes(p));
+        if (!matchedPath) return;
+
+        // Helper: exact match for ".../home" (allow trailing slash)
+        const isHome = (p) => pathname === `${p}/home` || pathname === `${p}/home/`;
+
+        // Prevent redirect loops if already on target
+        const isAtPricing = (p) =>
+        pathname === `${p}/home-pricing` || pathname === `${p}/home-pricing/`;
+        const isAtKv = (p) =>
+        pathname === `${p}/home-kv` || pathname === `${p}/home-kv/`;
+
+        // Get treatment safely
+        let treatment = "a";
+        let config = null;
+        try {
+            const res = client.getTreatmentWithConfig("kr_25Q3_t1promo") || {};
+            treatment = res.treatment || "a";
+            if (res.config) config = JSON.parse(res.config);
+        } catch (e) {
+            console.warn("kr_25Q3_t1promo: error retrieving/parsing config", e);
+        }
+
+        // Only act on the exact home route within this experiment scope
+        if (!isHome(matchedPath)) return;
+
+        if (treatment === "b") {
+            if (!isAtPricing(matchedPath)) {
+                // preserve query + hash; use replace so Back works naturally
+                location.replace(`${matchedPath}/home-pricing${search}${hash}`);
+                return;
+            }
+        } else if (treatment === "c") {
+            if (!isAtKv(matchedPath)) {
+                location.replace(`${matchedPath}/home-kv${search}${hash}`);
+                return;
+            }
+        } else {
+            // control ("a") – no redirect
+        }
+
+        // Process the second feature flag 'kr_web_onboarding_experiment'
+        const paths2 = [
+        "deprecated",
+        ];
+
+        if (paths2.some(path2 => document.location.href.includes(path2))) {
+
+            var treatmentResult2 = client.getTreatmentWithConfig(
+            "kr_24Q2_web_price-test_monthly",
+            );
+            var configs2 = treatmentResult2.config
+            ? JSON.parse(treatmentResult2.config)
+            : null;
+            var treatment2 = treatmentResult2.treatment;
+
+            // Logic for the second feature flag
+            if (treatment2 === "on") {
+                // Logic for 'on' state
+                // Add code here to execute when the state is 'on'.
+
+                document.getElementById("price-table-treatment").style.display = "block"
+                document.getElementById("price-table-control").style.display="none"
+            } else if (treatment2 === "off") {
+
+                // Logic for 'off' state
+                // Add code here to execute when the state is 'off'.
+
+
+
+            };
+        };
+        // End of the second feature flag
+
+
+        // Process the second feature flag 'kr_web_showlogin_experiment'
+        if (document.location.href.includes("deprecated3")) {
+            var treatmentResult3 = client.getTreatmentWithConfig(
+            "kr_web_showlogin_experiment",
+            );
+            var configs3 = treatmentResult3.config
+            ? JSON.parse(treatmentResult3.config)
+            : null;
+            var treatment3 = treatmentResult3.treatment;
+
+            // Logic for the second feature flag
+            if (treatment3 === "on") {
+                // Logic for 'on' state
+                console.log("kr_web_showlogin_experiment is on");
+
+                // Add code here to execute when the state is 'on'.
+
+
+            } else if (treatment3 === "off") {
+                // Logic for 'off' state
+                console.log("kr_web_showlogin_experiment is off");
+
+                // Add code here to execute when the state is 'off'.
+
+            };
+        };
+        // End of the third feature flag 'kr_web_showlogin_experiment'
+
+        // Korea influencer popup experiment
+        var pageUrl = document.location.href;
+        if (pageUrl.includes("/ko/event/influencer/secret")) {
+            console.log("Korea influencer popup experiment: On experiment page - checking utm_campaign");
+
+            // Check for utm_campaign parameter before running experiment
+            var krUrlParams = new URLSearchParams(window.location.search);
+            var utmCampaign = krUrlParams.get('utm_campaign');
+
+            if (!utmCampaign) {
+                console.log("Korea influencer popup experiment: No utm_campaign found on experiment page - skipping experiment");
+
+                // Notify popup code that experiment is off due to no utm_campaign
+                if (window.setKrPopupExperimentResult) {
+                    window.setKrPopupExperimentResult('off');
+                }
+                window.krPopupExperimentResult = 'off';
+                document.dispatchEvent(new CustomEvent('krPopupExperimentResult', { detail: 'off' }));
+                return;
+            }
+
+            console.log("Korea influencer popup experiment: utm_campaign found:", utmCampaign, "- running experiment");
+
+            var krInfluencerPopupTreatmentResult = client.getTreatmentWithConfig("kr_web_influencer_popup");
+            var krInfluencerPopupTreatment = krInfluencerPopupTreatmentResult.treatment;
+
+            // Store the result globally and notify popup code
+            window.krPopupExperimentResult = krInfluencerPopupTreatment;
+            if (window.setKrPopupExperimentResult) {
+                window.setKrPopupExperimentResult(krInfluencerPopupTreatment);
+            }
+            document.dispatchEvent(new CustomEvent('krPopupExperimentResult', { detail: krInfluencerPopupTreatment }));
+
+            if (krInfluencerPopupTreatment === "on") {
+                // Treatment: do nothing (keep popups visible)
+                console.log("Korea influencer popup experiment: Treatment (on) - keeping popups visible");
+
+                // Track the experiment view
+                analytics.track("Korea Influencer Popup Experiment View", {
+                    experiment: "kr_web_influencer_popup",
+                    treatment: "on",
+                    path: pageUrl,
+                    utm_campaign: utmCampaign
+                });
+            } else {
+                // Control: hide popup elements
+                console.log("Korea influencer popup experiment: Control (off) - hiding popups");
+
+                // Set a flag to prevent popup creation
+                window.krPopupShouldNotCreate = true;
+
+                // Hide .popup-overlay if it exists
+                var popupOverlay = document.querySelector(".popup-overlay");
+                if (popupOverlay) {
+                    popupOverlay.style.setProperty("display", "none", "important");
+                }
+
+                // Hide [id="offerPopup"] if it exists
+                var offerPopup = document.querySelector('[id="offerPopup"]');
+                if (offerPopup) {
+                    offerPopup.style.setProperty("display", "none", "important");
+                }
+
+                // Track the experiment view
+                analytics.track("Korea Influencer Popup Experiment View", {
+                    experiment: "kr_web_influencer_popup",
+                    treatment: "off",
+                    path: pageUrl,
+                    utm_campaign: utmCampaign
+                });
+            }
+        } else {
+            // Not on experiment page - notify popup code that experiment is off
+            console.log("Korea influencer popup experiment: Not on experiment page (/ko/event/influencer/secret) - skipping experiment");
+            console.log("Current path:", pageUrl);
+
+            if (window.setKrPopupExperimentResult) {
+                window.setKrPopupExperimentResult('off');
+            }
+            window.krPopupExperimentResult = 'off';
+            document.dispatchEvent(new CustomEvent('krPopupExperimentResult', { detail: 'off' }));
+        }
+
+        // End of Korean user feature flags
+    };
+
+
+    // JP Experiments
+    function handleFeatureFlagsForJapan(client) {
+        var pageUrl = document.location.href;
+        //  discount with vs without trial
+
+        if (pageUrl.includes("/jp/influencer-ab")) {
+            var discountTrialTreatmentResult = client.getTreatmentWithConfig("jp_web_discount_with_vs_without_trial");
+            var discountTrialTreatment = discountTrialTreatmentResult.treatment;
+
+            // Get all CTAs with the feature flag class
+            var ctaButtons = document.querySelectorAll(".jp_web_discount_with_vs_without_trial");
+
+            // Get the H1 elements
+            var controlH1 = document.querySelector(".jp_web_discount_with_vs_without_trial_control");
+            var treatmentH1 = document.querySelector(".jp_web_discount_with_vs_without_trial_treatment");
+
+            if (discountTrialTreatment === "on") {
+                // Treatment group: Change button text, links, and show treatment H1
+                console.log("Treatment: Showing with trial version");
+
+                // Update all CTA buttons
+                ctaButtons.forEach(button => {
+                    button.textContent = "無料体験を始める";
+                    button.href = "https://app.speak.com/jp-ja/try?sale=jp-influencer-5000";
+                });
+
+                // Show treatment H1, hide control H1
+                if (treatmentH1) treatmentH1.style.display = "block";
+                if (controlH1) controlH1.style.display = "none";
+
+                // Track the experiment view
+                analytics.track("Discount Trial Experiment View", {
+                    experiment: "jp_web_discount_with_vs_without_trial",
+                    treatment: "on",
+                    path: pageUrl
+                });
+            } else {
+                // Control group: Keep original button text, links, and show control H1
+                console.log("Control: Showing without trial version");
+
+                // Show control H1, hide treatment H1
+                if (controlH1) controlH1.style.display = "block";
+                if (treatmentH1) treatmentH1.style.display = "none";
+
+                // Track the experiment view
+                analytics.track("Discount Trial Experiment View", {
+                    experiment: "jp_web_discount_with_vs_without_trial",
+                    treatment: "off",
+                    path: pageUrl
+                });
+            }
+        }
+
+        // Japan influencer popup experiment
+        if (pageUrl.includes("/jp/influencer/home")) {
+            console.log("Japan influencer popup experiment: On experiment page - checking utm_campaign");
+
+            // Check if we're on pages that could show the influencer popup
+            var jpUrlParams = new URLSearchParams(window.location.search);
+            var jpUtmCampaign = jpUrlParams.get('utm_campaign');
+
+            // Only run experiment if there's a utm_campaign parameter
+            if (jpUtmCampaign) {
+                console.log("Japan influencer popup experiment: utm_campaign found:", jpUtmCampaign, "- running experiment");
+
+                var jpInfluencerPopupTreatmentResult = client.getTreatmentWithConfig("jp_web_influencer_popup");
+                var jpInfluencerPopupTreatment = jpInfluencerPopupTreatmentResult.treatment;
+
+                // Store the result globally and notify popup code
+                window.jpPopupExperimentResult = jpInfluencerPopupTreatment;
+                if (window.setJpPopupExperimentResult) {
+                    window.setJpPopupExperimentResult(jpInfluencerPopupTreatment);
+                }
+                document.dispatchEvent(new CustomEvent('jpPopupExperimentResult', { detail: jpInfluencerPopupTreatment }));
+
+                if (jpInfluencerPopupTreatment === "on") {
+                    // Treatment: do nothing (keep popups visible)
+                    console.log("Japan influencer popup experiment: Treatment (on) - keeping popups visible");
+
+                    // Track the experiment view
+                    analytics.track("Japan Influencer Popup Experiment View", {
+                        experiment: "jp_web_influencer_popup",
+                        treatment: "on",
+                        path: pageUrl,
+                        utm_campaign: jpUtmCampaign
+                    });
+                } else {
+                    // Control: hide popup elements
+                    console.log("Japan influencer popup experiment: Control (off) - hiding popups");
+
+                    // Set a flag to prevent popup creation
+                    window.jpPopupShouldNotCreate = true;
+
+                    // Hide .popup-overlay if it exists
+                    var popupOverlay = document.querySelector(".popup-overlay");
+                    if (popupOverlay) {
+                        popupOverlay.style.setProperty("display", "none", "important");
+                    }
+
+                    // Hide [id="offerPopup"] if it exists
+                    var offerPopup = document.querySelector('[id="offerPopup"]');
+                    if (offerPopup) {
+                        offerPopup.style.setProperty("display", "none", "important");
+                    }
+
+                    // Track the experiment view
+                    analytics.track("Japan Influencer Popup Experiment View", {
+                        experiment: "jp_web_influencer_popup",
+                        treatment: "off",
+                        path: pageUrl,
+                        utm_campaign: jpUtmCampaign
+                    });
+                }
+            } else {
+                // No utm_campaign found - notify popup code that experiment is off
+                console.log("Japan influencer popup experiment: No utm_campaign found on experiment page - skipping experiment");
+
+                if (window.setJpPopupExperimentResult) {
+                    window.setJpPopupExperimentResult('off');
+                }
+                window.jpPopupExperimentResult = 'off';
+                document.dispatchEvent(new CustomEvent('jpPopupExperimentResult', { detail: 'off' }));
+            }
+        } else {
+            // Not on experiment page - notify popup code that experiment is off
+            console.log("Japan influencer popup experiment: Not on experiment page (/jp/influencer/home) - skipping experiment");
+            console.log("Current path:", pageUrl);
+
+            if (window.setJpPopupExperimentResult) {
+                window.setJpPopupExperimentResult('off');
+            }
+            window.jpPopupExperimentResult = 'off';
+            document.dispatchEvent(new CustomEvent('jpPopupExperimentResult', { detail: 'off' }));
+        }
+
+    }
+
+
+
+    // TW Experiments
+    function handleFeatureFlagsForTaiwan(client) {
+        var pageUrl = document.location.href;
+
+    }
+
+</script>
+
+<script>
+    if (document.location.href.includes("/ko/event") && !/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+        $(document).ready(function () {
+            $('#acceptButton').on('click', function () {
+                $('#myModal').on('hidden.bs.modal', function () {
+                    $('html, body').animate({
+                        scrollTop: $('#pricing-table').offset().top
+                    }, 1000); // 1000 milliseconds (1 second) for smooth scroll
+                });
+            });
+
+            var popupShown = localStorage.getItem('popupShown') || getCookie('popupShown');
+
+            function setCookie(name, value, days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var ca = document.cookie.split(';');
+                for (var i = 0; i < ca.length; i++) {
+                    var c = ca[i];
+                    while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
+            function activatePopup() {
+                $('#myModal').modal('show');
+                localStorage.setItem('popupShown', 'true');
+                setCookie('popupShown', 'true', 1);
+                // Remove event listeners to prevent popup from showing again
+                $(document).off('mouseout');
+                $(document).off('scroll');
+                analytics.track("Exit Intent Popup Viewed", {
+                    path: window.location.hostname + window.location.pathname
+                });
+            }
+
+            setTimeout(function () {
+                if (!popupShown) {
+                    $(document).on('mouseout', function (e) {
+                        if (e.clientY < 10) {  // Mouse out at the top of the browser window
+                            activatePopup();
+                        }
+                    });
+                }
+            }, 20000);  // Delay the activation of popup logic for 20 seconds after page load
+        });
+    }
+</script>
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/variable/pretendardvariable-jp-dynamic-subset.css" /><script type="text/javascript">window.__WEBFLOW_CURRENCY_SETTINGS = {"currencyCode":"USD","symbol":"$","decimal":".","fractionDigits":2,"group":",","template":"{{wf {\"path\":\"symbol\",\"type\":\"PlainText\"} }} {{wf {\"path\":\"amount\",\"type\":\"CommercePrice\"} }} {{wf {\"path\":\"currencyCode\",\"type\":\"PlainText\"} }}","hideDecimalForWholeNumbers":false};</script></head><body><div class="default_section"><div class="default_container background_white"><div class="title_div align_center"><div class="text_header_title text_black letter_spacing_-0-5">We can&#x27;t seem to find the page you&#x27;re looking for.<br/>Please check the URL and try again or feel free to contact us for assistance.</div></div></div></div><script src="https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=61a88c135006e8345b005efd" type="text/javascript" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/61a88c135006e8345b005efd/js/speak-website-af1d24.schunk.e0c428ff9737f919.js" type="text/javascript" integrity="sha384-ar82P9eriV3WGOD8Lkag3kPxxkFE9GSaSPalaC0MRlR/5aACGoFQNfyqt0dNuYvt" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/61a88c135006e8345b005efd/js/speak-website-af1d24.schunk.a720bfb4f509d207.js" type="text/javascript" integrity="sha384-BXw5miz/CsZLYeADzmELtWOPrk1XontVr8jC9g2yHwEfgDCF6eYbf9YtPH/9sXgd" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/61a88c135006e8345b005efd/js/speak-website-af1d24.b20e454d.508dbba79fb2d077.js" type="text/javascript" integrity="sha384-p0XGWHKPrVP5zshYWoEuKjpY4yjWWUh2mK24uNLIc2twF5T7xwtpp+tD7BBz7blL" crossorigin="anonymous"></script><script>
+$(document).ready(function() {
+    console.log(new Date(), 'Webflow footer, $(document).ready');
+    if (typeof kakaoPixel !== 'undefined') {
+        console.log('footer kakaoPixel:', kakaoPixel);
+    }
+
+    $('[data-analytics]').on('click', function(e) {
+        var properties
+        var event = $(this).attr('data-analytics');
+        var kakaoEvent = $(this).attr('kakao-event');
+        $.each(this.attributes, function(_, attribute) {
+            if (attribute.name.startsWith('data-property-')) {
+                if (!properties) properties = {}
+                var property = attribute.name.split('data-property-')[1]
+                properties[property] = attribute.value
+            }
+        })
+        analytics.track(event, properties);
+        if (typeof kakaoPixel === 'function' && kakaoEvent) {
+            var kakaoPixelId = isProd ? '208597432233381347' : '8239936643395699044';
+            kakaoPixel(kakaoPixelId)[kakaoEvent]();
+        }
+    })
+});
+</script>
+
+
+<script>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      window.dispatchEvent(new Event("resize"));
+
+      if (typeof setupInfiniteComments === "function") {
+        setupInfiniteComments();
+      }
+    }, 100);
+  });
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const currentYear = new Date().getFullYear();
+
+  document.querySelectorAll(".footer-fineprint").forEach(el => {
+    const text = el.textContent;
+    const normalizedText = text.toLowerCase();
+
+    if (
+      normalizedText.includes("© 2025") &&
+      normalizedText.includes("speakeasy labs")
+    ) {
+      el.textContent = text.replace("© 2025", `© ${currentYear}`);
+    }
+  });
+});
+</script>
+<script>
+var url = new URL(window.location.href);
+var langParam = url.searchParams.get("lang");
+
+var browserLanguage = window.navigator.language.toLowerCase()
+var browserPrefersKorean = ['ko', 'ko-kr', 'kr'].includes(browserLanguage)
+var browserPrefersJapanese = ['ja', 'ja-jp', 'jp'].includes(browserLanguage)
+
+// if user navigates from Korean page back to English, query param /?lang=en will be added. In this case we should not auto-redirect.
+if (browserPrefersKorean && langParam != "en") {
+    setTimeout(function(){
+    window.location.href = "/ko";
+  }, 2000);
+}
+  else if (browserPrefersJapanese && langParam != "en"){
+    setTimeout(function(){
+    window.location.href = "/jp";
+  }, 2000);
+}
+
+else {
+    setTimeout(function(){
+    window.location.href = "/";
+  }, 2000);
+}
+
+</script><script src="https://hubspotonwebflow.com/assets/js/form-124.js" type="text/javascript" integrity="sha384-bjyNIOqAKScdeQ3THsDZLGagNN56B4X2Auu9YZIGu+tA/PlggMk4jbWruG/P6zYj" crossorigin="anonymous"></script><script src="https://cdn.prod.website-files.com/61a88c135006e8345b005efd%2F6470f5217e03b0faa8a404de%2F678d651aa690c9b1fe276694%2Fhs_trackcode_43555247-1.0.6.js" type="text/javascript"></script></body></html>

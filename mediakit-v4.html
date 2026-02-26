@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>mimofrl | media kit</title>
+<meta name="description" content="Media kit for mimofrl (@mimofrl) - Content Creator & Music Producer">
+<meta property="og:title" content="mimofrl - Media Kit">
+<meta property="og:description" content="Content Creator & Music Producer with 1.3B+ views, 470K+ followers, 100M+ streams.">
+<link rel="icon" href="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg: #09080D;
+    --surface: #110F1A;
+    --surface-2: #1A1726;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-strong: rgba(255, 255, 255, 0.1);
+    --text: #EEEAF5;
+    --text-secondary: #B8B2C8;
+    --dim: #6B6580;
+    --accent: #C9A84C;
+    --accent-glow: rgba(201, 168, 76, 0.15);
+    --purple: #7C6AE8;
+    --purple-dim: rgba(124, 106, 232, 0.12);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  ::selection {
+    background: rgba(201, 168, 76, 0.25);
+    color: var(--text);
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* CRT Scanlines + Film Grain */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: repeating-linear-gradient(0deg, transparent 0px, transparent 2px, rgba(0,0,0,0.1) 2px, rgba(0,0,0,0.1) 4px);
+    opacity: 0.35;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.02;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Custom Cursor */
+  @media (pointer: fine) {
+    *, *::before, *::after { cursor: none !important; }
+  }
+
+  .cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100000;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+  }
+
+  @media (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+
+  /* Ambient Background */
+  .ambient-glow {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(124, 106, 232, 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201, 168, 76, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse 90% 40% at 50% 90%, rgba(124, 106, 232, 0.03) 0%, transparent 50%);
+  }
+
+  /* Scroll Reveal */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal-stagger.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 80ms; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 160ms; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 240ms; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 320ms; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 400ms; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > * {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* Layout */
+  .container {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  /* Section Label — Press Start 2P pixel font */
+  .section-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: var(--purple);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .section-label::before {
+    content: '\00BB';
+    color: var(--purple);
+  }
+
+  /* Accent Text Glow */
+  .accent-text {
+    color: var(--accent);
+    text-shadow: 0 0 2px var(--accent), 0 0 4px var(--accent), 0 0 8px rgba(201, 168, 76, 0.6);
+  }
+
+  .purple-text {
+    color: var(--purple);
+    text-shadow: 0 0 2px var(--purple), 0 0 4px var(--purple), 0 0 8px rgba(124, 106, 232, 0.6);
+  }
+
+  /* ═══════════════════════════════════════
+     NAV
+     ═══════════════════════════════════════ */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 20px clamp(20px, 5vw, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+
+  .nav.scrolled {
+    background: rgba(9, 8, 13, 0.8);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+  }
+
+  .nav-cta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s var(--ease-out);
+  }
+
+  .nav-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-out);
+    z-index: -1;
+  }
+
+  .nav-cta:hover { color: var(--bg); }
+  .nav-cta:hover::before { transform: scaleX(1); }
+
+  /* ═══════════════════════════════════════
+     PROFILE HEADER
+     ═══════════════════════════════════════ */
+  .profile-section {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 24px;
+  }
+
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 16px;
+    border: 2px solid rgba(201, 168, 76, 0.4);
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.15), 0 0 60px rgba(124, 106, 232, 0.08);
+  }
+
+  .profile-handle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text);
+  }
+
+  .profile-sub {
+    font-size: 0.85rem;
+    color: var(--dim);
+    margin-top: 4px;
+  }
+
+  /* ═══════════════════════════════════════
+     TOTAL FOLLOWERS
+     ═══════════════════════════════════════ */
+  .total-section {
+    text-align: center;
+    margin: 24px 0;
+    padding: 28px 24px;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .total-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), var(--purple), var(--accent), transparent);
+    opacity: 0.6;
+  }
+
+  .total-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    color: var(--purple);
+    margin-bottom: 12px;
+    text-shadow: 0 0 10px rgba(124, 106, 232, 0.4);
+  }
+
+  .total-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.8rem;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    color: var(--text);
+    margin-bottom: 20px;
+    text-shadow: 0 0 4px rgba(255,255,255,0.1);
+  }
+
+  .platform-pills {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+
+  .platform-pill {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 7px 14px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  }
+
+  .platform-pill:hover {
+    border-color: rgba(201, 168, 76, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .platform-pill svg {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION CARDS
+     ═══════════════════════════════════════ */
+  .section {
+    margin-bottom: 20px;
+  }
+
+  .section-card {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: 24px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+  }
+
+  .section-card:hover {
+    border-color: rgba(201, 168, 76, 0.15);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.2);
+  }
+
+  .section-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--purple), var(--accent), var(--purple), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .section-card:hover::before {
+    opacity: 0.5;
+  }
+
+  .section-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: var(--purple);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-shadow: 0 0 10px rgba(124, 106, 232, 0.3);
+  }
+
+  .section-title::before {
+    content: '\00BB';
+    color: var(--purple);
+  }
+
+  /* ═══════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════ */
+  .about-text {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .about-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ═══════════════════════════════════════
+     RATE CARD
+     ═══════════════════════════════════════ */
+  .rate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .rate-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 18px;
+    background: var(--surface);
+    transition: background 0.3s var(--ease-out);
+  }
+
+  .rate-item:hover {
+    background: var(--surface-2);
+  }
+
+  .rate-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text);
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+  }
+
+  .rate-desc {
+    font-size: 0.78rem;
+    color: var(--dim);
+  }
+
+  .rate-price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 4px rgba(201, 168, 76, 0.4);
+    letter-spacing: -0.02em;
+  }
+
+  /* ═══════════════════════════════════════
+     ANALYTICS
+     ═══════════════════════════════════════ */
+  .analytics-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .analytics-header svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+
+  .analytics-header .platform-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text);
+  }
+
+  .analytics-header .handle {
+    color: var(--dim);
+    font-weight: 400;
+    font-size: 0.9rem;
+  }
+
+  .analytics-header.instagram { color: #E1306C; }
+  .analytics-header.tiktok { color: #ff0050; }
+
+  .analytics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .analytics-stat {
+    text-align: center;
+    padding: 12px 8px;
+    background: rgba(255,255,255,0.015);
+    border-radius: 10px;
+    transition: background 0.3s;
+  }
+
+  .analytics-stat:hover {
+    background: rgba(255,255,255,0.03);
+  }
+
+  .analytics-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.03em;
+  }
+
+  .analytics-value.small {
+    font-size: 1.1rem;
+  }
+
+  .analytics-label {
+    font-size: 0.72rem;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-top: 2px;
+  }
+
+  /* Demographics */
+  .demo-section {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border);
+  }
+
+  .demo-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: 12px;
+  }
+
+  .demo-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .demo-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .demo-label {
+    width: 80px;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  .demo-bar {
+    flex: 1;
+    height: 6px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .demo-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--accent));
+    transition: width 1.2s var(--ease-out);
+  }
+
+  .demo-pct {
+    width: 40px;
+    text-align: right;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+  }
+
+  /* ═══════════════════════════════════════
+     TOP CONTENT SCROLL
+     ═══════════════════════════════════════ */
+  .content-scroll {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    margin: 0 -24px;
+    padding: 0 24px 10px;
+  }
+
+  .content-scroll::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .content-scroll::-webkit-scrollbar-track {
+    background: var(--surface-2);
+    border-radius: 2px;
+  }
+
+  .content-scroll::-webkit-scrollbar-thumb {
+    background: rgba(201, 168, 76, 0.3);
+    border-radius: 2px;
+  }
+
+  .content-item {
+    flex-shrink: 0;
+    width: 140px;
+  }
+
+  .content-thumb {
+    width: 140px;
+    height: 180px;
+    background: linear-gradient(135deg, var(--purple), #0d0015, var(--accent));
+    border-radius: 14px;
+    border: 1px solid var(--border-strong);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    transition: border-color 0.3s var(--ease-out), transform 0.4s var(--ease-out);
+  }
+
+  .content-thumb:hover {
+    border-color: rgba(201, 168, 76, 0.4);
+    transform: scale(1.03);
+  }
+
+  .content-views {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.02em;
+  }
+
+  .content-platform {
+    font-size: 0.72rem;
+    color: var(--dim);
+    letter-spacing: 0.04em;
+  }
+
+  /* ═══════════════════════════════════════
+     BRAND WORK
+     ═══════════════════════════════════════ */
+  .brand-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--border);
+    transition: padding-left 0.3s var(--ease-out);
+  }
+
+  .brand-item:hover {
+    padding-left: 8px;
+  }
+
+  .brand-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .brand-item:first-child {
+    padding-top: 0;
+  }
+
+  .brand-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 2px;
+    letter-spacing: -0.01em;
+  }
+
+  .brand-desc {
+    font-size: 0.78rem;
+    color: var(--dim);
+  }
+
+  .brand-stat {
+    text-align: right;
+  }
+
+  .brand-stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    color: var(--accent);
+    text-shadow: 0 0 4px rgba(201, 168, 76, 0.4);
+    letter-spacing: -0.02em;
+  }
+
+  .brand-stat-label {
+    font-size: 0.68rem;
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ═══════════════════════════════════════
+     CONTACT
+     ═══════════════════════════════════════ */
+  .contact-email {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--accent);
+    margin-bottom: 16px;
+    position: relative;
+    transition: text-shadow 0.3s;
+  }
+
+  .contact-email:hover {
+    text-shadow: 0 0 12px rgba(201, 168, 76, 0.5);
+  }
+
+  .contact-email::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s var(--ease-out);
+  }
+
+  .contact-email:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  .social-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  }
+
+  .social-link:hover {
+    border-color: rgba(201, 168, 76, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .social-link svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--dim);
+    transition: fill 0.3s;
+  }
+
+  .social-link:hover svg {
+    fill: var(--text-secondary);
+  }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 24px 0 40px;
+    border-top: 1px solid var(--border);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 8px;
+    color: var(--dim);
+    letter-spacing: 0.05em;
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION GLOW BACKGROUNDS
+     ═══════════════════════════════════════ */
+  .section-card.glow-1 {
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124, 106, 232, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201, 168, 76, 0.04) 0%, transparent 50%),
+      var(--surface);
+  }
+
+  .section-card.glow-2 {
+    background:
+      radial-gradient(ellipse 70% 50% at 80% 30%, rgba(124, 106, 232, 0.05) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 60% at 20% 70%, rgba(201, 168, 76, 0.03) 0%, transparent 50%),
+      var(--surface);
+  }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════ */
+  @media (max-width: 480px) {
+    .analytics-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .nav-cta {
+      padding: 8px 16px;
+      font-size: 0.7rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Ambient Background -->
+<div class="ambient-glow"></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">mimofrl</a>
+  <a href="mailto:mimo@priority.mg" class="nav-cta" data-magnetic>get in touch</a>
+</nav>
+
+<div class="container">
+
+  <!-- Profile Header -->
+  <div class="profile-section reveal">
+    <img class="profile-photo" src="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg" alt="mimofrl">
+    <div class="profile-handle">@mimofrl</div>
+    <div class="profile-sub">Content Creator & Music Producer</div>
+  </div>
+
+  <!-- Total Followers -->
+  <div class="total-section reveal">
+    <div class="total-label">&raquo; total followers</div>
+    <div class="total-number">473K+</div>
+    <div class="platform-pills">
+      <div class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+        247K
+      </div>
+      <div class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        104K
+      </div>
+      <div class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        98K
+      </div>
+      <div class="platform-pill">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        24K
+      </div>
+    </div>
+  </div>
+
+  <!-- About Me -->
+  <div class="section reveal">
+    <div class="section-card glow-1">
+      <div class="section-title">about me</div>
+      <div class="about-text">
+        21-year-old content creator and music producer. Creating content for award-winning clients including <strong>Speak</strong>, <strong>Imprint</strong>, <strong>Ahead</strong>, and <strong>Rise Science</strong>. My content and music have amassed <strong>1.3B+ views</strong>, <strong>470K+ followers</strong>, <strong>100M+ streams</strong>, and <strong>150K+ monthly listeners</strong>. Music featured in <strong>ESPN</strong>, <strong>Sony</strong>, the <strong>2024 Biden/Harris campaign</strong>, and many more. Studying Music Business at <strong>Berklee</strong>.
+      </div>
+    </div>
+  </div>
+
+  <!-- Rates -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="section-title">rates</div>
+      <div class="rate-list">
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">TikTok</div>
+            <div class="rate-desc">One video posted</div>
+          </div>
+          <div class="rate-price">$2,500</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Instagram Reel</div>
+            <div class="rate-desc">One reel posted</div>
+          </div>
+          <div class="rate-price">$2,000</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">YouTube Short</div>
+            <div class="rate-desc">One short posted</div>
+          </div>
+          <div class="rate-price">$1,500</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">1 IG + 1 TikTok + 1 YT Short</div>
+            <div class="rate-desc">Cross-platform bundle</div>
+          </div>
+          <div class="rate-price">$5,000</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">UGC Video</div>
+            <div class="rate-desc">Not posted to my page</div>
+          </div>
+          <div class="rate-price">$750</div>
+        </div>
+        <div class="rate-item">
+          <div>
+            <div class="rate-name">Instagram Story</div>
+            <div class="rate-desc">Story with link/mention</div>
+          </div>
+          <div class="rate-price">$300</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Instagram Analytics -->
+  <div class="section reveal">
+    <div class="section-card glow-2">
+      <div class="analytics-header instagram">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+        <span class="platform-name">Instagram</span>
+        <span class="handle">@mimofrl</span>
+      </div>
+      <div class="analytics-grid">
+        <div class="analytics-stat">
+          <div class="analytics-value">247K</div>
+          <div class="analytics-label">Followers</div>
+        </div>
+        <div class="analytics-stat">
+          <div class="analytics-value">22M+</div>
+          <div class="analytics-label">Reel Views</div>
+        </div>
+        <div class="analytics-stat">
+          <div class="analytics-value">4.2%</div>
+          <div class="analytics-label">Engagement</div>
+        </div>
+      </div>
+      <div class="analytics-grid">
+        <div class="analytics-stat">
+          <div class="analytics-value small">89K</div>
+          <div class="analytics-label">Avg Views</div>
+        </div>
+        <div class="analytics-stat">
+          <div class="analytics-value small">3.7K</div>
+          <div class="analytics-label">Avg Likes</div>
+        </div>
+        <div class="analytics-stat">
+          <div class="analytics-value small">142</div>
+          <div class="analytics-label">Avg Comments</div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <div class="demo-title">Gender</div>
+        <div class="demo-bars">
+          <div class="demo-row">
+            <div class="demo-label">Male</div>
+            <div class="demo-bar"><div class="demo-fill" data-width="68" style="width:0%"></div></div>
+            <div class="demo-pct">68%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">Female</div>
+            <div class="demo-bar"><div class="demo-fill" data-width="32" style="width:0%"></div></div>
+            <div class="demo-pct">32%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <div class="demo-title">Age</div>
+        <div class="demo-bars">
+          <div class="demo-row">
+            <div class="demo-label">18-24</div>
+            <div class="demo-bar"><div class="demo-fill" data-width="48" style="width:0%"></div></div>
+            <div class="demo-pct">48%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">25-34</div>
+            <div class="demo-bar"><div class="demo-fill" data-width="31" style="width:0%"></div></div>
+            <div class="demo-pct">31%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">13-17</div>
+            <div class="demo-bar"><div class="demo-fill" data-width="14" style="width:0%"></div></div>
+            <div class="demo-pct">14%</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <div class="demo-title">Top Countries</div>
+        <div class="demo-bars">
+          <div class="demo-row">
+            <div class="demo-label">USA</div>
+            <div class="demo-bar"><div class="demo-fill" data-width="42" style="width:0%"></div></div>
+            <div class="demo-pct">42%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">UK</div>
+            <div class="demo-bar"><div class="demo-fill" data-width="11" style="width:0%"></div></div>
+            <div class="demo-pct">11%</div>
+          </div>
+          <div class="demo-row">
+            <div class="demo-label">Germany</div>
+            <div class="demo-bar"><div class="demo-fill" data-width="7" style="width:0%"></div></div>
+            <div class="demo-pct">7%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TikTok Analytics -->
+  <div class="section reveal">
+    <div class="section-card">
+      <div class="analytics-header tiktok">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        <span class="platform-name">TikTok</span>
+        <span class="handle">@mimofrl</span>
+      </div>
+      <div class="analytics-grid">
+        <div class="analytics-stat">
+          <div class="analytics-value">104K</div>
+          <div class="analytics-label">Followers</div>
+        </div>
+        <div class="analytics-stat">
+          <div class="analytics-value">16.5M</div>
+          <div class="analytics-label">Likes</div>
+        </div>
+        <div class="analytics-stat">
+          <div class="analytics-value">5.8%</div>
+          <div class="analytics-label">Engagement</div>
+        </div>
+      </div>
+      <div class="analytics-grid">
+        <div class="analytics-stat">
+          <div class="analytics-value small">52K</div>
+          <div class="analytics-label">Avg Views</div>
+        </div>
+        <div class="analytics-stat">
+          <div class="analytics-value small">2.4K</div>
+          <div class="analytics-label">Avg Likes</div>
+        </div>
+        <div class="analytics-stat">
+          <div class="analytics-value small">89</div>
+          <div class="analytics-label">Avg Comments</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Content -->
+  <div class="section reveal">
+    <div class="section-card glow-1">
+      <div class="section-title">top content</div>
+      <div class="content-scroll">
+        <div class="content-item">
+          <div class="content-thumb" style="background: linear-gradient(135deg, #833ab4, #0d0015, #fcb045);">&#10023;</div>
+          <div class="content-views">10.2M</div>
+          <div class="content-platform">IG Reel</div>
+        </div>
+        <div class="content-item">
+          <div class="content-thumb" style="background: linear-gradient(135deg, #7C6AE8, #110F1A, #C9A84C);">&#10023;</div>
+          <div class="content-views">6.5M</div>
+          <div class="content-platform">IG Reel</div>
+        </div>
+        <div class="content-item">
+          <div class="content-thumb" style="background: linear-gradient(135deg, #E1306C, #0d0015, #7C6AE8);">&#10023;</div>
+          <div class="content-views">5.9M</div>
+          <div class="content-platform">IG Reel</div>
+        </div>
+        <div class="content-item">
+          <div class="content-thumb" style="background: linear-gradient(135deg, #ff0050, #1a0a30, #C9A84C);">&#9834;</div>
+          <div class="content-views">3.9M</div>
+          <div class="content-platform">TikTok</div>
+        </div>
+        <div class="content-item">
+          <div class="content-thumb" style="background: linear-gradient(135deg, #ff0050, #0d0015, #9b59b6);">&#9834;</div>
+          <div class="content-views">2.7M</div>
+          <div class="content-platform">TikTok</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Work -->
+  <div class="section reveal">
+    <div class="section-card glow-2">
+      <div class="section-title">brand work</div>
+      <div class="brand-item">
+        <div>
+          <div class="brand-name">Imprint App</div>
+          <div class="brand-desc">UGC &middot; Google App of the Year 2023</div>
+        </div>
+        <div class="brand-stat">
+          <div class="brand-stat-value">3M+</div>
+          <div class="brand-stat-label">views</div>
+        </div>
+      </div>
+      <div class="brand-item">
+        <div>
+          <div class="brand-name">Speak App</div>
+          <div class="brand-desc">15+ winning ad creatives</div>
+        </div>
+        <div class="brand-stat">
+          <div class="brand-stat-value">$60K+</div>
+          <div class="brand-stat-label">ad spend</div>
+        </div>
+      </div>
+      <div class="brand-item">
+        <div>
+          <div class="brand-name">Rise Science</div>
+          <div class="brand-desc">Organic content @wizzzler23</div>
+        </div>
+        <div class="brand-stat">
+          <div class="brand-stat-value">315K</div>
+          <div class="brand-stat-label">views</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contact -->
+  <div class="section reveal">
+    <div class="section-card" style="text-align: center; padding: 40px 24px;">
+      <div class="section-title" style="justify-content: center;">let's work</div>
+      <a class="contact-email" href="mailto:mimo@priority.mg">mimo@priority.mg</a>
+      <div class="social-links" style="justify-content: center;">
+        <a class="social-link" href="https://instagram.com/mimofrl" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </a>
+        <a class="social-link" href="https://tiktok.com/@mimofrl" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </a>
+        <a class="social-link" href="https://youtube.com/@mimofrl" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">mimofrl &middot; media kit 2026</div>
+
+</div>
+
+<script>
+  // Custom Cursor
+  (function() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+    var dot = document.getElementById('cursorDot');
+    var ring = document.getElementById('cursorRing');
+    var mouseX = 0, mouseY = 0;
+    var dotX = 0, dotY = 0;
+    var ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', function(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      dotX += (mouseX - dotX) * 0.2;
+      dotY += (mouseY - dotY) * 0.2;
+      dot.style.left = dotX + 'px';
+      dot.style.top = dotY + 'px';
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  // Magnetic Buttons
+  document.querySelectorAll('[data-magnetic]').forEach(function(btn) {
+    btn.addEventListener('mousemove', function(e) {
+      var rect = btn.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width / 2;
+      var y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = 'translate(' + (x * 0.3) + 'px, ' + (y * 0.3) + 'px)';
+    });
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = 'translate(0, 0)';
+      btn.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+      setTimeout(function() { btn.style.transition = ''; }, 400);
+    });
+  });
+
+  // Scroll Reveal
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // Animated demo bars
+    var barObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var fills = entry.target.querySelectorAll('.demo-fill[data-width]');
+          fills.forEach(function(fill, i) {
+            setTimeout(function() {
+              fill.style.width = fill.dataset.width + '%';
+            }, i * 120);
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.section-card').forEach(function(card) {
+      if (card.querySelector('.demo-fill[data-width]')) {
+        barObserver.observe(card);
+      }
+    });
+  } else {
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) {
+      el.classList.add('visible');
+    });
+    document.querySelectorAll('.demo-fill[data-width]').forEach(function(fill) {
+      fill.style.width = fill.dataset.width + '%';
+    });
+  }
+
+  // Navbar scroll
+  var nav = document.getElementById('nav');
+  var scrolled = false;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 80 && !scrolled) {
+      nav.classList.add('scrolled');
+      scrolled = true;
+    } else if (window.scrollY <= 80 && scrolled) {
+      nav.classList.remove('scrolled');
+      scrolled = false;
+    }
+  }, { passive: true });
+</script>
+</body>
+</html>

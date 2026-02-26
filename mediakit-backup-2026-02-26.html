@@ -1,0 +1,2665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>mimofr | media kit</title>
+<meta name="description" content="Media kit for mimofr (@mimofrl) - Music Producer, UGC Creator & Content Strategist">
+<meta property="og:title" content="mimofr - Media Kit">
+<meta property="og:description" content="Music Producer & UGC Creator with 100M+ streams. Currently working with Rise Science & 10 Scale Marketing Agency.">
+<meta property="og:image" content="https://mimofr.com/hero-bg.jpg">
+<link rel="icon" href="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  /* ═══════════════════════════════════════
+     RESET & VARIABLES
+     ═══════════════════════════════════════ */
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --bg: #09080D;
+    --surface: #110F1A;
+    --surface-2: #1A1726;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-strong: rgba(255, 255, 255, 0.1);
+    --text: #EEEAF5;
+    --text-secondary: #B8B2C8;
+    --dim: #6B6580;
+    --accent: #C9A84C;
+    --accent-glow: rgba(201, 168, 76, 0.15);
+    --purple: #7C6AE8;
+    --purple-dim: rgba(124, 106, 232, 0.12);
+
+    /* Spacing — 8px base unit */
+    --s1: 4px;
+    --s2: 8px;
+    --s3: 12px;
+    --s4: 16px;
+    --s5: 24px;
+    --s6: 32px;
+    --s7: 48px;
+    --s8: 64px;
+    --s9: 96px;
+    --s10: 128px;
+
+    /* Type scale — Perfect Fourth (1.333) */
+    --text-xs: clamp(0.7rem, 0.65rem + 0.25vw, 0.8rem);
+    --text-sm: clamp(0.8rem, 0.75rem + 0.3vw, 0.875rem);
+    --text-base: clamp(0.95rem, 0.9rem + 0.3vw, 1.05rem);
+    --text-lg: clamp(1.1rem, 1rem + 0.5vw, 1.3rem);
+    --text-xl: clamp(1.4rem, 1.2rem + 1vw, 1.8rem);
+    --text-2xl: clamp(1.8rem, 1.4rem + 2vw, 2.8rem);
+    --text-3xl: clamp(2.5rem, 1.8rem + 3.5vw, 4.5rem);
+    --text-4xl: clamp(3.5rem, 2rem + 6vw, 7rem);
+
+    /* Easing */
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  /* ═══════════════════════════════════════
+     BASE
+     ═══════════════════════════════════════ */
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', system-ui, -apple-system, sans-serif;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: rgba(201, 168, 76, 0.25);
+    color: var(--text);
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+  }
+
+  /* ═══════════════════════════════════════
+     RETRO CRT SCANLINES + FILM GRAIN
+     ═══════════════════════════════════════ */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(0, 0, 0, 0.1) 2px,
+      rgba(0, 0, 0, 0.1) 4px
+    );
+    opacity: 0.35;
+  }
+
+  body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 9998;
+    pointer-events: none;
+    opacity: 0.02;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.72' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* ═══════════════════════════════════════
+     CUSTOM CURSOR (desktop only)
+     ═══════════════════════════════════════ */
+  @media (pointer: fine) {
+    *, *::before, *::after { cursor: none !important; }
+  }
+
+  .cursor-dot {
+    position: fixed;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 100000;
+    transform: translate(-50%, -50%);
+  }
+
+  .cursor-ring {
+    position: fixed;
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    opacity: 0.6;
+  }
+
+  @media (pointer: coarse) {
+    .cursor-dot, .cursor-ring { display: none !important; }
+  }
+
+  /* ═══════════════════════════════════════
+     SCROLL REVEAL SYSTEM
+     ═══════════════════════════════════════ */
+  @media (prefers-reduced-motion: no-preference) {
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s var(--ease-out), transform 0.7s var(--ease-out);
+    }
+    .reveal-stagger.visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger.visible > *:nth-child(1) { transition-delay: 0ms; }
+    .reveal-stagger.visible > *:nth-child(2) { transition-delay: 80ms; }
+    .reveal-stagger.visible > *:nth-child(3) { transition-delay: 160ms; }
+    .reveal-stagger.visible > *:nth-child(4) { transition-delay: 240ms; }
+    .reveal-stagger.visible > *:nth-child(5) { transition-delay: 320ms; }
+    .reveal-stagger.visible > *:nth-child(6) { transition-delay: 400ms; }
+    .reveal-stagger.visible > *:nth-child(7) { transition-delay: 480ms; }
+    .reveal-stagger.visible > *:nth-child(8) { transition-delay: 560ms; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .reveal, .reveal-stagger > * {
+      opacity: 1 !important;
+      transform: none !important;
+      transition: none !important;
+    }
+  }
+
+  /* ═══════════════════════════════════════
+     TYPOGRAPHY
+     ═══════════════════════════════════════ */
+  h1, h2, h3, h4, h5 {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .label-caps {
+    font-family: 'DM Sans', sans-serif;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+  }
+
+  .accent-text {
+    color: var(--accent);
+    text-shadow: 
+      0 0 2px var(--accent),
+      0 0 4px var(--accent),
+      0 0 8px rgba(201, 168, 76, 0.6);
+    -webkit-text-stroke: 0.5px rgba(201, 168, 76, 0.3);
+  }
+
+  .purple-text {
+    color: var(--purple);
+    text-shadow: 
+      0 0 2px var(--purple),
+      0 0 4px var(--purple),
+      0 0 8px rgba(124, 106, 232, 0.6);
+    -webkit-text-stroke: 0.5px rgba(124, 106, 232, 0.3);
+  }
+
+  /* ═══════════════════════════════════════
+     LAYOUT
+     ═══════════════════════════════════════ */
+  .page-wrap {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 clamp(20px, 5vw, 64px);
+  }
+
+  .section {
+    padding: clamp(80px, 12vh, 140px) 0;
+    position: relative;
+  }
+
+  .section + .section {
+    border-top: 1px solid var(--border);
+  }
+
+  .section-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    z-index: 0;
+    mask-image: linear-gradient(180deg, transparent 0%, black 15%, black 85%, transparent 100%);
+    -webkit-mask-image: linear-gradient(180deg, transparent 0%, black 15%, black 85%, transparent 100%);
+  }
+
+  .section > *:not(.section-video-bg) {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Trippy section dividers */
+  .section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--purple), var(--accent), var(--purple), transparent);
+    opacity: 0.5;
+    z-index: 2;
+  }
+
+  /* Ambient section glows */
+  .section-glow {
+    background: 
+      radial-gradient(ellipse 80% 50% at 20% 20%, rgba(124, 106, 232, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(201, 168, 76, 0.05) 0%, transparent 50%);
+  }
+
+  .section-glow-alt {
+    background: 
+      radial-gradient(ellipse 70% 50% at 80% 30%, rgba(124, 106, 232, 0.06) 0%, transparent 50%),
+      radial-gradient(ellipse 50% 60% at 20% 70%, rgba(201, 168, 76, 0.04) 0%, transparent 50%);
+  }
+
+  .section-label {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: var(--purple);
+    margin-bottom: var(--s7);
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+  }
+
+  .section-label::before {
+    content: '»';
+    color: var(--purple);
+    display: block;
+  }
+
+  /* ═══════════════════════════════════════
+     AMBIENT BACKGROUND
+     ═══════════════════════════════════════ */
+  .ambient-glow {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(124, 106, 232, 0.05) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201, 168, 76, 0.03) 0%, transparent 50%),
+      radial-gradient(ellipse 90% 40% at 50% 90%, rgba(124, 106, 232, 0.03) 0%, transparent 50%);
+  }
+
+  /* ═══════════════════════════════════════
+     NAVBAR
+     ═══════════════════════════════════════ */
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: var(--s5) clamp(20px, 5vw, 64px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    transition: background 0.4s, backdrop-filter 0.4s;
+  }
+
+  .nav.scrolled {
+    background: rgba(9, 8, 13, 0.8);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--accent);
+    text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+  }
+
+  .nav-cta {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-xs);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 10px 24px;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    position: relative;
+    overflow: hidden;
+    transition: color 0.4s var(--ease-out);
+  }
+
+  .nav-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s var(--ease-out);
+    z-index: -1;
+  }
+
+  .nav-cta:hover {
+    color: var(--bg);
+  }
+
+  .nav-cta:hover::before {
+    transform: scaleX(1);
+  }
+
+  /* ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: clamp(120px, 20vh, 200px) 0 clamp(80px, 12vh, 140px);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-video-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.25;
+    z-index: 0;
+  }
+
+  .hero-ambient {
+    position: absolute;
+    top: -30%;
+    left: -20%;
+    width: 140%;
+    height: 160%;
+    background: radial-gradient(
+      ellipse at 30% 40%,
+      rgba(124, 106, 232, 0.08) 0%,
+      transparent 60%
+    );
+    animation: ambientDrift 20s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  @keyframes ambientDrift {
+    0%, 100% { opacity: 0.5; transform: translate(0, 0) scale(1); }
+    33% { opacity: 0.7; transform: translate(2%, -3%) scale(1.04); }
+    66% { opacity: 0.4; transform: translate(-2%, 2%) scale(0.96); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 9px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: lowercase;
+    color: var(--accent);
+    margin-bottom: var(--s6);
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+    text-shadow: 0 0 15px rgba(201, 168, 76, 0.5);
+  }
+
+  .hero-eyebrow::before {
+    content: '//';
+    color: var(--accent);
+  }
+
+  .hero-title {
+    font-size: var(--text-4xl);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 0.92;
+    margin-bottom: var(--s7);
+    max-width: 14ch;
+  }
+
+  .hero-title .line {
+    display: block;
+    overflow: hidden;
+  }
+
+  .hero-title .line-inner {
+    display: block;
+  }
+
+  .hero-subtitle {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 48ch;
+    line-height: 1.5;
+    margin-bottom: var(--s8);
+  }
+
+  .hero-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--s6);
+    flex-wrap: wrap;
+  }
+
+  .hero-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid rgba(201, 168, 76, 0.4);
+    flex-shrink: 0;
+  }
+
+  .hero-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .hero-handle {
+    font-size: var(--text-sm);
+    color: var(--dim);
+    font-weight: 500;
+  }
+
+  .hero-handle span {
+    color: var(--text-secondary);
+  }
+
+  /* ═══════════════════════════════════════
+     STATS MARQUEE
+     ═══════════════════════════════════════ */
+  .stats-marquee {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: var(--s7) 0;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .stats-marquee::before,
+  .stats-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .stats-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg), transparent);
+  }
+
+  .stats-marquee::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--bg), transparent);
+  }
+
+  .stats-track {
+    display: flex;
+    gap: var(--s9);
+    animation: marquee 25s linear infinite;
+    width: max-content;
+  }
+
+  .stats-track:hover {
+    animation-play-state: paused;
+  }
+
+  @keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+
+  .stats-group {
+    display: flex;
+    gap: var(--s9);
+    flex-shrink: 0;
+  }
+
+  .stat-item {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s3);
+    white-space: nowrap;
+  }
+
+  .stat-number {
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(14px, 3vw, 20px);
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--text);
+    text-shadow: 
+      0 0 2px rgba(255, 255, 255, 0.8),
+      0 0 4px rgba(201, 168, 76, 0.5);
+  }
+
+
+  .stat-label {
+    font-size: var(--text-xs);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dim);
+    font-weight: 500;
+  }
+
+  .stat-item .stat-number .accent {
+    color: var(--accent);
+  }
+
+  /* ═══════════════════════════════════════
+     PLATFORM STATS DASHBOARD
+     ═══════════════════════════════════════ */
+  .platform-stats {
+    padding: var(--s8) 0;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 64px);
+    padding-right: clamp(20px, 5vw, 64px);
+  }
+
+  .platform-stats-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--s6);
+  }
+
+  .platform-stats-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: var(--purple);
+  }
+
+  .platform-stats-total {
+    display: flex;
+    align-items: baseline;
+    gap: var(--s2);
+  }
+
+  .platform-stats-total-label {
+    font-size: var(--text-xs);
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .platform-stats-total-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--text);
+  }
+
+  .platform-cards {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--s4);
+  }
+
+  @media (max-width: 768px) {
+    .platform-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .platform-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .platform-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: var(--s5);
+    display: flex;
+    flex-direction: column;
+    gap: var(--s3);
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .platform-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  .platform-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+  }
+
+  .platform-icon {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .platform-icon svg {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  .platform-card.tiktok .platform-icon { color: #ff0050; }
+  .platform-card.instagram .platform-icon { color: #E1306C; }
+  .platform-card.youtube .platform-icon { color: #FF0000; }
+  .platform-card.spotify .platform-icon { color: #1DB954; }
+
+  .platform-name {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  .platform-count {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-2xl);
+    font-weight: 700;
+    color: var(--text);
+    line-height: 1;
+  }
+
+  .platform-label {
+    font-size: var(--text-xs);
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  /* ═══════════════════════════════════════
+     TOP CONTENT SECTION
+     ═══════════════════════════════════════ */
+  .top-content {
+    padding: var(--s7) 0;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-left: clamp(20px, 5vw, 64px);
+    padding-right: clamp(20px, 5vw, 64px);
+    border-top: 1px solid var(--border);
+  }
+
+  .top-content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--s5);
+  }
+
+  .top-content-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: lowercase;
+    color: var(--purple);
+  }
+
+  .top-content-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s4);
+  }
+
+  @media (max-width: 768px) {
+    .top-content-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .top-content-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .content-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .content-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+  }
+
+  .content-card-image {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    background: var(--surface-2);
+  }
+
+  .content-card-body {
+    padding: var(--s4);
+  }
+
+  .content-card-platform {
+    display: flex;
+    align-items: center;
+    gap: var(--s2);
+    margin-bottom: var(--s2);
+  }
+
+  .content-card-platform svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .content-card-platform.tiktok { color: #ff0050; }
+  .content-card-platform.youtube { color: #FF0000; }
+  .content-card-platform.spotify { color: #1DB954; }
+  .content-card-platform.instagram { color: #E1306C; }
+
+  .content-card-platform span {
+    font-size: var(--text-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .content-card-title {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: var(--s2);
+    line-height: 1.3;
+  }
+
+  .content-card-stat {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-lg);
+    font-weight: 700;
+    color: var(--accent);
+  }
+
+  .content-card-stat-label {
+    font-size: var(--text-xs);
+    color: var(--dim);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-left: var(--s2);
+  }
+
+  /* ═══════════════════════════════════════
+     GLASS CARD
+     ═══════════════════════════════════════ */
+  .glass-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 16px;
+    overflow: hidden;
+    padding: var(--s6);
+  }
+
+  .glass-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    padding: 1px;
+    pointer-events: none;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.08),
+      rgba(255, 255, 255, 0.01)
+    );
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+                  linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+  }
+
+  /* ═══════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════ */
+  .about-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--s8);
+    align-items: start;
+  }
+
+  .about-text {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.75;
+  }
+
+  .about-text p + p {
+    margin-top: var(--s5);
+  }
+
+  .about-text strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .about-aside {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s4);
+    padding-top: var(--s2);
+  }
+
+  .about-tag {
+    font-size: var(--text-xs);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--dim);
+    padding: var(--s3) var(--s4);
+    border: 1px solid var(--border-strong);
+    border-radius: 6px;
+    text-align: center;
+    transition: border-color 0.3s var(--ease-out), color 0.3s;
+  }
+
+  .about-tag:hover {
+    border-color: rgba(201, 168, 76, 0.3);
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .about-content {
+      grid-template-columns: 1fr;
+    }
+    .about-aside {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+  }
+
+  /* ═══════════════════════════════════════
+     CASE STUDIES / RESULTS
+     ═══════════════════════════════════════ */
+  .results-intro {
+    font-size: var(--text-lg);
+    color: var(--text-secondary);
+    max-width: 60ch;
+    line-height: 1.6;
+    margin-bottom: var(--s8);
+  }
+
+  .results-intro strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .case-studies {
+    display: flex;
+    flex-direction: column;
+    gap: var(--s5);
+  }
+
+  .case-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: var(--s6);
+    transition: border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+    overflow: hidden;
+  }
+
+  .case-card::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    opacity: 0;
+    transition: opacity 0.4s;
+  }
+
+  .case-card:hover {
+    border-color: rgba(201, 168, 76, 0.2);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  .case-card:hover::after {
+    opacity: 0.5;
+  }
+
+  .case-header {
+    display: flex;
+    align-items: center;
+    gap: var(--s4);
+    margin-bottom: var(--s5);
+  }
+
+  .case-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+  }
+
+  .case-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .case-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+
+  .case-role {
+    font-size: var(--text-xs);
+    color: var(--dim);
+    margin-top: 2px;
+  }
+
+  .case-desc {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+    margin-bottom: var(--s5);
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+
+  .case-metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--s3);
+  }
+
+  .metric {
+    padding: var(--s4) var(--s3);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .metric-value {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 0;
+    color: var(--accent);
+    line-height: 1.4;
+    text-shadow: 
+      0 0 2px var(--accent),
+      0 0 4px rgba(201, 168, 76, 0.6);
+  }
+
+  .metric-label {
+    font-size: 0.65rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-top: var(--s1);
+  }
+
+  @media (max-width: 600px) {
+    .case-metrics {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  /* ═══════════════════════════════════════
+     WORK EXAMPLES
+     ═══════════════════════════════════════ */
+  .work-intro {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    line-height: 1.7;
+    max-width: 58ch;
+    margin-bottom: var(--s7);
+  }
+
+  .work-intro strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .work-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s5);
+    margin-bottom: var(--s8);
+  }
+
+  .work-card {
+    position: relative;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: var(--s6);
+    text-align: center;
+    transition: border-color 0.4s var(--ease-out), transform 0.5s var(--ease-out);
+    display: block;
+  }
+
+  .work-card:hover {
+    border-color: rgba(201, 168, 76, 0.25);
+    transform: translateY(-4px);
+  }
+
+  .work-card-emoji {
+    font-size: 40px;
+    margin-bottom: var(--s4);
+    display: block;
+  }
+
+  .work-card h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-base);
+    font-weight: 600;
+    margin-bottom: var(--s2);
+    letter-spacing: -0.02em;
+  }
+
+  .work-card .work-stat {
+    font-size: var(--text-xs);
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--s2);
+  }
+
+  .work-card p {
+    font-size: var(--text-sm);
+    color: var(--dim);
+    line-height: 1.5;
+  }
+
+  /* Reel gallery */
+  .reel-gallery-label {
+    font-family: 'DM Sans', sans-serif;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: var(--s5);
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+  }
+
+  .reel-gallery-label::before {
+    content: '';
+    width: 16px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .reel-marquee {
+    overflow: hidden;
+    padding: var(--s3) 0;
+    position: relative;
+    margin-bottom: var(--s4);
+  }
+
+  .reel-marquee::before,
+  .reel-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .reel-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg), transparent);
+  }
+
+  .reel-marquee::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--bg), transparent);
+  }
+
+  .reel-track {
+    display: flex;
+    gap: var(--s4);
+    animation: marquee 35s linear infinite;
+    width: max-content;
+  }
+
+  .reel-track:hover {
+    animation-play-state: paused;
+  }
+
+  .reel-item {
+    flex-shrink: 0;
+    width: 180px;
+    height: 320px;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--border-strong);
+    position: relative;
+    transition: border-color 0.3s var(--ease-out), transform 0.4s var(--ease-out);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: var(--s3);
+    padding: var(--s5);
+  }
+
+  .reel-item:hover {
+    border-color: rgba(201, 168, 76, 0.4);
+    transform: scale(1.03);
+  }
+
+  .reel-item .reel-emoji {
+    font-size: 36px;
+  }
+
+  .reel-item .reel-views {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-xl);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--text);
+  }
+
+  .reel-item .reel-subtext {
+    font-size: var(--text-xs);
+    color: var(--dim);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .reel-item .reel-play {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(9, 8, 13, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s var(--ease-out);
+  }
+
+  .reel-item:hover .reel-play {
+    opacity: 1;
+  }
+
+  .reel-play-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg);
+    font-size: 16px;
+    transform: scale(0.8);
+    transition: transform 0.3s var(--ease-spring);
+  }
+
+  .reel-item:hover .reel-play-icon {
+    transform: scale(1);
+  }
+
+  .reel-credit {
+    font-size: var(--text-xs);
+    color: var(--dim);
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .work-grid { grid-template-columns: 1fr; }
+    .reel-item { width: 150px; height: 267px; }
+  }
+
+  /* ═══════════════════════════════════════
+     BRAND PARTNERSHIPS
+     ═══════════════════════════════════════ */
+  .partners-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s5);
+  }
+
+  .partner-card {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 16px;
+    padding: var(--s6);
+    transition: border-color 0.4s var(--ease-out), transform 0.5s var(--ease-out);
+    display: block;
+  }
+
+  .partner-card:hover {
+    border-color: rgba(201, 168, 76, 0.2);
+    transform: translateY(-3px);
+  }
+
+  .partner-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    margin-bottom: var(--s5);
+  }
+
+  .partner-card h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-base);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--s1);
+  }
+
+  .partner-role {
+    font-size: var(--text-xs);
+    color: var(--accent);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: var(--s3);
+  }
+
+  .partner-card p {
+    font-size: var(--text-sm);
+    color: var(--dim);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 600px) {
+    .partners-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ═══════════════════════════════════════
+     MUSIC LICENSED
+     ═══════════════════════════════════════ */
+  .licensed-marquee {
+    overflow: hidden;
+    padding: var(--s3) 0;
+    position: relative;
+  }
+
+  .licensed-marquee::before,
+  .licensed-marquee::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 80px;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  .licensed-marquee::before {
+    left: 0;
+    background: linear-gradient(90deg, var(--bg), transparent);
+  }
+
+  .licensed-marquee::after {
+    right: 0;
+    background: linear-gradient(-90deg, var(--bg), transparent);
+  }
+
+  .licensed-track {
+    display: flex;
+    gap: var(--s4);
+    animation: marquee 30s linear infinite;
+    width: max-content;
+  }
+
+  .licensed-track:hover {
+    animation-play-state: paused;
+  }
+
+  .licensed-card {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    gap: var(--s4);
+    padding: var(--s4) var(--s5);
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    transition: border-color 0.3s var(--ease-out), transform 0.4s var(--ease-out);
+    min-width: 260px;
+  }
+
+  .licensed-card:hover {
+    border-color: rgba(201, 168, 76, 0.2);
+    transform: translateY(-2px);
+  }
+
+  .licensed-thumb {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    overflow: hidden;
+  }
+
+  .licensed-thumb span {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+  }
+
+  .licensed-info h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  .licensed-info .licensed-stat {
+    font-size: var(--text-xs);
+    color: var(--accent);
+    font-weight: 600;
+    margin-top: 2px;
+  }
+
+  .licensed-info p {
+    font-size: 0.75rem;
+    color: var(--dim);
+    margin-top: 2px;
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICES
+     ═══════════════════════════════════════ */
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--s4);
+  }
+
+  .service-card {
+    padding: var(--s5);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: border-color 0.3s var(--ease-out);
+  }
+
+  .service-card:hover {
+    border-color: var(--border-strong);
+  }
+
+  .service-emoji {
+    font-size: 24px;
+    margin-bottom: var(--s3);
+    display: block;
+  }
+
+  .service-card h4 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin-bottom: var(--s2);
+  }
+
+  .service-card p {
+    font-size: var(--text-xs);
+    color: var(--dim);
+    line-height: 1.6;
+  }
+
+  @media (max-width: 600px) {
+    .services-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ═══════════════════════════════════════
+     DEMOGRAPHICS
+     ═══════════════════════════════════════ */
+  .demo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--s5);
+  }
+
+  .demo-card {
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 14px;
+    padding: var(--s5);
+  }
+
+  .demo-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: var(--text-xs);
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--dim);
+    margin-bottom: var(--s5);
+  }
+
+  .demo-row {
+    margin-bottom: var(--s3);
+  }
+
+  .demo-row:last-child { margin-bottom: 0; }
+
+  .demo-row-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: var(--s2);
+  }
+
+  .demo-row-label {
+    font-size: var(--text-sm);
+    color: var(--text-secondary);
+  }
+
+  .demo-row-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .demo-bar {
+    height: 4px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+
+  .demo-fill {
+    height: 100%;
+    border-radius: 2px;
+    background: linear-gradient(90deg, var(--purple), var(--accent));
+    transition: width 1.2s var(--ease-out);
+  }
+
+  .demo-fill.animated {
+    /* width set via inline style, animated on scroll reveal */
+  }
+
+  @media (max-width: 768px) {
+    .demo-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ═══════════════════════════════════════
+     PLATFORMS
+     ═══════════════════════════════════════ */
+  .platforms-row {
+    display: flex;
+    gap: var(--s4);
+    flex-wrap: wrap;
+  }
+
+  .platform-chip {
+    display: flex;
+    align-items: center;
+    gap: var(--s3);
+    padding: var(--s3) var(--s5);
+    border: 1px solid var(--border-strong);
+    border-radius: 100px;
+    transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+    flex-shrink: 0;
+  }
+
+  .platform-chip:hover {
+    border-color: rgba(201, 168, 76, 0.3);
+    transform: translateY(-2px);
+  }
+
+  .platform-chip svg {
+    width: 18px;
+    height: 18px;
+    fill: var(--dim);
+    flex-shrink: 0;
+  }
+
+  .platform-chip:hover svg {
+    fill: var(--text-secondary);
+  }
+
+  .platform-name {
+    font-size: var(--text-sm);
+    font-weight: 500;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .platform-count {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    white-space: nowrap;
+  }
+
+  /* ═══════════════════════════════════════
+     CTA / CONTACT
+     ═══════════════════════════════════════ */
+  .cta-section {
+    text-align: center;
+    padding: clamp(100px, 15vh, 180px) 0;
+  }
+
+  .cta-heading {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    margin-bottom: var(--s5);
+  }
+
+  .cta-sub {
+    font-size: var(--text-base);
+    color: var(--text-secondary);
+    margin-bottom: var(--s7);
+    max-width: 40ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-btn {
+    display: inline-block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: var(--s4) var(--s7);
+    background: var(--accent);
+    color: var(--bg);
+    border-radius: 0;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+  }
+
+  .cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201, 168, 76, 0.25);
+  }
+
+  .social-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--s3);
+    margin-top: var(--s7);
+  }
+
+  .social-link {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-strong);
+    border-radius: 50%;
+    transition: border-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+  }
+
+  .social-link:hover {
+    border-color: rgba(201, 168, 76, 0.4);
+    transform: translateY(-2px);
+  }
+
+  .social-link svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--dim);
+    transition: fill 0.3s;
+  }
+
+  .social-link:hover svg {
+    fill: var(--text-secondary);
+  }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ */
+  .footer {
+    border-top: 1px solid var(--border);
+    padding: var(--s7) 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: var(--s4);
+  }
+
+  .footer-left {
+    font-size: var(--text-xs);
+    color: var(--dim);
+  }
+
+  .footer-right {
+    font-size: var(--text-xs);
+    color: var(--dim);
+  }
+
+  .footer-right a {
+    color: var(--text-secondary);
+    position: relative;
+  }
+
+  .footer-right a::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s var(--ease-out);
+  }
+
+  .footer-right a:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* ═══════════════════════════════════════
+     LINK UNDERLINE EFFECT
+     ═══════════════════════════════════════ */
+  .link-slide {
+    position: relative;
+    display: inline-block;
+  }
+
+  .link-slide::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s var(--ease-out);
+  }
+
+  .link-slide:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* ═══════════════════════════════════════
+     HORIZONTAL RULE
+     ═══════════════════════════════════════ */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+    border: none;
+    margin: 0;
+  }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════ */
+  @media (max-width: 600px) {
+    .hero-title {
+      font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .hero-meta {
+      gap: var(--s4);
+    }
+
+    .stat-number {
+      font-size: var(--text-xl);
+    }
+
+    .cta-heading {
+      font-size: var(--text-2xl);
+    }
+
+    .footer {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- Ambient Background -->
+<div class="ambient-glow"></div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="/" class="nav-logo link-slide">mimofr</a>
+  <a href="mailto:maximosilverman104@gmail.com" class="nav-cta" data-magnetic>get in touch</a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <video class="hero-video-bg" autoplay muted loop playsinline>
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+  <div class="hero-ambient"></div>
+  <div class="page-wrap hero-content">
+    <div class="hero-eyebrow reveal">Media Kit 2026</div>
+    <h1 class="hero-title">
+      <span class="line"><span class="line-inner reveal"><span class="purple-text">Creative</span></span></span>
+      <span class="line"><span class="line-inner reveal">That</span></span>
+      <span class="line"><span class="line-inner reveal"><span class="accent-text">Converts</span></span></span>
+    </h1>
+    <p class="hero-subtitle reveal">1.3B+ views. Content that performs organically and converts when brands put money behind it.</p>
+    <div class="hero-meta reveal">
+      <div class="hero-avatar">
+        <img src="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg" alt="mimofr" loading="lazy">
+      </div>
+      <div class="hero-handle">
+        <span>Maximo Silverman</span><br>
+        @mimofrl &middot; mimofr.com
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats Marquee -->
+<div class="stats-marquee">
+  <div class="stats-track">
+    <div class="stats-group">
+      <div class="stat-item">
+        <span class="stat-number">1.3B<span class="accent">+</span></span>
+        <span class="stat-label">Views</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">$80K<span class="accent">+</span></span>
+        <span class="stat-label">Scaled Ad Spend</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100M<span class="accent">+</span></span>
+        <span class="stat-label">Streams</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">ESPN</span>
+        <span class="stat-label">Licensed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">Sony</span>
+        <span class="stat-label">Licensed</span>
+      </div>
+    </div>
+    <div class="stats-group">
+      <div class="stat-item">
+        <span class="stat-number">1.3B<span class="accent">+</span></span>
+        <span class="stat-label">Views</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">$80K<span class="accent">+</span></span>
+        <span class="stat-label">Scaled Ad Spend</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">100M<span class="accent">+</span></span>
+        <span class="stat-label">Streams</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">ESPN</span>
+        <span class="stat-label">Licensed</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">Sony</span>
+        <span class="stat-label">Licensed</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Platform Stats Dashboard -->
+<section class="platform-stats reveal">
+  <div class="platform-stats-header">
+    <span class="platform-stats-title">» platforms</span>
+    <div class="platform-stats-total">
+      <span class="platform-stats-total-label">Total Reach</span>
+      <span class="platform-stats-total-number">600K+</span>
+    </div>
+  </div>
+  <div class="platform-cards">
+    <div class="platform-card instagram">
+      <div class="platform-card-header">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+        </div>
+        <span class="platform-name">Instagram</span>
+      </div>
+      <span class="platform-count">247K</span>
+      <span class="platform-label">Followers</span>
+    </div>
+    <div class="platform-card spotify">
+      <div class="platform-card-header">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+        </div>
+        <span class="platform-name">Spotify</span>
+      </div>
+      <span class="platform-count">150.1K</span>
+      <span class="platform-label">Monthly Listeners</span>
+    </div>
+    <div class="platform-card tiktok">
+      <div class="platform-card-header">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+        </div>
+        <span class="platform-name">TikTok</span>
+      </div>
+      <span class="platform-count">104.4K</span>
+      <span class="platform-label">Followers • 16.5M Likes</span>
+    </div>
+    <div class="platform-card youtube">
+      <div class="platform-card-header">
+        <div class="platform-icon">
+          <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </div>
+        <span class="platform-name">YouTube</span>
+      </div>
+      <span class="platform-count">98.3K</span>
+      <span class="platform-label">Subscribers • 1.8K Videos</span>
+    </div>
+  </div>
+</section>
+
+<!-- Top Content -->
+<section class="top-content reveal">
+  <div class="top-content-header">
+    <span class="top-content-title">» top content</span>
+  </div>
+  <div class="top-content-grid">
+    <div class="content-card">
+      <img class="content-card-image" src="https://i.ytimg.com/vi/kI2AewLqHRE/maxresdefault.jpg" alt="exploration.mp3">
+      <div class="content-card-body">
+        <div class="content-card-platform youtube">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+          <span>YouTube</span>
+        </div>
+        <div class="content-card-title">exploration.mp3</div>
+        <span class="content-card-stat">2M</span>
+        <span class="content-card-stat-label">views</span>
+      </div>
+    </div>
+    <div class="content-card">
+      <img class="content-card-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ff0050'/%3E%3Cstop offset='50%25' stop-color='%231a0a30'/%3E%3Cstop offset='100%25' stop-color='%239b59b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3Ctext x='200' y='220' font-family='serif' font-size='80' fill='white' text-anchor='middle' opacity='0.3'%3E%E2%9C%A7%3C/text%3E%3C/svg%3E" alt="spirit.mp3">
+      <div class="content-card-body">
+        <div class="content-card-platform tiktok">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          <span>TikTok</span>
+        </div>
+        <div class="content-card-title">spirit.mp3</div>
+        <span class="content-card-stat">3.9M</span>
+        <span class="content-card-stat-label">views</span>
+      </div>
+    </div>
+    <div class="content-card">
+      <img class="content-card-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%239b59b6'/%3E%3Cstop offset='50%25' stop-color='%230d0015'/%3E%3Cstop offset='100%25' stop-color='%23e74c3c'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3Ctext x='200' y='220' font-family='serif' font-size='60' fill='white' text-anchor='middle' opacity='0.25'%3E%E2%99%AA%3C/text%3E%3C/svg%3E" alt="ascend.mp3">
+      <div class="content-card-body">
+        <div class="content-card-platform spotify">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          <span>Spotify</span>
+        </div>
+        <div class="content-card-title">ascend.mp3</div>
+        <span class="content-card-stat">5.6M</span>
+        <span class="content-card-stat-label">streams</span>
+      </div>
+    </div>
+    <div class="content-card">
+      <img class="content-card-image" src="https://i.ytimg.com/vi/sc8axjLr_lg/maxresdefault.jpg" alt="hide.mp3">
+      <div class="content-card-body">
+        <div class="content-card-platform tiktok">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+          <span>TikTok</span>
+        </div>
+        <div class="content-card-title">hide.mp3</div>
+        <span class="content-card-stat">2.7M</span>
+        <span class="content-card-stat-label">views</span>
+      </div>
+    </div>
+    <div class="content-card">
+      <img class="content-card-image" src="https://i.ytimg.com/vi/9unMOCRfut8/maxresdefault.jpg" alt="parallels.mp3">
+      <div class="content-card-body">
+        <div class="content-card-platform spotify">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+          <span>Spotify</span>
+        </div>
+        <div class="content-card-title">parallels.mp3</div>
+        <span class="content-card-stat">4.8M</span>
+        <span class="content-card-stat-label">streams</span>
+      </div>
+    </div>
+    <div class="content-card">
+      <img class="content-card-image" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23833ab4'/%3E%3Cstop offset='50%25' stop-color='%23fd1d1d'/%3E%3Cstop offset='100%25' stop-color='%23fcb045'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='400' fill='url(%23g)'/%3E%3Ctext x='200' y='220' font-family='serif' font-size='80' fill='white' text-anchor='middle' opacity='0.3'%3E%E2%9C%A7%3C/text%3E%3C/svg%3E" alt="s-tier clothing">
+      <div class="content-card-body">
+        <div class="content-card-platform instagram">
+          <svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          <span>Instagram</span>
+        </div>
+        <div class="content-card-title">s-tier clothing</div>
+        <span class="content-card-stat">10.2M</span>
+        <span class="content-card-stat-label">views</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<main class="page-wrap">
+
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="section-label reveal">» about</div>
+    <div class="about-content reveal">
+      <div class="about-text">
+        <p>I make content that brands can scale. My work has generated <strong>1.3B+ organic views</strong> and been scaled to <strong>$80K+ in paid ad spend</strong> across TikTok, Instagram, and YouTube.</p>
+        <p>Original productions licensed by <strong>ESPN</strong>, <strong>Sony</strong>, and the <strong>Biden/Harris presidential campaign</strong>. Currently creating for <strong>Rise Science</strong>, <strong>Speak</strong>, and <strong>Imprint</strong> via <strong>10 Scale</strong>.</p>
+      </div>
+      <div class="about-aside reveal-stagger">
+        <div class="about-tag">UGC Creator</div>
+        <div class="about-tag">Content Strategist</div>
+        <div class="about-tag">AI Visual Artist</div>
+        <div class="about-tag">Berklee &middot; Music Business</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Proven Results -->
+  <section class="section section-glow" id="results">
+    <div class="section-label reveal">» proven results</div>
+    <p class="results-intro reveal">My UGC content has generated <strong>1 billion+ views</strong> across platforms. I create content that performs organically and <strong>converts when brands put ad spend behind it</strong>.</p>
+    <div class="case-studies reveal-stagger">
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-icon" style="background: var(--surface-2); border-radius: 12px; overflow: hidden;">
+            <img src="imprint-favicon.ico" alt="Imprint">
+          </div>
+          <div>
+            <div class="case-name">Imprint App</div>
+            <div class="case-role">UGC Ad Creative</div>
+          </div>
+        </div>
+        <p class="case-desc">Created UGC ads for Imprint's user acquisition campaigns. Content scaled to $24K+ in paid media.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-value">3M+</div>
+            <div class="metric-label">Views</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$24K+</div>
+            <div class="metric-label">Ad Spend</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$7.15</div>
+            <div class="metric-label">CPM</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">0.47%</div>
+            <div class="metric-label">CTR</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-icon" style="border-radius: 12px; overflow: hidden;">
+            <img src="speak-logo.jpg" alt="Speak" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div>
+            <div class="case-name">Speak App</div>
+            <div class="case-role">Multiple Winning Creatives</div>
+          </div>
+        </div>
+        <p class="case-desc">Created multiple winning ad creatives for Speak's language learning app. Scaled across various campaigns.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-value">$60K+</div>
+            <div class="metric-label">Ad Spend</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$3.55</div>
+            <div class="metric-label">Best CPI</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">15+</div>
+            <div class="metric-label">Winning Ads</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">$21.29</div>
+            <div class="metric-label">Best CPT</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-card">
+        <div class="case-header">
+          <div class="case-icon" style="border-radius: 12px; overflow: hidden;">
+            <img src="rise-logo.jpg" alt="Rise Science" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div>
+            <div class="case-name">Rise Science</div>
+            <div class="case-role">@wizzzler23 &middot; Organic Content</div>
+          </div>
+        </div>
+        <p class="case-desc">Creating UGC content for Rise Science's wizard-themed alt account. Produced their highest performing reel to date.</p>
+        <div class="case-metrics">
+          <div class="metric">
+            <div class="metric-value">315K</div>
+            <div class="metric-label">Views</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">41.8K</div>
+            <div class="metric-label">Likes</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">#1</div>
+            <div class="metric-label">Top Reel</div>
+          </div>
+          <div class="metric">
+            <div class="metric-value">13%</div>
+            <div class="metric-label">Engagement</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Examples -->
+  <section class="section section-glow-alt" id="work">
+    <div class="section-label reveal">» work examples</div>
+    <p class="work-intro reveal">My signature style combines <strong>AI-generated visuals</strong> with irreverent, meme-native storytelling. Abstract, internet-native art that shouldn't work for advertising. <strong>But it does.</strong> Brands have scaled this content to $80K+ in ad spend.</p>
+    <div class="work-grid reveal-stagger">
+      <a href="https://www.instagram.com/wizzzler23/" target="_blank" class="work-card">
+        <span class="work-card-icon" style="display: inline-block; border-radius: 10px; width: 48px; height: 48px; overflow: hidden; margin-bottom: 12px;">
+          <img src="rise-logo.jpg" alt="Rise Science" style="width: 48px; height: 48px; object-fit: cover;">
+        </span>
+        <h4>Rise Science</h4>
+        <div class="work-stat">@wizzzler23 &middot; 315K Views</div>
+        <p>Top reel for @wizzzler23 alt account</p>
+      </a>
+      <a href="https://www.instagram.com/p/DU_ty08jdaN/" target="_blank" class="work-card">
+        <span class="work-card-icon" style="display: inline-block; border-radius: 10px; width: 48px; height: 48px; overflow: hidden; margin-bottom: 12px;">
+          <img src="imprint-favicon.ico" alt="Imprint" style="width: 48px; height: 48px; object-fit: cover;">
+        </span>
+        <h4>Imprint App</h4>
+        <div class="work-stat">Paid Ad &middot; $24K+ Spend</div>
+        <p>UGC ad creative with $24K+ ad spend</p>
+      </a>
+    </div>
+
+    <!-- Scrolling Reel Gallery -->
+    <div class="reel-gallery-label reveal">Original Content &middot; Top Performers</div>
+    <div class="reel-marquee">
+      <div class="reel-track">
+        <a href="https://www.instagram.com/mimofrl/reel/DQALeg_ktXz/" target="_blank" class="reel-item" style="background: linear-gradient(180deg, #1a0a30 0%, #0d0015 50%, #2d1b4e 100%);">
+          <span class="reel-views">10.2M</span>
+          <span class="reel-subtext">views</span>
+          <div class="reel-play"><div class="reel-play-icon">&#9654;</div></div>
+        </a>
+        <a href="https://www.instagram.com/mimofrl/reel/DBEvZ4Nx7eg/" target="_blank" class="reel-item" style="background: linear-gradient(180deg, #2d1810 0%, #0d0505 50%, #4e2d1b 100%);">
+          <span class="reel-views">6.5M</span>
+          <span class="reel-subtext">views</span>
+          <div class="reel-play"><div class="reel-play-icon">&#9654;</div></div>
+        </a>
+        <!-- Duplicates for seamless loop -->
+        <a href="https://www.instagram.com/mimofrl/reel/DQALeg_ktXz/" target="_blank" class="reel-item" style="background: linear-gradient(180deg, #1a0a30 0%, #0d0015 50%, #2d1b4e 100%);">
+          <span class="reel-views">10.2M</span>
+          <span class="reel-subtext">views</span>
+          <div class="reel-play"><div class="reel-play-icon">&#9654;</div></div>
+        </a>
+        <a href="https://www.instagram.com/mimofrl/reel/DBEvZ4Nx7eg/" target="_blank" class="reel-item" style="background: linear-gradient(180deg, #2d1810 0%, #0d0505 50%, #4e2d1b 100%);">
+          <span class="reel-views">6.5M</span>
+          <span class="reel-subtext">views</span>
+          <div class="reel-play"><div class="reel-play-icon">&#9654;</div></div>
+        </a>
+        <a href="https://www.instagram.com/mimofrl/reel/DQALeg_ktXz/" target="_blank" class="reel-item" style="background: linear-gradient(180deg, #1a0a30 0%, #0d0015 50%, #2d1b4e 100%);">
+          <span class="reel-views">10.2M</span>
+          <span class="reel-subtext">views</span>
+          <div class="reel-play"><div class="reel-play-icon">&#9654;</div></div>
+        </a>
+        <a href="https://www.instagram.com/mimofrl/reel/DBEvZ4Nx7eg/" target="_blank" class="reel-item" style="background: linear-gradient(180deg, #2d1810 0%, #0d0505 50%, #4e2d1b 100%);">
+          <span class="reel-views">6.5M</span>
+          <span class="reel-subtext">views</span>
+          <div class="reel-play"><div class="reel-play-icon">&#9654;</div></div>
+        </a>
+        <a href="https://www.instagram.com/mimofrl/reel/DQALeg_ktXz/" target="_blank" class="reel-item" style="background: linear-gradient(180deg, #1a0a30 0%, #0d0015 50%, #2d1b4e 100%);">
+          <span class="reel-views">10.2M</span>
+          <span class="reel-subtext">views</span>
+          <div class="reel-play"><div class="reel-play-icon">&#9654;</div></div>
+        </a>
+        <a href="https://www.instagram.com/mimofrl/reel/DBEvZ4Nx7eg/" target="_blank" class="reel-item" style="background: linear-gradient(180deg, #2d1810 0%, #0d0505 50%, #4e2d1b 100%);">
+          <span class="reel-views">6.5M</span>
+          <span class="reel-subtext">views</span>
+          <div class="reel-play"><div class="reel-play-icon">&#9654;</div></div>
+        </a>
+      </div>
+    </div>
+    <p class="reel-credit reveal">@mimofrl &middot; 22M+ total reel views</p>
+  </section>
+
+  <!-- Brand Partnerships -->
+  <section class="section" id="partners">
+    <div class="section-label reveal">» partnerships</div>
+    <div class="partners-grid reveal-stagger">
+      <a href="https://www.instagram.com/wizzzler23/" target="_blank" class="partner-card">
+        <div class="partner-icon" style="border-radius: 14px; overflow: hidden;">
+          <img src="rise-logo.jpg" alt="Rise Science" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4>Rise Science</h4>
+        <div class="partner-role">Social Media Consultant</div>
+        <p>AI content & social strategy for @rise.science and @wizzzler23</p>
+      </a>
+      <a href="https://10scale.co/" target="_blank" class="partner-card">
+        <div class="partner-icon" style="border-radius: 14px; overflow: hidden;">
+          <img src="10scale-logo.jpg" alt="10 Scale" style="width: 100%; height: 100%; object-fit: cover;">
+        </div>
+        <h4>10 Scale Marketing Agency</h4>
+        <div class="partner-role">Creative Strategist</div>
+        <p>SF Bay Area agency &mdash; Rise, Ahead, Speak, Imprint</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- Music Licensed By -->
+  <section class="section" id="licensed">
+    <div class="section-label reveal">» licensed by</div>
+    <div class="licensed-marquee">
+      <div class="licensed-track">
+        <!-- Set 1 -->
+        <a href="https://www.tiktok.com/@espn/video/7245517042592402734" target="_blank" class="licensed-card">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #cc0000, #8b0000);">
+            <span style="color: #fff;">ESPN</span>
+          </div>
+          <div class="licensed-info">
+            <h4>ESPN</h4>
+            <div class="licensed-stat">7.7M Views</div>
+            <p>ascend.mp3 in Jon Jones video</p>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@ufcanz/video/7249565276994391301" target="_blank" class="licensed-card">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a);">
+            <span style="color: #d20a0a;">UFC</span>
+          </div>
+          <div class="licensed-info">
+            <h4>UFC ANZ</h4>
+            <div class="licensed-stat">1.3M Views</div>
+            <p>ascend.mp3 official account</p>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@headquarters/video/7385655448202005790" target="_blank" class="licensed-card">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #002868, #bf0a30);">
+            <span style="font-size: 22px;">&#127482;&#127480;</span>
+          </div>
+          <div class="licensed-info">
+            <h4>Biden/Harris</h4>
+            <div class="licensed-stat">Official Content</div>
+            <p>@headquarters campaign TikTok</p>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@marcuskleveland/video/7230841116340292891" target="_blank" class="licensed-card">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #00A651, #007A3D);">
+            <span style="color: white; font-weight: 900; font-size: 24px; font-family: 'Space Grotesk', sans-serif; letter-spacing: -2px;">X</span>
+          </div>
+          <div class="licensed-info">
+            <h4>Marcus Kleveland</h4>
+            <div class="licensed-stat">X-Games Athlete</div>
+            <p>parallels.mp3 snowboard edit</p>
+          </div>
+        </a>
+        <div class="licensed-card" style="cursor: default;">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #111, #1a1a1a);">
+            <span style="color: #fff;">SONY</span>
+          </div>
+          <div class="licensed-info">
+            <h4>Sony</h4>
+            <div class="licensed-stat">Brand Partner</div>
+            <p>Original productions in campaigns</p>
+          </div>
+        </div>
+        <div class="licensed-card" style="cursor: default;">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #1E5631, #2E7D32);">
+            <span style="color: #fff; font-size: 22px;">&#127891;</span>
+          </div>
+          <div class="licensed-info">
+            <h4>Berklee College of Music</h4>
+            <div class="licensed-stat">Top 1% of Songwriters</div>
+            <p>Music Business &bull; GPA 4.0</p>
+          </div>
+        </div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <a href="https://www.tiktok.com/@espn/video/7245517042592402734" target="_blank" class="licensed-card">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #cc0000, #8b0000);">
+            <span style="color: #fff;">ESPN</span>
+          </div>
+          <div class="licensed-info">
+            <h4>ESPN</h4>
+            <div class="licensed-stat">7.7M Views</div>
+            <p>ascend.mp3 in Jon Jones video</p>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@ufcanz/video/7249565276994391301" target="_blank" class="licensed-card">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #1a1a1a, #2a2a2a);">
+            <span style="color: #d20a0a;">UFC</span>
+          </div>
+          <div class="licensed-info">
+            <h4>UFC ANZ</h4>
+            <div class="licensed-stat">1.3M Views</div>
+            <p>ascend.mp3 official account</p>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@headquarters/video/7385655448202005790" target="_blank" class="licensed-card">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #002868, #bf0a30);">
+            <span style="font-size: 22px;">&#127482;&#127480;</span>
+          </div>
+          <div class="licensed-info">
+            <h4>Biden/Harris</h4>
+            <div class="licensed-stat">Official Content</div>
+            <p>@headquarters campaign TikTok</p>
+          </div>
+        </a>
+        <a href="https://www.tiktok.com/@marcuskleveland/video/7230841116340292891" target="_blank" class="licensed-card">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #00A651, #007A3D);">
+            <span style="color: white; font-weight: 900; font-size: 24px; font-family: 'Space Grotesk', sans-serif; letter-spacing: -2px;">X</span>
+          </div>
+          <div class="licensed-info">
+            <h4>Marcus Kleveland</h4>
+            <div class="licensed-stat">X-Games Athlete</div>
+            <p>parallels.mp3 snowboard edit</p>
+          </div>
+        </a>
+        <div class="licensed-card" style="cursor: default;">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #111, #1a1a1a);">
+            <span style="color: #fff;">SONY</span>
+          </div>
+          <div class="licensed-info">
+            <h4>Sony</h4>
+            <div class="licensed-stat">Brand Partner</div>
+            <p>Original productions in campaigns</p>
+          </div>
+        </div>
+        <div class="licensed-card" style="cursor: default;">
+          <div class="licensed-thumb" style="background: linear-gradient(135deg, #1E5631, #2E7D32);">
+            <span style="color: #fff; font-size: 22px;">&#127891;</span>
+          </div>
+          <div class="licensed-info">
+            <h4>Berklee College of Music</h4>
+            <div class="licensed-stat">Top 1% of Songwriters</div>
+            <p>Music Business &bull; GPA 4.0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="section-label reveal">Services</div>
+    <div class="services-grid reveal-stagger">
+      <div class="service-card">
+        <span class="service-emoji">&#128241;</span>
+        <h4>UGC Content Creation</h4>
+        <p>TikToks, Instagram Reels, YouTube Shorts &mdash; authentic content that converts</p>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">&#129309;</span>
+        <h4>Brand Partnerships</h4>
+        <p>Sponsored content and product integrations across all platforms</p>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">&#127925;</span>
+        <h4>Music Licensing</h4>
+        <p>Original productions for campaigns, ads, and branded content</p>
+      </div>
+      <div class="service-card">
+        <span class="service-emoji">&#129302;</span>
+        <h4>Content Strategy</h4>
+        <p>AI-driven content development and social media marketing</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Demographics -->
+  <section class="section" id="demographics">
+    <div class="section-label reveal">Audience Demographics</div>
+    <div class="demo-grid reveal-stagger">
+      <div class="demo-card">
+        <div class="demo-title">Gender</div>
+        <div class="demo-row">
+          <div class="demo-row-top">
+            <span class="demo-row-label">Male</span>
+            <span class="demo-row-value">68%</span>
+          </div>
+          <div class="demo-bar"><div class="demo-fill" data-width="68" style="width: 0%"></div></div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-row-top">
+            <span class="demo-row-label">Female</span>
+            <span class="demo-row-value">32%</span>
+          </div>
+          <div class="demo-bar"><div class="demo-fill" data-width="32" style="width: 0%"></div></div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-title">Age</div>
+        <div class="demo-row">
+          <div class="demo-row-top">
+            <span class="demo-row-label">18&ndash;24</span>
+            <span class="demo-row-value">52%</span>
+          </div>
+          <div class="demo-bar"><div class="demo-fill" data-width="52" style="width: 0%"></div></div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-row-top">
+            <span class="demo-row-label">25&ndash;34</span>
+            <span class="demo-row-value">28%</span>
+          </div>
+          <div class="demo-bar"><div class="demo-fill" data-width="28" style="width: 0%"></div></div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-row-top">
+            <span class="demo-row-label">13&ndash;17</span>
+            <span class="demo-row-value">15%</span>
+          </div>
+          <div class="demo-bar"><div class="demo-fill" data-width="15" style="width: 0%"></div></div>
+        </div>
+      </div>
+      <div class="demo-card">
+        <div class="demo-title">Top Countries</div>
+        <div class="demo-row">
+          <div class="demo-row-top">
+            <span class="demo-row-label">&#127482;&#127480; United States</span>
+            <span class="demo-row-value">45%</span>
+          </div>
+          <div class="demo-bar"><div class="demo-fill" data-width="45" style="width: 0%"></div></div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-row-top">
+            <span class="demo-row-label">&#127468;&#127463; UK</span>
+            <span class="demo-row-value">12%</span>
+          </div>
+          <div class="demo-bar"><div class="demo-fill" data-width="12" style="width: 0%"></div></div>
+        </div>
+        <div class="demo-row">
+          <div class="demo-row-top">
+            <span class="demo-row-label">&#127465;&#127466; Germany</span>
+            <span class="demo-row-value">8%</span>
+          </div>
+          <div class="demo-bar"><div class="demo-fill" data-width="8" style="width: 0%"></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Platforms -->
+  <section class="section" id="platforms">
+    <div class="section-label reveal">Platforms</div>
+    <div class="platforms-row reveal-stagger">
+      <a href="https://instagram.com/mimofrl" target="_blank" class="platform-chip">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+        <span class="platform-name">Instagram</span>
+        <span class="platform-count">250K+</span>
+      </a>
+      <a href="https://tiktok.com/@mimofrl" target="_blank" class="platform-chip">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+        <span class="platform-name">TikTok</span>
+        <span class="platform-count">100K+</span>
+      </a>
+      <a href="https://youtube.com/@mimofrl" target="_blank" class="platform-chip">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/></svg>
+        <span class="platform-name">YouTube</span>
+        <span class="platform-count">90K+</span>
+      </a>
+      <a href="https://open.spotify.com/artist/6z69NxGmRyHCMFhOZ8H1Va" target="_blank" class="platform-chip">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02z"/></svg>
+        <span class="platform-name">Spotify</span>
+        <span class="platform-count">100K+</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contact">
+    <h2 class="cta-heading reveal">Ready to<br>create?</h2>
+    <p class="cta-sub reveal">Brand partnerships, UGC campaigns, content creation, and business inquiries.</p>
+    <div class="reveal">
+      <a href="mailto:maximosilverman104@gmail.com" class="cta-btn" data-magnetic>Get in touch</a>
+    </div>
+    <div class="social-links reveal">
+      <a href="https://instagram.com/mimofrl" target="_blank" class="social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069z"/></svg>
+      </a>
+      <a href="https://tiktok.com/@mimofrl" target="_blank" class="social-link" aria-label="TikTok">
+        <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg>
+      </a>
+      <a href="https://x.com/mimofrl" target="_blank" class="social-link" aria-label="X">
+        <svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+      </a>
+      <a href="https://youtube.com/@mimofrl" target="_blank" class="social-link" aria-label="YouTube">
+        <svg viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/></svg>
+      </a>
+      <a href="https://linkedin.com/in/maximo-silverman-69b63b30a" target="_blank" class="social-link" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      </a>
+    </div>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer class="page-wrap">
+  <div class="footer">
+    <div class="footer-left">Maximo Silverman &middot; Berklee College of Music &middot; Music Business</div>
+    <div class="footer-right">
+      <a href="/">mimofr.com</a> &middot; Updated Feb 2026
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ─────────────────────────────────────
+  // Custom Cursor (dot + trailing ring)
+  // ─────────────────────────────────────
+  (function() {
+    if (window.matchMedia('(pointer: coarse)').matches) return;
+
+    const dot = document.getElementById('cursorDot');
+    const ring = document.getElementById('cursorRing');
+    let mouseX = 0, mouseY = 0;
+    let dotX = 0, dotY = 0;
+    let ringX = 0, ringY = 0;
+
+    document.addEventListener('mousemove', function(e) {
+      mouseX = e.clientX;
+      mouseY = e.clientY;
+    });
+
+    function animate() {
+      // Dot follows quickly
+      dotX += (mouseX - dotX) * 0.2;
+      dotY += (mouseY - dotY) * 0.2;
+      dot.style.left = dotX + 'px';
+      dot.style.top = dotY + 'px';
+
+      // Ring trails behind with subtle lag
+      ringX += (mouseX - ringX) * 0.12;
+      ringY += (mouseY - ringY) * 0.12;
+      ring.style.left = ringX + 'px';
+      ring.style.top = ringY + 'px';
+
+      requestAnimationFrame(animate);
+    }
+    animate();
+  })();
+
+  // ─────────────────────────────────────
+  // Magnetic Buttons
+  // ─────────────────────────────────────
+  document.querySelectorAll('[data-magnetic]').forEach(function(btn) {
+    btn.addEventListener('mousemove', function(e) {
+      var rect = btn.getBoundingClientRect();
+      var x = e.clientX - rect.left - rect.width / 2;
+      var y = e.clientY - rect.top - rect.height / 2;
+      btn.style.transform = 'translate(' + (x * 0.3) + 'px, ' + (y * 0.3) + 'px)';
+    });
+
+    btn.addEventListener('mouseleave', function() {
+      btn.style.transform = 'translate(0, 0)';
+      btn.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1)';
+      setTimeout(function() { btn.style.transition = ''; }, 400);
+    });
+  });
+
+  // ─────────────────────────────────────
+  // Scroll Reveal (Intersection Observer)
+  // ─────────────────────────────────────
+  if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // Animated demo bars
+    var barObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var fills = entry.target.querySelectorAll('.demo-fill[data-width]');
+          fills.forEach(function(fill, i) {
+            setTimeout(function() {
+              fill.style.width = fill.dataset.width + '%';
+            }, i * 120);
+          });
+          barObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    document.querySelectorAll('.demo-card').forEach(function(card) {
+      barObserver.observe(card);
+    });
+  } else {
+    // If reduced motion, just show everything and set bar widths
+    document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el) {
+      el.classList.add('visible');
+    });
+    document.querySelectorAll('.demo-fill[data-width]').forEach(function(fill) {
+      fill.style.width = fill.dataset.width + '%';
+    });
+  }
+
+  // ─────────────────────────────────────
+  // Navbar scroll effect
+  // ─────────────────────────────────────
+  var nav = document.getElementById('nav');
+  var scrolled = false;
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 80 && !scrolled) {
+      nav.classList.add('scrolled');
+      scrolled = true;
+    } else if (window.scrollY <= 80 && scrolled) {
+      nav.classList.remove('scrolled');
+      scrolled = false;
+    }
+  }, { passive: true });
+
+  // ─────────────────────────────────────
+  // Smooth reveal for hero lines (staggered)
+  // ─────────────────────────────────────
+  document.querySelectorAll('.hero-title .line-inner.reveal').forEach(function(el, i) {
+    el.style.transitionDelay = (i * 120) + 'ms';
+    // Trigger after tiny delay so CSS transition fires
+    setTimeout(function() { el.classList.add('visible'); }, 100 + i * 120);
+  });
+</script>
+</body>
+</html>

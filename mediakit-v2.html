@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>mimofr — Media Kit</title>
+<meta name="description" content="Media kit for mimofr - Music Producer & UGC Creator with 100M+ streams">
+
+<!-- Premium Typography: Clash Display + Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg">
+
+<style>
+/* === PREMIUM RESET === */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  /* Typography - Intentional Scale (8px base) */
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+  
+  /* Type Scale - Limited, Purposeful */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.5rem;
+  --text-hero: clamp(4rem, 12vw, 8rem);
+  
+  /* Colors - NOT gold. Unexpected. */
+  --bg: #0a0a0a;
+  --bg-elevated: #111111;
+  --bg-card: #161616;
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  
+  --text-primary: rgba(255, 255, 255, 0.95);
+  --text-secondary: rgba(255, 255, 255, 0.6);
+  --text-muted: rgba(255, 255, 255, 0.4);
+  
+  /* Accent - Electric Indigo (unexpected, not gold) */
+  --accent: #6366f1;
+  --accent-muted: rgba(99, 102, 241, 0.15);
+  
+  /* Spacing - 8px Grid */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+  
+  /* Animation - Premium Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  letter-spacing: -0.011em;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Noise Texture Overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* === CONTAINER === */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+.container-narrow {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 var(--space-6);
+}
+
+/* === HERO SECTION - Editorial Style === */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: var(--space-24) 0;
+  position: relative;
+}
+
+.hero-badge {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-8);
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  margin-bottom: var(--space-8);
+}
+
+.hero-title span {
+  display: block;
+}
+
+.hero-title .accent {
+  color: var(--accent);
+}
+
+.hero-subtitle {
+  font-size: var(--text-xl);
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.5;
+}
+
+.hero-meta {
+  display: flex;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.hero-meta a {
+  transition: color 150ms var(--ease-out);
+}
+
+.hero-meta a:hover {
+  color: var(--text-primary);
+}
+
+/* Avatar - Subtle */
+.hero-avatar {
+  position: absolute;
+  right: var(--space-6);
+  top: 50%;
+  transform: translateY(-50%);
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0.8;
+  filter: grayscale(30%);
+}
+
+.hero-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media (max-width: 900px) {
+  .hero-avatar {
+    display: none;
+  }
+}
+
+/* === STATS - Editorial, Staggered === */
+.stats-section {
+  padding: var(--space-32) 0;
+  border-top: 1px solid var(--border);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+}
+
+.stat-item {
+  background: var(--bg);
+  padding: var(--space-12) var(--space-8);
+  text-align: left;
+}
+
+.stat-number {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  margin-bottom: var(--space-2);
+}
+
+.stat-number.large {
+  font-size: clamp(3rem, 8vw, 6rem);
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* === SECTION HEADERS - Clean, Not "» " === */
+.section {
+  padding: var(--space-24) 0;
+}
+
+.section-header {
+  margin-bottom: var(--space-12);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: var(--space-3);
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* === CASE STUDIES - Left Aligned, Breathing === */
+.case-study {
+  border: 1px solid var(--border);
+  padding: var(--space-8);
+  margin-bottom: var(--space-6);
+  transition: border-color 200ms var(--ease-out);
+}
+
+.case-study:hover {
+  border-color: var(--border-hover);
+}
+
+.case-study-header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.case-study-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--bg-card);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-study-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.case-study-info h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-1);
+}
+
+.case-study-info span {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.case-study-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--space-6);
+  max-width: 600px;
+}
+
+.case-study-metrics {
+  display: flex;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.metric {
+  text-align: left;
+}
+
+.metric-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-xl);
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.metric-label {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* === BRAND GRID - Bento Style === */
+.brand-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1px;
+  background: var(--border);
+}
+
+.brand-item {
+  background: var(--bg);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: background 200ms var(--ease-out);
+}
+
+.brand-item:hover {
+  background: var(--bg-elevated);
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: var(--space-2);
+}
+
+.brand-detail {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.brand-stat {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent);
+  margin-top: auto;
+  padding-top: var(--space-4);
+}
+
+/* === SERVICES - Minimal List === */
+.services-list {
+  border-top: 1px solid var(--border);
+}
+
+.service-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--border);
+  transition: padding-left 200ms var(--ease-out);
+}
+
+.service-item:hover {
+  padding-left: var(--space-4);
+}
+
+.service-name {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 500;
+}
+
+.service-desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-align: right;
+  max-width: 300px;
+}
+
+/* === CTA - Not "Let's Work Together" === */
+.cta-section {
+  padding: var(--space-32) 0;
+  text-align: left;
+}
+
+.cta-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-6);
+}
+
+.cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-8);
+  background: var(--text-primary);
+  color: var(--bg);
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: transform 100ms var(--ease-out), background 150ms var(--ease-out);
+}
+
+.cta-button:hover {
+  background: var(--accent);
+  color: white;
+}
+
+.cta-button:active {
+  transform: scale(0.98);
+}
+
+/* === FOOTER - Colophon Style === */
+.footer {
+  padding: var(--space-16) 0;
+  border-top: 1px solid var(--border);
+}
+
+.footer-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.footer-links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.footer-links a {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  transition: color 150ms var(--ease-out);
+}
+
+.footer-links a:hover {
+  color: var(--text-primary);
+}
+
+.footer-colophon {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+/* === REVEAL ANIMATION - Subtle === */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  animation: reveal 0.8s var(--ease-out) both;
+}
+
+.reveal-delay-1 { animation-delay: 0.1s; }
+.reveal-delay-2 { animation-delay: 0.2s; }
+.reveal-delay-3 { animation-delay: 0.3s; }
+.reveal-delay-4 { animation-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge reveal">Media Kit 2026</div>
+    <h1 class="hero-title reveal reveal-delay-1">
+      <span>Music Producer</span>
+      <span class="accent">& UGC Creator</span>
+    </h1>
+    <p class="hero-subtitle reveal reveal-delay-2">
+      100M+ streams. 1B+ views. Creating content that converts for brands like Rise Science, Speak, and Imprint.
+    </p>
+    <div class="hero-meta reveal reveal-delay-3">
+      <a href="https://instagram.com/mimofrl" target="_blank">@mimofrl</a>
+      <a href="https://youtube.com/@mimofrl" target="_blank">YouTube</a>
+      <a href="https://tiktok.com/@mimofrl" target="_blank">TikTok</a>
+      <span>Boston, MA</span>
+    </div>
+  </div>
+  <div class="hero-avatar">
+    <img src="https://ugc.production.linktr.ee/b91269f2-5b4d-46f8-96d8-7747133e088a_3000x3000-3472677--94BC9256-29E1-4C8C-840430484F85B7FF--0--548932--mino.jpeg" alt="mimofr">
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-section">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item">
+        <div class="stat-number large">1.3B+</div>
+        <div class="stat-label">Total Views</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100M+</div>
+        <div class="stat-label">Streams</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">480K+</div>
+        <div class="stat-label">Shazams</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">540K+</div>
+        <div class="stat-label">Followers</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CASE STUDIES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Client Work</div>
+      <h2 class="section-title">Results that matter</h2>
+    </div>
+    
+    <div class="case-study">
+      <div class="case-study-header">
+        <div class="case-study-logo" style="background: conic-gradient(from 180deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3, #ff6b6b);">
+          <div style="width: 70%; height: 70%; background: #fff; border-radius: 50%;"></div>
+        </div>
+        <div class="case-study-info">
+          <h3>Rise Science</h3>
+          <span>Organic Content · @wizzzler23</span>
+        </div>
+      </div>
+      <p class="case-study-desc">
+        Creating UGC content for Rise Science's wizard-themed alt account. Produced their highest performing reel to date.
+      </p>
+      <div class="case-study-metrics">
+        <div class="metric">
+          <div class="metric-value">315K</div>
+          <div class="metric-label">Views</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">41.8K</div>
+          <div class="metric-label">Likes</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">#1</div>
+          <div class="metric-label">Top Reel</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">13%</div>
+          <div class="metric-label">Engagement</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="case-study">
+      <div class="case-study-header">
+        <div class="case-study-logo">
+          <img src="imprint-favicon.ico" alt="Imprint">
+        </div>
+        <div class="case-study-info">
+          <h3>Imprint App</h3>
+          <span>UGC Ad Creative</span>
+        </div>
+      </div>
+      <p class="case-study-desc">
+        Created UGC ads for Imprint's user acquisition campaigns. Content scaled to significant paid media budgets.
+      </p>
+      <div class="case-study-metrics">
+        <div class="metric">
+          <div class="metric-value">3M+</div>
+          <div class="metric-label">Views</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$24K+</div>
+          <div class="metric-label">Ad Spend</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$7.15</div>
+          <div class="metric-label">CPM</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">0.47%</div>
+          <div class="metric-label">CTR</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="case-study">
+      <div class="case-study-header">
+        <div class="case-study-logo" style="background: linear-gradient(135deg, #0066FF 0%, #00BFFF 100%);">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+        </div>
+        <div class="case-study-info">
+          <h3>Speak App</h3>
+          <span>Multiple Winning Creatives</span>
+        </div>
+      </div>
+      <p class="case-study-desc">
+        Created multiple winning ad creatives for Speak's language learning app. Scaled across various campaigns.
+      </p>
+      <div class="case-study-metrics">
+        <div class="metric">
+          <div class="metric-value">$60K+</div>
+          <div class="metric-label">Ad Spend</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$3.55</div>
+          <div class="metric-label">Best CPI</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">15+</div>
+          <div class="metric-label">Winning Ads</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">$21.29</div>
+          <div class="metric-label">Best CPT</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MUSIC LICENSED BY -->
+<section class="section" style="background: var(--bg-elevated);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Music Licensed By</div>
+      <h2 class="section-title">Major placements</h2>
+    </div>
+    
+    <div class="brand-grid">
+      <a href="https://www.tiktok.com/@espn/video/7245517042592402734" target="_blank" class="brand-item">
+        <div class="brand-name">ESPN</div>
+        <div class="brand-detail">ascend.mp3 in Jon Jones video</div>
+        <div class="brand-stat">7.7M Views</div>
+      </a>
+      <a href="https://www.tiktok.com/@ufcanz/video/7249565276994391301" target="_blank" class="brand-item">
+        <div class="brand-name">UFC ANZ</div>
+        <div class="brand-detail">ascend.mp3 official account</div>
+        <div class="brand-stat">1.3M Views</div>
+      </a>
+      <a href="https://www.tiktok.com/@headquarters/video/7385655448202005790" target="_blank" class="brand-item">
+        <div class="brand-name">Biden/Harris Campaign</div>
+        <div class="brand-detail">@headquarters campaign TikTok</div>
+        <div class="brand-stat">Official Content</div>
+      </a>
+      <div class="brand-item">
+        <div class="brand-name">Sony</div>
+        <div class="brand-detail">Original productions in campaigns</div>
+        <div class="brand-stat">Brand Partner</div>
+      </div>
+      <a href="https://www.tiktok.com/@marcuskleveland/video/7230841116340292891" target="_blank" class="brand-item">
+        <div class="brand-name">Marcus Kleveland</div>
+        <div class="brand-detail">parallels.mp3 snowboard edit</div>
+        <div class="brand-stat">X-Games Athlete</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-label">Services</div>
+      <h2 class="section-title">What I do</h2>
+    </div>
+    
+    <div class="services-list">
+      <div class="service-item">
+        <div class="service-name">UGC Content Creation</div>
+        <div class="service-desc">TikTok, Instagram Reels, YouTube Shorts</div>
+      </div>
+      <div class="service-item">
+        <div class="service-name">Brand Partnerships</div>
+        <div class="service-desc">Sponsored content and product integrations</div>
+      </div>
+      <div class="service-item">
+        <div class="service-name">Music Licensing</div>
+        <div class="service-desc">Original productions for campaigns and content</div>
+      </div>
+      <div class="service-item">
+        <div class="service-name">Content Strategy</div>
+        <div class="service-desc">AI-driven content development and social media marketing</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="cta-title">Ready to create<br>something memorable?</h2>
+    <a href="mailto:mimo@priority.mg" class="cta-button">
+      Get in touch
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M6.5 3.5L11 8l-4.5 4.5L5 11l3-3-3-3z"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-links">
+        <a href="https://instagram.com/mimofrl" target="_blank">Instagram</a>
+        <a href="https://tiktok.com/@mimofrl" target="_blank">TikTok</a>
+        <a href="https://youtube.com/@mimofrl" target="_blank">YouTube</a>
+        <a href="https://open.spotify.com/artist/mimofrl" target="_blank">Spotify</a>
+      </div>
+      <div class="footer-colophon">
+        Maximo Silverman · Berklee College of Music · 4.0 GPA<br>
+        Set in Space Grotesk & Inter
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

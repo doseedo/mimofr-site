@@ -1,0 +1,51 @@
+{
+  "last_updated": "2026-02-26T14:05:13.943963",
+  "history": [],
+  "current": {
+    "instagram": {
+      "followers": 247000,
+      "avg_views": 89000,
+      "avg_likes": 3700,
+      "avg_comments": 142,
+      "engagement": 4.2
+    },
+    "tiktok": {
+      "followers": 104400,
+      "total_likes": 16500000,
+      "avg_views": 52000,
+      "avg_likes": 2400,
+      "avg_comments": 89,
+      "engagement": 5.8
+    },
+    "youtube": {
+      "subscribers": 64,
+      "total_views": 8500000,
+      "avg_views": 28000,
+      "avg_likes": 1200,
+      "avg_comments": 67,
+      "engagement": 3.2
+    },
+    "facebook": {
+      "followers": 24000,
+      "total_reach": 2100000,
+      "avg_views": 12000,
+      "avg_likes": 890,
+      "avg_comments": 42,
+      "engagement": 2.8
+    }
+  },
+  "changes": {
+    "instagram": {
+      "followers": null
+    },
+    "tiktok": {
+      "followers": null
+    },
+    "youtube": {
+      "subscribers": null
+    },
+    "facebook": {
+      "followers": null
+    }
+  }
+}
