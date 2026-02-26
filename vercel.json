@@ -1,0 +1,14 @@
+{
+  "redirects": [
+    {
+      "source": "/mediakit.html",
+      "destination": "https://mimofr.github.io/mimofr-site/mediakit.html",
+      "permanent": false
+    },
+    {
+      "source": "/mediakit",
+      "destination": "https://mimofr.github.io/mimofr-site/mediakit.html", 
+      "permanent": false
+    }
+  ]
+}
