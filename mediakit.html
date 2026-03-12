@@ -28,10 +28,10 @@
   --text: #EEEAF5;
   --text-secondary: #B8B2C8;
   --dim: #6B6580;
-  --accent: #C9A84C;
-  --accent-glow: rgba(201, 168, 76, 0.15);
-  --purple: #ffffff;
-  --purple-dim: rgba(255, 255, 255, 0.15);
+  --accent: #4A8FE7;
+  --accent-glow: rgba(74, 143, 231, 0.15);
+  --purple: #4A8FE7;
+  --purple-dim: rgba(74, 143, 231, 0.25);
   --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -68,7 +68,7 @@ body {
 }
 
 ::selection {
-  background: rgba(201, 168, 76, 0.25);
+  background: rgba(74, 143, 231, 0.25);
   color: var(--text);
 }
 
@@ -117,7 +117,7 @@ body::after {
   pointer-events: none;
   z-index: 100000;
   transform: translate(-50%, -50%);
-  box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(201, 168, 76, 0.5);
+  box-shadow: 0 0 10px var(--accent), 0 0 20px rgba(74, 143, 231, 0.5);
 }
 
 .cursor-ring {
@@ -173,11 +173,11 @@ body::after {
   z-index: -1;
   pointer-events: none;
   background:
-    radial-gradient(ellipse 100% 80% at 20% 0%, rgba(26, 39, 68, 0.15) 0%, transparent 50%),
-    radial-gradient(ellipse 80% 100% at 90% 20%, rgba(201, 168, 76, 0.12) 0%, transparent 50%),
-    radial-gradient(ellipse 60% 60% at 10% 80%, rgba(201, 168, 76, 0.08) 0%, transparent 50%),
-    radial-gradient(ellipse 90% 50% at 80% 90%, rgba(26, 39, 68, 0.1) 0%, transparent 50%),
-    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(26, 39, 68, 0.05) 0%, transparent 70%);
+    radial-gradient(ellipse 100% 80% at 20% 0%, rgba(74, 143, 231, 0.15) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 100% at 90% 20%, rgba(74, 143, 231, 0.12) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 10% 80%, rgba(74, 143, 231, 0.08) 0%, transparent 50%),
+    radial-gradient(ellipse 90% 50% at 80% 90%, rgba(74, 143, 231, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse 50% 50% at 50% 50%, rgba(74, 143, 231, 0.05) 0%, transparent 70%);
   animation: ambient-drift 15s ease-in-out infinite alternate;
 }
 
@@ -241,7 +241,7 @@ body::after {
   font-family: 'Press Start 2P', monospace;
   font-size: 14px;
   color: var(--accent);
-  text-shadow: 0 0 20px rgba(201, 168, 76, 0.4);
+  text-shadow: 0 0 20px rgba(74, 143, 231, 0.4);
   text-decoration: none;
 }
 
@@ -274,7 +274,7 @@ body::after {
 
 .nav-cta:hover {
   color: var(--bg);
-  box-shadow: 0 0 25px rgba(201, 168, 76, 0.4);
+  box-shadow: 0 0 25px rgba(74, 143, 231, 0.4);
 }
 
 .nav-cta:hover::before {
@@ -310,7 +310,7 @@ body::after {
   left: -20%;
   width: 140%;
   height: 160%;
-  background: radial-gradient(ellipse at 30% 40%, rgba(26, 39, 68, 0.08) 0%, transparent 60%);
+  background: radial-gradient(ellipse at 30% 40%, rgba(74, 143, 231, 0.08) 0%, transparent 60%);
   animation: ambientDrift 20s ease-in-out infinite;
   pointer-events: none;
   z-index: 1;
@@ -340,7 +340,7 @@ body::after {
   text-transform: lowercase;
   color: var(--accent);
   margin-bottom: 32px;
-  text-shadow: 0 0 15px rgba(201, 168, 76, 0.5);
+  text-shadow: 0 0 15px rgba(74, 143, 231, 0.5);
 }
 
 .hero-eyebrow::before {
@@ -366,12 +366,12 @@ body::after {
 
 .purple-text {
   color: #ffffff;
-  text-shadow: 0 0 15px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 255, 255, 0.9), 0 0 60px rgba(255, 255, 255, 0.7), 0 0 100px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 4px rgba(255,255,255,0.4), 0 0 10px rgba(255,255,255,0.2), 0 0 25px rgba(255,255,255,0.1);
 }
 
 .accent-text {
   color: var(--accent);
-  text-shadow: 0 0 2px var(--accent), 0 0 4px var(--accent), 0 0 8px rgba(201, 168, 76, 0.6);
+  text-shadow: 0 0 2px var(--accent), 0 0 4px var(--accent), 0 0 8px rgba(74, 143, 231, 0.6);
 }
 
 .hero-subtitle {
@@ -399,7 +399,7 @@ body::after {
   height: 56px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid rgba(201, 168, 76, 0.4);
+  border: 2px solid rgba(74, 143, 231, 0.4);
   flex-shrink: 0;
 }
 
@@ -484,7 +484,7 @@ body::after {
   font-family: 'Press Start 2P', monospace;
   font-size: clamp(14px, 3vw, 20px);
   color: var(--text);
-  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 4px rgba(201, 168, 76, 0.5);
+  text-shadow: 0 0 2px rgba(255, 255, 255, 0.8), 0 0 4px rgba(74, 143, 231, 0.5);
 }
 
 .stat-number .accent {
@@ -548,7 +548,7 @@ body::after {
   object-fit: cover;
   margin-bottom: 16px;
   border: 2px solid var(--accent);
-  box-shadow: 0 0 30px rgba(201, 168, 76, 0.3), 0 0 60px rgba(26, 39, 68, 0.15);
+  box-shadow: 0 0 30px rgba(74, 143, 231, 0.3), 0 0 60px rgba(74, 143, 231, 0.15);
 }
 
 .profile-handle {
@@ -556,7 +556,7 @@ body::after {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
-  text-shadow: 0 0 20px rgba(201, 168, 76, 0.5);
+  text-shadow: 0 0 20px rgba(74, 143, 231, 0.5);
   margin-bottom: 4px;
 }
 
@@ -597,7 +597,6 @@ body::after {
   letter-spacing: 0.08em;
   text-transform: lowercase;
   color: var(--purple);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4);
   margin-bottom: 12px;
   display: flex;
   align-items: center;
@@ -615,7 +614,7 @@ body::after {
   font-size: 3rem;
   font-weight: 700;
   color: var(--accent);
-  text-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+  text-shadow: 0 0 30px rgba(74, 143, 231, 0.4);
   margin-bottom: 20px;
 }
 
@@ -694,7 +693,6 @@ a.platform-pill {
   letter-spacing: 0.08em;
   text-transform: lowercase;
   color: var(--purple);
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6), 0 0 20px rgba(255, 255, 255, 0.4);
   margin-bottom: 16px;
   display: flex;
   align-items: center;
@@ -716,7 +714,7 @@ a.platform-pill {
 .highlight {
   color: var(--accent);
   font-weight: 600;
-  text-shadow: 0 0 12px rgba(201, 168, 76, 0.4);
+  text-shadow: 0 0 12px rgba(74, 143, 231, 0.4);
 }
 
 /* ═══════════════════════════════════════
@@ -741,7 +739,7 @@ a.platform-pill {
 }
 
 .rate-item:hover {
-  background: rgba(26, 39, 68, 0.08);
+  background: rgba(74, 143, 231, 0.08);
 }
 
 .rate-name {
@@ -763,7 +761,7 @@ a.platform-pill {
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--accent);
-  text-shadow: 0 0 15px rgba(201, 168, 76, 0.4);
+  text-shadow: 0 0 15px rgba(74, 143, 231, 0.4);
 }
 
 /* ═══════════════════════════════════════
@@ -846,7 +844,7 @@ a.platform-pill {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--accent);
-  text-shadow: 0 0 12px rgba(201, 168, 76, 0.3);
+  text-shadow: 0 0 12px rgba(74, 143, 231, 0.3);
 }
 
 .analytics-value.small {
@@ -911,7 +909,7 @@ a.platform-pill {
   height: 100%;
   background: linear-gradient(90deg, var(--purple), var(--accent));
   border-radius: 4px;
-  box-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+  box-shadow: 0 0 10px rgba(74, 143, 231, 0.3);
 }
 
 .demo-pct {
@@ -992,7 +990,7 @@ a.platform-pill {
 
 .showcase-item:hover .showcase-video {
   border-color: var(--accent);
-  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.25), 0 0 0 1px var(--accent);
+  box-shadow: 0 8px 32px rgba(74, 143, 231, 0.25), 0 0 0 1px var(--accent);
 }
 
 .showcase-video {
@@ -1026,7 +1024,7 @@ a.platform-pill {
 
 .showcase-gradient.g1 { background: linear-gradient(145deg, #1a1033 0%, #2d1f4e 30%, #4a2c7a 60%, #7c4dbd 100%); }
 .showcase-gradient.g2 { background: linear-gradient(145deg, #0f1923 0%, #1a3a52 30%, #2d6a8a 60%, #4fc3f7 100%); }
-.showcase-gradient.g3 { background: linear-gradient(145deg, #1a1a0a 0%, #3d3d1a 30%, #6b6b2a 60%, #c9a84c 100%); }
+.showcase-gradient.g3 { background: linear-gradient(145deg, #1a1a0a 0%, #3d3d1a 30%, #6b6b2a 60%, #4A8FE7 100%); }
 .showcase-gradient.g4 { background: linear-gradient(145deg, #1f0a1a 0%, #4a1942 30%, #7c2d6b 60%, #e91e8c 100%); }
 .showcase-gradient.g5 { background: linear-gradient(145deg, #0a1a1a 0%, #1a4a4a 30%, #2d7a7a 60%, #4dd0e1 100%); }
 .showcase-gradient.g6 { background: linear-gradient(145deg, #1a0f23 0%, #3a2352 30%, #5a378a 60%, #9c27b0 100%); }
@@ -1034,7 +1032,7 @@ a.platform-pill {
 .showcase-gradient.g8 { background: linear-gradient(145deg, #1a0a0a 0%, #4a1a1a 30%, #7a2d2d 60%, #f44336 100%); }
 .showcase-gradient.g9 { background: linear-gradient(145deg, #0a1a0f 0%, #1a4a2a 30%, #2d7a4a 60%, #4caf50 100%); }
 .showcase-gradient.g10 { background: linear-gradient(145deg, #1a140a 0%, #4a3a1a 30%, #7a5a2d 60%, #ff9800 100%); }
-.showcase-gradient.g11 { background: linear-gradient(145deg, #1a2744 0%, #c9a84c 50%, #1a2744 100%); }
+.showcase-gradient.g11 { background: linear-gradient(145deg, #0a1a3a 0%, #4A8FE7 50%, #0a1a3a 100%); }
 
 .showcase-overlay {
   position: absolute;
@@ -1050,7 +1048,7 @@ a.platform-pill {
   font-family: 'Press Start 2P', monospace;
   font-size: 11px;
   color: var(--text);
-  text-shadow: 0 0 8px rgba(201, 168, 76, 0.6);
+  text-shadow: 0 0 8px rgba(74, 143, 231, 0.6);
   margin-bottom: 4px;
 }
 
@@ -1105,7 +1103,7 @@ a.platform-pill {
 
 .content-thumb:hover {
   transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(26, 39, 68, 0.2);
+  box-shadow: 0 10px 30px rgba(74, 143, 231, 0.2);
 }
 
 /* Animated Gradient Thumbnails */
@@ -1208,7 +1206,7 @@ a.content-item {
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 700;
   color: var(--accent);
-  text-shadow: 0 0 10px rgba(201, 168, 76, 0.3);
+  text-shadow: 0 0 10px rgba(74, 143, 231, 0.3);
 }
 
 .brand-stat-label {
@@ -1415,15 +1413,11 @@ a.content-item {
 
 .press-title-featured {
   font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-weight: 700;
   color: var(--text);
   margin-bottom: 8px;
   line-height: 1.3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  max-width: 100%;
 }
 
 .press-subtitle {
@@ -1468,7 +1462,7 @@ a.content-item {
 
 .contact-link:hover {
   color: var(--accent);
-  text-shadow: 0 0 15px rgba(201, 168, 76, 0.5);
+  text-shadow: 0 0 15px rgba(74, 143, 231, 0.5);
 }
 
 /* ═══════════════════════════════════════
@@ -1518,7 +1512,7 @@ a.content-item {
 .cta-button:hover {
   background: transparent;
   color: var(--accent);
-  box-shadow: 0 0 30px rgba(201, 168, 76, 0.5);
+  box-shadow: 0 0 30px rgba(74, 143, 231, 0.5);
 }
 
 .social-icons {
@@ -1753,7 +1747,7 @@ a.content-item {
   <div class="section reveal">
     <div class="section-card">
       <div class="section-title">platforms</div>
-      <p class="about-text" style="margin-bottom: 16px; font-size: 0.75rem; color: var(--dim);">Last updated: Feb 26, 2026 • <span style="color: var(--accent);">Data tracked by mimofr</span></p>
+      <p class="about-text" style="margin-bottom: 16px; font-size: 0.75rem; color: var(--dim);">Last updated: Feb 26, 2026</p>
       
       <!-- Instagram -->
       <div class="platform-block">
@@ -2559,6 +2553,37 @@ a.content-item {
     </div>
   </div>
 
+  <!-- $WIZARD Community Token -->
+  <div class="section reveal">
+    <div class="section-card" style="position: relative; overflow: hidden;">
+      <div style="position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 0%, rgba(74, 143, 231, 0.08) 0%, transparent 70%); pointer-events: none;"></div>
+      <div class="section-title">$WIZARD</div>
+      <div style="text-align: center; padding: 1.5rem 0;">
+        <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🧙🏼‍♂️</div>
+        <p style="color: var(--text-secondary); font-size: 0.95rem; max-width: 420px; margin: 0 auto 1.5rem;">the wizard went viral. the community made a coin. 100% creator rewards.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5rem;">
+          <div style="background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 12px; padding: 1rem 1.5rem; text-align: center; min-width: 140px;">
+            <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 4px;">market cap</div>
+            <div id="wizard-mc" style="font-family: 'Space Grotesk', monospace; font-size: 1.4rem; font-weight: 600; color: var(--accent);">$104K</div>
+          </div>
+          <div style="background: var(--surface-2); border: 1px solid var(--border-strong); border-radius: 12px; padding: 1rem 1.5rem; text-align: center; min-width: 140px;">
+            <div style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); margin-bottom: 4px;">24h volume</div>
+            <div id="wizard-vol" style="font-family: 'Space Grotesk', monospace; font-size: 1.4rem; font-weight: 600; color: var(--text);">$437K</div>
+          </div>
+        </div>
+        <div style="background: var(--surface-2); border: 1px solid var(--border); border-radius: 10px; padding: 0.75rem 1rem; display: inline-flex; align-items: center; gap: 0.75rem; cursor: pointer; transition: border-color 0.3s;" onclick="navigator.clipboard.writeText('7XdCaKpqLmKE2K7yr9xaeWB1H2CVZ1oGwxB6hmd9pump').then(()=>{this.querySelector('.ca-label').textContent='copied ✓'; setTimeout(()=>{this.querySelector('.ca-label').textContent='CA'},2000)})" onmouseenter="this.style.borderColor='var(--accent)'" onmouseleave="this.style.borderColor='var(--border)'">
+          <span class="ca-label" style="font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--dim); min-width: 20px;">CA</span>
+          <span style="font-family: 'Space Grotesk', monospace; font-size: 0.8rem; color: var(--text-secondary);">7XdC...hmd9pump</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: var(--dim);"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+        </div>
+        <div style="display: flex; gap: 0.75rem; justify-content: center; margin-top: 1.25rem;">
+          <a href="https://pump.fun/coin/7XdCaKpqLmKE2K7yr9xaeWB1H2CVZ1oGwxB6hmd9pump" target="_blank" style="font-size: 0.85rem; color: var(--accent); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--border-strong); border-radius: 8px; transition: all 0.3s;" onmouseenter="this.style.background='var(--accent-glow)'" onmouseleave="this.style.background='transparent'">pump.fun</a>
+          <a href="https://x.com/i/communities/smoking-wizard" target="_blank" style="font-size: 0.85rem; color: var(--accent); text-decoration: none; padding: 0.5rem 1rem; border: 1px solid var(--border-strong); border-radius: 8px; transition: all 0.3s;" onmouseenter="this.style.background='var(--accent-glow)'" onmouseleave="this.style.background='transparent'">community</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <!-- Contact CTA -->
   <div class="section reveal">
     <div class="cta-section">
@@ -2676,6 +2701,21 @@ document.querySelectorAll('.hero-title .line-inner.reveal').forEach((el, i) => {
   el.style.transitionDelay = (i * 120) + 'ms';
   setTimeout(() => el.classList.add('visible'), 100 + i * 120);
 });
+// $WIZARD live price
+(async function updateWizardStats() {
+  try {
+    const res = await fetch('https://api.dexscreener.com/latest/dex/search?q=7XdCaKpqLmKE2K7yr9xaeWB1H2CVZ1oGwxB6hmd9pump');
+    const data = await res.json();
+    const pair = data.pairs?.find(p => p.dexId === 'pumpswap' || p.dexId === 'pump');
+    if (pair) {
+      const mc = pair.marketCap || pair.fdv;
+      const vol = pair.volume?.h24;
+      if (mc) document.getElementById('wizard-mc').textContent = '$' + (mc >= 1000000 ? (mc/1000000).toFixed(1) + 'M' : (mc/1000).toFixed(0) + 'K');
+      if (vol) document.getElementById('wizard-vol').textContent = '$' + (vol >= 1000000 ? (vol/1000000).toFixed(1) + 'M' : (vol/1000).toFixed(0) + 'K');
+    }
+  } catch(e) {}
+  setTimeout(updateWizardStats, 30000);
+})();
 </script>
 
 <!-- Background Music Player -->
@@ -2707,4 +2747,3 @@ function toggleAudio() {
 
 </body>
 </html>
-<!-- rebuild Fri Feb 27 11:00:46 EST 2026 -->
